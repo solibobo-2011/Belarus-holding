@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>Postlar va Maqolalar</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 40px; background-color: #f8f9fa; color: #333; }
+        .container { max-width: 1000px; margin: 0 auto; display: flex; gap: 30px; }
+        .main-content { flex: 3; }
+        .sidebar { flex: 1; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); height: fit-content; }
+        .search-box { margin-bottom: 25px; }
+        .search-box input[type="text"] { width: 70%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; }
+        .search-box button { padding: 10px 15px; background: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        .post-card { background: #fff; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .post-card h2 { margin-top: 0; color: #007bff; }
+        .meta { font-size: 0.85em; color: #6c757d; margin-bottom: 15px; }
+        .category-list { list-style: none; padding: 0; }
+        .category-list li { margin-bottom: 10px; }
+        .category-list a { text-decoration: none; color: #495057; }
+        .category-list a.active { font-weight: bold; color: #007bff; }
+        
+        /* Pagination dizayni */
+        .pagination { margin-top: 30px; display: flex; align-items: center; gap: 5px; }
+        .pagination a, .pagination .current-page { padding: 8px 14px; border: 1px solid #dee2e6; text-decoration: none; color: #007bff; border-radius: 4px; }
+        .pagination .current-page { background-color: #007bff; color: white; border-color: #007bff; }
+        .pagination a:hover { background-color: #e9ecef; }
+        .pagination .disabled { color: #6c757d; pointer-events: none; background-color: #fff; border-color: #dee2e6; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <div class="main-content">
+        <div class="search-box">
+            <form method="GET" action="">
+                {% if current_category %}
+                    <input type="hidden" name="category" value="{{ current_category }}">
+                {% endif %}
+                <input type="text" name="q" value="{{ search_query }}" placeholder="Postlarni qidirish...">
+                <button type="submit">Qidirish</button>
+                {% if search_query or current_category %}
+                    <a href="{% url 'post_list' %}" style="margin-left: 10px; color: #dc3545; text-decoration: none;">Filtrni tozalash</a>
+                {% endif %}
+            </form>
+        </div>
+
+        <h1>Maqolalar</h1>
+        <hr>
+
+        {% for post in posts %}
+            <div class="post-card">
+                <h2>{{ post.title }}</h2>
+                <div class="meta">
+                    Kategoriya: <strong>{{ post.category.name|default:"Kategoriyasiz" }}</strong> | 
+                    Sana: {{ post.created_at|date:"d.m.Y H:i" }}
+                </div>
+                <p>{{ post.content|linebreaks|truncatewords:40 }}</p>
+            </div>
+        {% empty %}
+            <p>Hech qanday maqola topilmadi.</p>
+        {% endfor %}
+
+        {% if is_paginated %}
+            <div class="pagination">
+                
+                {% if page_obj.has_previous %}
+                    <a href="?page={{ page_obj.previous_page_number }}{% if query_string %}&{{ query_string }}{% endif %}">&laquo; Orqaga</a>
+                {% else %}
+                    <span class="disabled">&laquo; Orqaga</span>
+                {% endif %}
+
+                {% for num in paginator.page_range %}
+                    {% if page_obj.number == num %}
+                        <span class="current-page">{{ num }}</span>
+                    {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                        <a href="?page={{ num }}{% if query_string %}&{{ query_string }}{% endif %}">{{ num }}</a>
+                    {% endif %}
+                {% endfor %}
+
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}{% if query_string %}&{{ query_string }}{% endif %}">Oldinga &raquo;</a>
+                {% else %}
+                    <span class="disabled">Oldinga &raquo;</span>
+                {% endif %}
+
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="sidebar">
+        <h3>Kategoriyalar</h3>
+        <ul class="category-list">
+            <li>
+                <a href="?{% if search_query %}q={{ search_query }}{% endif %}" class="{% if not current_category %}active{% endif %}">Barchasi</a>
+            </li>
+            {% for cat in categories %}
+                <li>
+                    <a href="?category={{ cat.id }}{% if search_query %}&q={{ search_query }}{% endif %}" 
+                       class="{% if current_category == cat.id|stringformat:'s' %}active{% endif %}">
+                        {{ cat.name }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,100 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<div class="container py-4">
+
+  <h2 class="mb-4">Mahsulotlar</h2>
+
+  <!-- Qidiruv va kategoriya filter -->
+  <form method="get" action="{% url 'product_list' %}" class="row g-2 mb-4">
+    <div class="col-md-5">
+      <input
+        type="text"
+        name="q"
+        class="form-control"
+        placeholder="Mahsulot nomi bo'yicha qidirish..."
+        value="{{ search_query }}"
+      >
+    </div>
+    <div class="col-md-4">
+      <select name="category" class="form-select">
+        <option value="">Barcha kategoriyalar</option>
+        {% for cat in categories %}
+          <option value="{{ cat.slug }}" {% if cat.slug == current_category %}selected{% endif %}>
+            {{ cat.name }}
+          </option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="col-md-3">
+      <button type="submit" class="btn btn-primary w-100">Qidirish</button>
+    </div>
+  </form>
+
+  <!-- Mahsulotlar grid -->
+  <div class="row g-4">
+    {% for product in products %}
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          {% if product.image %}
+            <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}" style="height:200px; object-fit:cover;">
+          {% endif %}
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">{{ product.name }}</h5>
+            <p class="card-text text-muted mb-1">{{ product.category.name }}</p>
+            <p class="card-text fw-bold mt-auto">{{ product.price }} so'm</p>
+          </div>
+        </div>
+      </div>
+    {% empty %}
+      <p class="text-muted">Hech qanday mahsulot topilmadi.</p>
+    {% endfor %}
+  </div>
+
+  <!-- Bootstrap 5 Pagination -->
+  {% if is_paginated %}
+  <nav aria-label="Mahsulotlar sahifalari" class="mt-5">
+    <ul class="pagination justify-content-center">
+
+      {% if page_obj.has_previous %}
+        <li class="page-item">
+          <a class="page-link" href="?page=1{% if query_string %}&{{ query_string }}{% endif %}" aria-label="Birinchi">&laquo;&laquo;</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="?page={{ page_obj.previous_page_number }}{% if query_string %}&{{ query_string }}{% endif %}" aria-label="Oldingi">&laquo;</a>
+        </li>
+      {% else %}
+        <li class="page-item disabled"><span class="page-link">&laquo;&laquo;</span></li>
+        <li class="page-item disabled"><span class="page-link">&laquo;</span></li>
+      {% endif %}
+
+      {% for num in page_obj.paginator.page_range %}
+        {% if num == page_obj.number %}
+          <li class="page-item active" aria-current="page">
+            <span class="page-link">{{ num }}</span>
+          </li>
+        {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ num }}{% if query_string %}&{{ query_string }}{% endif %}">{{ num }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+
+      {% if page_obj.has_next %}
+        <li class="page-item">
+          <a class="page-link" href="?page={{ page_obj.next_page_number }}{% if query_string %}&{{ query_string }}{% endif %}" aria-label="Keyingi">&raquo;</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}{% if query_string %}&{{ query_string }}{% endif %}" aria-label="Oxirgi">&raquo;&raquo;</a>
+        </li>
+      {% else %}
+        <li class="page-item disabled"><span class="page-link">&raquo;</span></li>
+        <li class="page-item disabled"><span class="page-link">&raquo;&raquo;</span></li>
+      {% endif %}
+
+    </ul>
+  </nav>
+  {% endif %}
+
+</div>
+{% endblock %}

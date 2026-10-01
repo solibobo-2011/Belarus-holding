@@ -1,0 +1,1917 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Belarus Holding — Traktor Ehtiyot Qismlari</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --white:#fff;--bg:#F8F9FA;--card:#fff;--dark:#1E293B;--muted:#64748B;--light:#94A3B8;
+  --orange:#F97316;--blue:#1D4ED8;--blue-l:#EFF6FF;--green:#16A34A;
+  --border:#E2E8F0;--r:12px;--r-sm:8px;
+  --sh-sm:0 1px 3px rgba(0,0,0,.06);--sh-md:0 4px 16px rgba(0,0,0,.08);--sh-lg:0 12px 40px rgba(0,0,0,.14);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Manrope',sans-serif;background:var(--bg);color:var(--dark);font-size:15px;line-height:1.6;}
+a{text-decoration:none;color:inherit;}
+button{cursor:pointer;font-family:'Manrope',sans-serif;}
+
+/* TOPBAR */
+.topbar{background:var(--dark);color:#94A3B8;font-size:12px;padding:7px 0;}
+.topbar .inner{max-width:1300px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:4px;}
+.topbar a{color:#94A3B8;transition:color .2s;}
+.topbar a:hover{color:var(--orange);}
+
+/* HEADER */
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:200;box-shadow:0 2px 12px rgba(0,0,0,.06);}
+.hdr{max-width:1300px;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px;height:68px;}
+
+/* LOGO */
+.logo{display:flex;align-items:center;gap:10px;}
+.logo-ico{width:42px;height:42px;background:var(--blue);border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:20px;color:#fff;letter-spacing:1px;flex-shrink:0;}
+.logo-txt strong{display:block;font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:1px;line-height:1.1;}
+.logo-txt span{font-size:11px;color:var(--muted);font-weight:500;}
+
+/* SEARCH */
+.srch{position:relative;}
+.srch input{width:100%;height:44px;border:2px solid var(--border);border-radius:10px;padding:0 48px 0 16px;font-family:'Manrope',sans-serif;font-size:14px;background:var(--bg);outline:none;transition:border-color .2s,background .2s;}
+.srch input:focus{border-color:var(--blue);background:#fff;}
+.srch input::placeholder{color:var(--light);}
+.srch-btn{position:absolute;right:6px;top:50%;transform:translateY(-50%);width:32px;height:32px;border-radius:7px;background:var(--blue);border:none;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+.srch-btn:hover{background:#1e40af;}
+.srch-btn svg{width:15px;height:15px;stroke:#fff;fill:none;stroke-width:2.5;}
+.srch-drop{display:none;position:absolute;top:calc(100% + 6px);left:0;right:0;background:#fff;border-radius:var(--r);border:1px solid var(--border);box-shadow:var(--sh-lg);z-index:300;max-height:360px;overflow-y:auto;}
+.srch-drop.open{display:block;}
+.sd-item{display:flex;align-items:center;gap:12px;padding:11px 16px;border-bottom:1px solid var(--border);cursor:pointer;transition:background .15s;}
+.sd-item:last-child{border-bottom:none;}
+.sd-item:hover{background:var(--bg);}
+.sd-emoji{width:40px;height:40px;background:var(--bg);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.sd-info strong{font-size:13px;display:block;}
+.sd-info span{font-size:11px;color:var(--muted);}
+.sd-price{margin-left:auto;font-weight:800;color:var(--orange);font-size:14px;white-space:nowrap;}
+
+/* HDR ACTIONS */
+.hdr-acts{display:flex;align-items:center;gap:6px;}
+.hbtn{display:flex;flex-direction:column;align-items:center;gap:3px;padding:8px 12px;border-radius:var(--r-sm);border:none;background:transparent;color:var(--muted);font-size:10px;font-weight:600;transition:color .2s,background .2s;position:relative;}
+.hbtn:hover{color:var(--dark);background:var(--bg);}
+.hbtn svg{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:1.8;}
+.hbtn span{white-space:nowrap;}
+.badge{position:absolute;top:4px;right:8px;background:var(--orange);color:#fff;font-size:10px;font-weight:800;width:17px;height:17px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.admin-btn{display:flex;align-items:center;gap:6px;padding:8px 14px;background:var(--dark);color:#fff;border:none;border-radius:var(--r-sm);font-size:12px;font-weight:700;}
+.admin-btn:hover{background:#0F172A;}
+.admin-btn svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2;}
+
+/* NAV */
+nav{background:#fff;border-bottom:2px solid var(--border);}
+.nav-inner{max-width:1300px;margin:0 auto;padding:0 20px;display:flex;overflow-x:auto;}
+.nav-inner::-webkit-scrollbar{display:none;}
+.nlink{display:flex;align-items:center;gap:7px;padding:13px 16px;font-size:13px;font-weight:600;color:var(--muted);border-bottom:3px solid transparent;white-space:nowrap;transition:color .2s,border-color .2s;margin-bottom:-2px;}
+.nlink:hover{color:var(--dark);border-color:var(--border);}
+.nlink.active{color:var(--blue);border-color:var(--blue);}
+.nlink .cnt{background:var(--bg);color:var(--muted);font-size:10px;font-weight:700;padding:2px 6px;border-radius:20px;}
+.nlink.active .cnt{background:var(--blue);color:#fff;}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#0F172A 0%,#1D4ED8 55%,#1E40AF 100%);color:#fff;padding:52px 20px;position:relative;overflow:hidden;}
+.hero::after{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23fff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/svg%3E");pointer-events:none;}
+.hero-in{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;position:relative;z-index:1;}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:60px;line-height:1;letter-spacing:2px;margin-bottom:14px;}
+.hero h1 em{color:var(--orange);font-style:normal;}
+.hero p{font-size:15px;color:#94A3B8;margin-bottom:28px;line-height:1.75;}
+.hero-btns{display:flex;gap:10px;flex-wrap:wrap;}
+.btn-main{background:var(--orange);color:#fff;padding:13px 24px;border-radius:var(--r);font-weight:700;font-size:14px;border:none;display:inline-flex;align-items:center;gap:7px;transition:background .2s,transform .2s,box-shadow .2s;}
+.btn-main:hover{background:#ea6c05;transform:translateY(-2px);box-shadow:0 8px 24px rgba(249,115,22,.4);}
+.btn-ghost{background:transparent;color:#fff;padding:13px 24px;border-radius:var(--r);font-weight:600;font-size:14px;border:2px solid rgba(255,255,255,.3);transition:border-color .2s,background .2s;}
+.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.08);}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.stat{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--r);padding:18px;text-align:center;}
+.stat strong{display:block;font-family:'Bebas Neue',sans-serif;font-size:34px;color:var(--orange);letter-spacing:1px;}
+.stat span{font-size:11px;color:#94A3B8;font-weight:500;}
+
+/* TRUST */
+.trust{background:#fff;border-bottom:1px solid var(--border);padding:13px 20px;}
+.trust-in{max-width:1300px;margin:0 auto;display:flex;justify-content:center;gap:32px;flex-wrap:wrap;}
+.trust-item{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--muted);}
+
+/* MAIN */
+.page{max-width:1300px;margin:0 auto;padding:28px 20px;}
+.layout{display:grid;grid-template-columns:250px 1fr;gap:24px;align-items:start;}
+
+/* SIDEBAR */
+.sidebar{position:sticky;top:80px;}
+.fcard{background:#fff;border-radius:var(--r);border:1px solid var(--border);box-shadow:var(--sh-sm);overflow:hidden;}
+.fhead{background:var(--dark);color:#fff;padding:14px 18px;font-weight:700;font-size:13px;letter-spacing:.5px;text-transform:uppercase;display:flex;align-items:center;gap:7px;}
+.fhead svg{width:13px;height:13px;stroke:#fff;fill:none;stroke-width:2.5;}
+.fsec{border-bottom:1px solid var(--border);}
+.fsec:last-child{border:none;}
+.ftitle{padding:12px 18px 8px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);}
+.fitem{display:flex;align-items:center;gap:9px;padding:8px 18px;font-size:13px;color:var(--dark);transition:background .15s;cursor:pointer;}
+.fitem:hover{background:var(--bg);}
+.fitem.active{background:var(--blue-l);color:var(--blue);}
+.fitem input[type="checkbox"]{width:15px;height:15px;accent-color:var(--blue);}
+.fcnt{margin-left:auto;background:var(--bg);color:var(--muted);font-size:10px;font-weight:700;padding:2px 6px;border-radius:20px;}
+.fitem.active .fcnt{background:var(--blue);color:#fff;}
+
+/* PRODUCTS */
+.ph{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:10px;}
+.ph-title{font-size:20px;font-weight:800;}
+.ph-title span{color:var(--muted);font-weight:400;font-size:15px;margin-left:6px;}
+.sort-sel{padding:8px 12px;border-radius:var(--r-sm);border:1px solid var(--border);background:#fff;font-family:'Manrope',sans-serif;font-size:13px;color:var(--dark);outline:none;}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:18px;}
+
+/* CARD */
+.pcard{background:#fff;border-radius:var(--r);border:1px solid var(--border);box-shadow:var(--sh-sm);transition:transform .2s,box-shadow .2s,border-color .2s;overflow:hidden;cursor:pointer;position:relative;}
+.pcard:hover{transform:translateY(-4px);box-shadow:var(--sh-lg);border-color:#c7d7fa;}
+.cbadge{position:absolute;top:10px;left:10px;background:var(--orange);color:#fff;font-size:9px;font-weight:800;padding:3px 7px;border-radius:5px;letter-spacing:.5px;text-transform:uppercase;z-index:2;}
+.cimg{width:100%;height:150px;background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:52px;border-bottom:1px solid var(--border);transition:background .2s;}
+.pcard:hover .cimg{background:#EFF6FF;}
+.cbody{padding:14px;}
+.cart{font-size:10px;color:var(--light);font-weight:600;letter-spacing:.4px;margin-bottom:5px;font-family:'Courier New',monospace;}
+.cstock{display:flex;align-items:center;gap:5px;font-size:11px;font-weight:600;margin-bottom:6px;}
+.dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+.dot.g{background:#22C55E;}.dot.o{background:var(--orange);}
+.cname{font-size:13px;font-weight:700;margin-bottom:3px;line-height:1.4;}
+.cmfr{font-size:11px;color:var(--muted);margin-bottom:12px;}
+.cfoot{display:flex;align-items:center;justify-content:space-between;padding-top:10px;border-top:1px solid var(--border);}
+.cprice{font-size:17px;font-weight:800;}
+.cprice span{font-size:11px;font-weight:500;color:var(--muted);}
+.addbtn{width:34px;height:34px;border-radius:8px;background:var(--blue);border:none;display:flex;align-items:center;justify-content:center;transition:background .2s,transform .15s;flex-shrink:0;}
+.addbtn:hover{background:#1e40af;transform:scale(1.1);}
+.addbtn.added{background:var(--green);}
+.addbtn svg{width:17px;height:17px;stroke:#fff;fill:none;stroke-width:2.5;}
+
+/* EMPTY */
+.empty{text-align:center;padding:60px 20px;color:var(--muted);}
+.empty .ei{font-size:48px;margin-bottom:12px;}
+.empty p{font-weight:600;}
+
+/* MODAL */
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:500;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px);}
+.overlay.open{display:flex;}
+.modal{background:#fff;border-radius:16px;width:100%;max-width:680px;box-shadow:0 24px 64px rgba(0,0,0,.2);overflow:hidden;animation:su .25s ease;}
+@keyframes su{from{transform:translateY(16px);opacity:0}to{transform:translateY(0);opacity:1}}
+.mhdr{padding:18px 22px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+.mhdr h3{font-size:17px;font-weight:800;}
+.mclose{width:30px;height:30px;border-radius:7px;border:1px solid var(--border);background:var(--bg);color:var(--muted);font-size:17px;display:flex;align-items:center;justify-content:center;transition:background .15s;}
+.mclose:hover{background:var(--border);}
+.mbody{padding:22px;display:grid;grid-template-columns:180px 1fr;gap:22px;}
+.mimg{height:180px;background:var(--bg);border-radius:var(--r);display:flex;align-items:center;justify-content:center;font-size:72px;}
+.mlabel{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);margin-bottom:3px;}
+.mval{font-size:14px;font-weight:600;margin-bottom:12px;}
+.mprice{font-size:26px;font-weight:800;color:var(--orange);margin:14px 0;}
+.mprice span{font-size:13px;font-weight:500;color:var(--muted);}
+.orig-badge{display:inline-flex;align-items:center;gap:5px;background:#FFF7ED;color:var(--orange);border:1px solid #FED7AA;border-radius:6px;padding:4px 10px;font-size:11px;font-weight:700;margin-bottom:14px;}
+.mfoot{padding:14px 22px;border-top:1px solid var(--border);display:flex;gap:10px;align-items:center;}
+.qty{display:flex;align-items:center;border:1px solid var(--border);border-radius:var(--r-sm);overflow:hidden;}
+.qty button{width:34px;height:34px;border:none;background:var(--bg);font-size:17px;color:var(--dark);transition:background .15s;}
+.qty button:hover{background:var(--border);}
+.qty span{width:44px;height:34px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;background:#fff;border-left:1px solid var(--border);border-right:1px solid var(--border);}
+.bundle-sec{padding:0 22px 16px;}
+.bundle-sec h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--muted);margin-bottom:10px;}
+.bitem{display:flex;align-items:center;gap:10px;padding:9px 12px;background:var(--bg);border-radius:var(--r-sm);border:1px solid var(--border);cursor:pointer;transition:border-color .15s,background .15s;margin-bottom:6px;}
+.bitem:hover{border-color:var(--blue);background:var(--blue-l);}
+.bitem input[type="checkbox"]{accent-color:var(--blue);width:15px;height:15px;}
+.bi-info{flex:1;}
+.bi-name{font-size:12px;font-weight:600;}
+.bi-art{font-size:10px;color:var(--muted);}
+.bi-price{font-weight:700;color:var(--orange);font-size:12px;white-space:nowrap;}
+
+/* CART */
+.cart-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.3);z-index:498;}
+.cart-ov.open{display:block;}
+.cart-side{position:fixed;right:-390px;top:0;bottom:0;width:390px;background:#fff;z-index:499;box-shadow:-8px 0 40px rgba(0,0,0,.12);transition:right .3s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;}
+.cart-side.open{right:0;}
+.chdr{padding:18px 20px;background:var(--dark);color:#fff;display:flex;align-items:center;justify-content:space-between;}
+.chdr h3{font-size:17px;font-weight:800;}
+.cclose{width:30px;height:30px;border-radius:7px;border:1px solid rgba(255,255,255,.2);background:transparent;color:#fff;font-size:16px;display:flex;align-items:center;justify-content:center;}
+.citems{flex:1;overflow-y:auto;padding:14px;}
+.citem{display:flex;gap:12px;align-items:center;padding:12px;border-radius:var(--r);border:1px solid var(--border);margin-bottom:10px;background:var(--bg);}
+.ci-img{width:48px;height:48px;border-radius:8px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;border:1px solid var(--border);}
+.ci-info{flex:1;}
+.ci-name{font-size:12px;font-weight:700;margin-bottom:2px;}
+.ci-art{font-size:10px;color:var(--muted);}
+.ci-right{text-align:right;}
+.ci-price{font-weight:800;color:var(--orange);font-size:14px;}
+.ci-rm{width:24px;height:24px;border-radius:6px;border:1px solid var(--border);background:#fff;color:var(--muted);font-size:13px;display:flex;align-items:center;justify-content:center;margin-top:5px;margin-left:auto;transition:background .15s,color .15s;}
+.ci-rm:hover{background:#FEE2E2;color:#EF4444;border-color:#FECACA;}
+.cftr{padding:18px 20px;border-top:1px solid var(--border);background:var(--bg);}
+.ctotal{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;font-size:17px;font-weight:800;}
+.ctotal span{color:var(--orange);}
+
+/* ORDER */
+.oform{padding:22px;display:flex;flex-direction:column;gap:14px;}
+.fgrp label{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);margin-bottom:5px;}
+.fgrp input,.fgrp select,.fgrp textarea{width:100%;height:42px;border:1.5px solid var(--border);border-radius:var(--r-sm);padding:0 13px;font-family:'Manrope',sans-serif;font-size:14px;color:var(--dark);outline:none;transition:border-color .2s;background:#fff;}
+.fgrp textarea{height:80px;padding:10px 13px;resize:none;}
+.fgrp input:focus,.fgrp select:focus,.fgrp textarea:focus{border-color:var(--blue);}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.pay-opts{display:flex;gap:12px;flex-wrap:wrap;padding:12px;background:var(--bg);border-radius:var(--r-sm);border:1px solid var(--border);}
+.popt{display:flex;align-items:center;gap:7px;cursor:pointer;font-size:13px;font-weight:600;}
+.popt input{accent-color:var(--blue);width:15px;height:15px;}
+.success-msg{text-align:center;padding:30px 22px;}
+.success-msg .si{font-size:52px;margin-bottom:12px;}
+.success-msg h3{font-size:18px;font-weight:800;margin-bottom:8px;color:var(--green);}
+.success-msg p{color:var(--muted);font-size:14px;}
+
+/* ADMIN PANEL */
+.admin-wrap{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:600;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(6px);}
+.admin-wrap.open{display:flex;}
+.admin-modal{background:#fff;border-radius:16px;width:100%;max-width:900px;max-height:90vh;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 32px 80px rgba(0,0,0,.25);animation:su .25s ease;}
+.admin-hdr{background:var(--dark);color:#fff;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;}
+.admin-hdr h2{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:1px;}
+.admin-tabs{display:flex;gap:4px;align-items:center;}
+.atab{padding:7px 14px;border-radius:7px;border:none;background:rgba(255,255,255,.1);color:#94A3B8;font-size:12px;font-weight:700;transition:background .2s,color .2s;}
+.atab.active,.atab:hover{background:rgba(255,255,255,.2);color:#fff;}
+.admin-body{flex:1;overflow-y:auto;padding:20px;}
+.admin-section{display:none;}
+.admin-section.active{display:block;}
+
+/* ADMIN PRODUCT ADD FORM */
+.af-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.af-full{grid-column:1/-1;}
+.af-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);display:block;margin-bottom:5px;}
+.af-input{width:100%;height:40px;border:1.5px solid var(--border);border-radius:var(--r-sm);padding:0 12px;font-family:'Manrope',sans-serif;font-size:13px;color:var(--dark);outline:none;transition:border-color .2s;}
+.af-input:focus{border-color:var(--blue);}
+.af-select{width:100%;height:40px;border:1.5px solid var(--border);border-radius:var(--r-sm);padding:0 12px;font-family:'Manrope',sans-serif;font-size:13px;background:#fff;outline:none;}
+
+/* ADMIN TABLE */
+.atable{width:100%;border-collapse:collapse;font-size:13px;}
+.atable th{background:var(--dark);color:#fff;padding:10px 12px;text-align:left;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;}
+.atable td{padding:9px 12px;border-bottom:1px solid var(--border);vertical-align:middle;}
+.atable tr:hover td{background:var(--bg);}
+.atable .art-col{font-family:'Courier New',monospace;font-size:11px;color:var(--blue);}
+.atable .price-col{font-weight:700;color:var(--orange);}
+.atable .cat-badge{display:inline-block;padding:2px 8px;border-radius:20px;font-size:10px;font-weight:700;}
+.cat-Dvigatel,.cat-dvigatel{background:#FEF3C7;color:#92400E;}
+.cat-Elektr,.cat-Электр,.cat-elektr{background:#EDE9FE;color:#5B21B6;}
+.cat-Gidravlika,.cat-gidravlika{background:#DBEAFE;color:#1E40AF;}
+.cat-Transmissiya,.cat-transmissiya{background:#D1FAE5;color:#065F46;}
+.cat-Sovitish,.cat-sovitish{background:#E0F2FE;color:#0369A1;}
+.cat-Zapchast,.cat-zapchast{background:#FCE7F3;color:#9D174D;}
+.edit-btn{padding:4px 10px;border-radius:6px;border:1px solid var(--border);background:#fff;font-size:11px;font-weight:700;color:var(--blue);transition:background .15s;}
+.edit-btn:hover{background:var(--blue-l);}
+.del-btn{padding:4px 10px;border-radius:6px;border:1px solid #FECACA;background:#FFF5F5;font-size:11px;font-weight:700;color:#EF4444;transition:background .15s;}
+.del-btn:hover{background:#FEE2E2;}
+.admin-search{width:100%;height:40px;border:1.5px solid var(--border);border-radius:var(--r-sm);padding:0 14px;font-family:'Manrope',sans-serif;font-size:13px;outline:none;margin-bottom:14px;transition:border-color .2s;}
+.admin-search:focus{border-color:var(--blue);}
+.admin-stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px;}
+.astat{background:var(--bg);border-radius:var(--r);padding:16px;border:1px solid var(--border);}
+.astat strong{display:block;font-size:24px;font-weight:800;margin-bottom:4px;}
+.astat span{font-size:12px;color:var(--muted);}
+.astat.blue strong{color:var(--blue);}
+.astat.orange strong{color:var(--orange);}
+.astat.green strong{color:var(--green);}
+.astat.dark strong{color:var(--dark);}
+
+/* TOAST */
+.toast{position:fixed;bottom:22px;right:22px;background:var(--dark);color:#fff;padding:13px 18px;border-radius:var(--r);font-size:13px;font-weight:600;box-shadow:var(--sh-lg);z-index:2000;display:flex;align-items:center;gap:8px;transform:translateY(70px);opacity:0;transition:transform .3s,opacity .3s;max-width:310px;}
+.toast.show{transform:translateY(0);opacity:1;}
+
+/* FOOTER */
+footer{background:var(--dark);color:#64748B;padding:44px 20px 22px;margin-top:56px;}
+.ftr-grid{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:36px;}
+.ftr-brand p{font-size:12px;line-height:1.8;margin-top:12px;}
+.ftr-col h4{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#fff;margin-bottom:14px;}
+.ftr-col a{display:block;font-size:12px;color:#64748B;margin-bottom:8px;transition:color .2s;}
+.ftr-col a:hover{color:var(--orange);}
+.ftr-bottom{max-width:1300px;margin:0 auto;border-top:1px solid #334155;padding-top:20px;display:flex;justify-content:space-between;align-items:center;font-size:11px;flex-wrap:wrap;gap:10px;}
+.pay-tags{display:flex;gap:8px;}
+.ptag{background:#1E293B;border:1px solid #334155;border-radius:5px;padding:5px 12px;font-size:11px;font-weight:700;color:#64748B;}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hdr{grid-template-columns:auto 1fr;height:60px;gap:12px;}
+  .admin-btn span{display:none;}
+  .layout{grid-template-columns:1fr;}
+  .sidebar{position:static;}
+  .hero-in{grid-template-columns:1fr;}
+  .hero h1{font-size:42px;}
+  .stats-grid{grid-template-columns:repeat(3,1fr);}
+  .ftr-grid{grid-template-columns:1fr 1fr;}
+  .mbody{grid-template-columns:1fr;}
+  .admin-stats-grid{grid-template-columns:repeat(2,1fr);}
+  .af-grid{grid-template-columns:1fr;}
+  .af-full{grid-column:1;}
+}
+@media(max-width:600px){
+  .topbar{display:none;}
+  .hdr{padding:0 14px;}
+  .logo-txt span{display:none;}
+  .hbtn .hb-lbl{display:none;}
+  .pgrid{grid-template-columns:1fr 1fr;gap:12px;}
+  .ftr-grid{grid-template-columns:1fr;gap:20px;}
+  .hero{padding:32px 14px;}
+  .hero h1{font-size:34px;}
+  .stats-grid{grid-template-columns:1fr 1fr;}
+  .cart-side{width:100%;right:-100%;}
+}
+.profile-menu{
+    position:relative;
+    display:inline-block;
+}
+
+.profile-btn{
+    width:45px;
+    height:45px;
+    border:none;
+    border-radius:50%;
+    background:#1e88e5;
+    color:white;
+    font-size:20px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:.3s;
+}
+
+.profile-btn:hover{
+    background:#1565c0;
+}
+
+.profile-dropdown{
+    display:none;
+    position:absolute;
+    right:0;
+    top:55px;
+    min-width:180px;
+    background:#fff;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+    overflow:hidden;
+    z-index:999;
+}
+
+.profile-dropdown.show{
+    display:block;
+}
+
+.profile-dropdown a{
+    display:block;
+    padding:12px 16px;
+    text-decoration:none;
+    color:#333;
+    transition:.2s;
+}
+
+.profile-dropdown a:hover{
+    background:#f5f5f5;
+}
+/* Tugmalar joylashgan konteyner */
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Tugmalar orasidagi masofa */
+}
+
+/* Umumiy tugma stillari */
+.btn-action, .btn-admin, .btn-logout {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* Kirish (Login) tugmasi - Chegarali ochiq uslub */
+.btn-login-nav {
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background: transparent;
+}
+
+.btn-login-nav:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #ffffff;
+}
+
+/* Ro'yxatdan o'tish tugmasi - Saytdagi to'q sariq rangga mos */
+.btn-register-nav {
+    background: #ff7a00;
+    color: #ffffff;
+}
+
+.btn-register-nav:hover {
+    background: #e06b00;
+}
+
+/* Asosiy qora satrni flexbox qilish va elementlarni ikki chekkaga surish */
+.top-bar {
+    display: flex;
+    justify-content: space-between; /* Chap va o'ng tomonni ajratadi */
+    align-items: center;
+    background-color: #111c24; /* Saytingizning o'sha tepadagi to'q foni */
+    padding: 10px 20px;
+}
+
+/* Tugmalar konteyneri */
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Tugmalar orasidagi masofa */
+    margin-left: auto; /* Avtomatik o'ng tomonga suradi */
+}
+
+/* Kirish tugmasi (Oddiy oq matn, chekkalari yengil hoshiya) */
+.btn-login-nav {
+    color: #ffffff !important;
+    text-decoration: none;
+    font-size: 13px;
+    padding: 6px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+.btn-login-nav:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Yangi tepadagi qora satr uchun maxsus qoidalar */
+.bh-top-navbar {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    background-color: #1a2229 !important; /* To'q chiroyli fon */
+    padding: 10px 30px !important;
+    color: #ffffff !important;
+    font-family: 'Poppins', sans-serif !important;
+}
+
+/* Chap tomondagi kontaktlar */
+.bh-top-left {
+    display: flex !important;
+    gap: 20px !important;
+    font-size: 13px !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.bh-top-left span i {
+    color: #ff7a00 !important; /* Ikonkalar to'q sariq rangda */
+}
+
+/* O'ng tomondagi qism */
+.bh-top-right {
+    display: flex !important;
+    align-items: center !important;
+    gap: 25px !important;
+}
+
+/* Ish vaqti matni */
+.bh-work-text {
+    font-size: 13px !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Tugmalar bloki */
+.bh-user-buttons {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+}
+
+/* Umumiy tugma stillari */
+.bh-btn {
+    text-decoration: none !important;
+    font-size: 13px !important;
+    padding: 6px 14px !important;
+    border-radius: 4px !important;
+    font-weight: 500 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    transition: all 0.2s ease-in-out !important;
+}
+
+/* Kirish tugmasi */
+.bh-btn-login {
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    background: transparent !important;
+}
+.bh-btn-login:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: #ffffff !important;
+}
+
+/* Ro'yxatdan o'tish tugmasi */
+.bh-btn-register {
+    background-color: #ff7a00 !important;
+    color: #ffffff !important;
+    border: none !important;
+}
+.bh-btn-register:hover {
+    background-color: #e06b00 !important;
+}
+
+/* Admin tugmasi */
+.bh-btn-admin {
+    background-color: #2d3748 !important;
+    color: #ffffff !important;
+    border: none !important;
+}
+.bh-btn-admin:hover {
+    background-color: #1a202c !important;
+}
+
+/* Chiqish tugmasi */
+.bh-btn-logout {
+    background-color: rgba(239, 68, 68, 0.1) !important;
+    color: #ef4444 !important;
+    border: 1px solid rgba(239, 68, 68, 0.2) !important;
+}
+.bh-btn-logout:hover {
+    background-color: #ef4444 !important;
+    color: #ffffff !important;
+}
+
+
+/* Pagination dizayni - pastki o'ng tarafda turishi uchun */
+.pagination { 
+    margin-top: 40px; 
+    display: flex; 
+    justify-content: flex-end; /* Elementlarni o'ng tarafga tekislaydi */
+    align-items: center; 
+    gap: 8px; 
+    padding-bottom: 20px;
+}
+
+.pagination a, .pagination .current-page { 
+    padding: 8px 16px; 
+    border: 1px solid #dee2e6; 
+    text-decoration: none; 
+    color: #007bff; 
+    border-radius: 6px; 
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.pagination .current-page { 
+    background-color: #007bff; 
+    color: white; 
+    border-color: #007bff; 
+}
+
+.pagination a:hover { 
+    background-color: #f1f3f5; 
+    border-color: #007bff;
+}
+
+.pagination .disabled { 
+    color: #6c757d; 
+    pointer-events: none; 
+    background-color: #fff; 
+    border-color: #dee2e6; 
+    opacity: 0.6;
+}
+/* Pagination dizayni - pastki o'ng tarafda turishi uchun */
+.pagination { 
+    margin-top: 40px; 
+    display: flex; 
+    justify-content: flex-end; /* Elementlarni o'ng tarafga tekislaydi */
+    align-items: center; 
+    gap: 8px; 
+    padding-bottom: 20px;
+}
+
+.pagination a, .pagination .current-page { 
+    padding: 8px 16px; 
+    border: 1px solid #dee2e6; 
+    text-decoration: none; 
+    color: #007bff; 
+    border-radius: 6px; 
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.pagination .current-page { 
+    background-color: #007bff; 
+    color: white; 
+    border-color: #007bff; 
+}
+
+.pagination a:hover { 
+    background-color: #f1f3f5; 
+    border-color: #007bff;
+}
+
+.pagination .disabled { 
+    color: #6c757d; 
+    pointer-events: none; 
+    background-color: #fff; 
+    border-color: #dee2e6; 
+    opacity: 0.6;
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="bh-top-navbar">
+    <div class="bh-top-left">
+     <p>📞 <strong>+998 97 443-88-36</strong> -SHERZODBEK</p>
+    <p>📞 <strong>+998 97 403-69-00</strong> -ODILBEK AKA</p>
+        <span><i class="fa-solid fa-location-dot"></i> Toshkent, Mirzo Ulug'bek</span>
+    </div>
+    
+    <div class="bh-top-right">
+        <span class="bh-work-text">Ish vaqti: chor-Yak 08:00–19:00 | Yetkazib berish | Kafolat</span>
+        
+        <div class="bh-user-buttons">
+            {% if user.is_authenticated %}
+                {% if user.is_staff %}
+                    <a href="/admin/" class="bh-btn bh-btn-admin">
+                        <i class="fa-solid fa-user-gear"></i> Admin
+                    </a>
+                {% endif %}
+                <a href="/logout/" class="bh-btn bh-btn-logout">
+                    <i class="fa-solid fa-power-off"></i> Chiqish
+                </a>
+            {% else %}
+                <a href="/login/" class="bh-btn bh-btn-login">
+                    <i class="fa-solid fa-right-to-bracket"></i> Kirish
+                </a>
+                <a href="/register/" class="bh-btn bh-btn-register">
+                    <i class="fa-solid fa-user-plus"></i> Ro'yxatdan o'tish
+                </a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="hdr">
+    <a href="#" class="logo" onclick="viewShop()">
+      <div class="logo-ico">BH</div>
+      <div class="logo-txt">
+        <strong>BELARUS HOLDING</strong>
+        <span>Traktor ehtiyot qismlari</span>
+      </div>
+    </a>
+
+    <div class="srch" id="srchWrap">
+      <input type="text" id="srchInput" placeholder="Detal nomi yoki artikul... (masalan: Porshen, 240-1004021)" oninput="doSearch(this.value)" onfocus="openDrop()" onblur="closeDrop()">
+      <button class="srch-btn" onclick="doSearch(document.getElementById('srchInput').value)">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </button>
+      <div class="srch-drop" id="srchDrop"></div>
+    </div>
+
+    <div class="hdr-acts">
+      <button class="hbtn" onclick="openCart()">
+        <svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span class="hb-lbl">Savatcha</span>
+        <div class="badge" id="cartBadge">0</div>
+      </button>
+      <button class="hbtn" onclick="openOrder(null)">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5 19.79 19.79 0 0 1 1.64 4.9 2 2 0 0 1 3.62 2.7h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10a16 16 0 0 0 6 6l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span class="hb-lbl">Buyurtma</span>
+      </button>
+      <button class="admin-btn" onclick="openAdmin()">
+        <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        <span>Admin</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner" id="navBar">
+    <a href="#" class="nlink active" onclick="return filterCat('all',this)">
+      🏠 Barchasi <span class="cnt" id="cnt-all">0</span>
+    </a>
+    <a href="#" class="nlink" onclick="return filterCat('dvigatel',this)">
+      ⚙️ Dvigatel <span class="cnt" id="cnt-dvigatel">0</span>
+    </a>
+    <a href="#" class="nlink" onclick="return filterCat('transmissiya',this)">
+      🔩 Transmissiya <span class="cnt" id="cnt-transmissiya">0</span>
+    </a>
+    <a href="#" class="nlink" onclick="return filterCat('gidravlika',this)">
+      💧 Gidravlika <span class="cnt" id="cnt-gidravlika">0</span>
+    </a>
+    <a href="#" class="nlink" onclick="return filterCat('elektr',this)">
+      ⚡ Elektr <span class="cnt" id="cnt-elektr">0</span>
+    </a>
+    <a href="#" class="nlink" onclick="return filterCat('sovitish',this)">
+      🌡️ Sovitish <span class="cnt" id="cnt-sovitish">0</span>
+    </a>
+    <a href="#" class="nlink" onclick="return filterCat('zapchast',this)">
+      🔧 Qo'shimcha <span class="cnt" id="cnt-zapchast">0</span>
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="heroSection">
+  <div class="hero-in">
+    <div>
+      <h1>BELARUS<br><em> HOLDING</em><br>TRAKTOR DRTAL ORIGINAL</h1>
+      <p>MTZ-80, MTZ-82 va D-240 dvigatel uchun sertifikatlangan original ehtiyot qismlari. 4500+ mahsulot, zavod kafolati bilan.</p>
+      <div class="hero-btns">
+        <button class="btn-main" onclick="filterCat('all',document.querySelector('.nlink'))">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          Katalogni ko'rish
+        </button>
+        <button class="btn-ghost" onclick="openOrder(null)">Buyurtma berish</button>
+      </div>
+    </div>
+    <div class="stats-grid">
+      <div class="stat"><strong id="stat-total">4500+</strong><span>Mahsulot</span></div>
+      <div class="stat"><strong>30+</strong><span>Yil tajriba</span></div>
+      <div class="stat"><strong>100%</strong><span>Original</span></div>
+      <div class="stat"><strong>24/7</strong><span>Buyurtma</span></div>
+      <div class="stat"><strong>UZB</strong><span>Yetkazish</span></div>
+      <div class="stat"><strong>Click</strong><span>Payme</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust">
+  <div class="trust-in">
+    <div class="trust-item">✅ Original sertifikat</div>
+    <div class="trust-item">🚚 Butun O'zbekiston bo'yicha yetkazish</div>
+    <div class="trust-item">🔄 14 kun ichida qaytarish</div>
+    <div class="trust-item">💳 Click &amp; Payme to'lov</div>
+    <div class="trust-item">📦 Omborda 4500+ detal</div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="page" id="shopSection">
+  <div class="layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="fcard">
+        <div class="fhead">
+          <svg viewBox="0 0 24 24"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+          FILTRLAR
+        </div>
+        <div class="fsec">
+          <div class="ftitle">Kategoriya</div>
+          <label class="fitem active" onclick="filterCat('all',document.querySelector('.nlink'))">
+            🏠 Barchasi <span class="fcnt" id="sf-all">0</span>
+          </label>
+          <label class="fitem" onclick="filterCat('dvigatel',document.querySelectorAll('.nlink')[1])">
+            ⚙️ Dvigatel <span class="fcnt" id="sf-dvigatel">0</span>
+          </label>
+          <label class="fitem" onclick="filterCat('transmissiya',document.querySelectorAll('.nlink')[2])">
+            🔩 Transmissiya <span class="fcnt" id="sf-transmissiya">0</span>
+          </label>
+          <label class="fitem" onclick="filterCat('gidravlika',document.querySelectorAll('.nlink')[3])">
+            💧 Gidravlika <span class="fcnt" id="sf-gidravlika">0</span>
+          </label>
+          <label class="fitem" onclick="filterCat('elektr',document.querySelectorAll('.nlink')[4])">
+            ⚡ Elektr <span class="fcnt" id="sf-elektr">0</span>
+          </label>
+          <label class="fitem" onclick="filterCat('sovitish',document.querySelectorAll('.nlink')[5])">
+            🌡️ Sovitish <span class="fcnt" id="sf-sovitish">0</span>
+          </label>
+          <label class="fitem" onclick="filterCat('zapchast',document.querySelectorAll('.nlink')[6])">
+            🔧 Qo'shimcha <span class="fcnt" id="sf-zapchast">0</span>
+          </label>
+        </div>
+        <div class="fsec">
+          <div class="ftitle">Narx oralig'i</div>
+          <label class="fitem" id="pr1" onclick="filterPrice(0,50000,this)">
+            💚 50 000 gacha <span class="fcnt" id="pc1">0</span>
+          </label>
+          <label class="fitem" id="pr2" onclick="filterPrice(50000,500000,this)">
+            💛 50 000 – 500 000 <span class="fcnt" id="pc2">0</span>
+          </label>
+          <label class="fitem" id="pr3" onclick="filterPrice(500000,2000000,this)">
+            🟠 500 000 – 2 mln <span class="fcnt" id="pc3">0</span>
+          </label>
+          <label class="fitem" id="pr4" onclick="filterPrice(2000000,999999999,this)">
+            🔴 2 mln dan yuqori <span class="fcnt" id="pc4">0</span>
+          </label>
+        </div>
+        <div class="fsec">
+          <div class="ftitle">Ishlab chiqaruvchi</div>
+          <div id="mfrList"></div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- PRODUCTS -->
+    <main>
+      <div class="ph">
+        <div class="ph-title" id="phTitle">Barcha mahsulotlar <span id="phCount">(0 ta)</span></div>
+        <select class="sort-sel" onchange="sortProds(this.value)">
+          <option value="def">Saralash: Standart</option>
+          <option value="asc">Narx: Arzondan qimmatga</option>
+          <option value="desc">Narx: Qimmatdan arzonga</option>
+          <option value="az">A → Z</option>
+          <option value="za">Z → A</option>
+        </select>
+      </div>
+      <div class="pgrid" id="prodGrid"></div>
+    </main>
+  </div>
+</div>
+
+<!-- PRODUCT MODAL -->
+<div class="overlay" id="prodModal">
+  <div class="modal" style="max-width:700px">
+    <div class="mhdr">
+      <h3 id="mTitle">Mahsulot</h3>
+      <button class="mclose" onclick="closeModal('prodModal')">✕</button>
+    </div>
+    <div class="mbody">
+      <div class="mimg" id="mImg"></div>
+      <div>
+        <div class="mlabel">Artikul (Zavod kodi)</div>
+        <div class="mval" id="mArt" style="font-family:'Courier New',monospace;font-size:15px;color:var(--blue)"></div>
+        <div class="mlabel">Ishlab chiqaruvchi</div>
+        <div class="mval" id="mMfr"></div>
+        <div class="mlabel">Kategoriya</div>
+        <div class="mval" id="mCat"></div>
+        <div class="orig-badge">⭐ ORIGINAL — Zavod kafolati bor</div>
+        <div class="mprice" id="mPrice"></div>
+        <div class="cstock"><div class="dot g"></div> Omborda mavjud</div>
+      </div>
+    </div>
+    <div class="bundle-sec" id="bundleSec" style="display:none">
+      <h4>🔗 Birgalikda sotib olinadi</h4>
+      <div id="bundleItems"></div>
+    </div>
+    <div class="mfoot">
+      <div class="qty">
+        <button onclick="chgQty(-1)">−</button>
+        <span id="qtyDisp">1</span>
+        <button onclick="chgQty(1)">+</button>
+      </div>
+      <button class="btn-main" style="flex:1;justify-content:center" onclick="addFromModal()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        Savatchaga
+      </button>
+      <button class="btn-main" style="background:var(--blue);justify-content:center" onclick="openOrder(null);closeModal('prodModal')">Buyurtma</button>
+    </div>
+  </div>
+</div>
+
+<!-- ORDER MODAL -->
+<div class="overlay" id="orderModal">
+  <div class="modal" style="max-width:500px">
+    <div class="mhdr">
+      <h3>📦 Buyurtma berish</h3>
+      <button class="mclose" onclick="closeModal('orderModal')">✕</button>
+    </div>
+    <div id="orderBody">
+      <form class="oform" id="liveOrderForm">
+        {% csrf_token %} <div class="frow">
+          <div class="fgrp">
+            <label>Ismingiz *</label>
+            <input type="text" id="oName" name="full_name" required placeholder="Matyoqubov Solibobo">
+          </div>
+          <div class="fgrp">
+            <label>Telefon *</label>
+            <input type="tel" id="oPhone" name="phone" required placeholder="+998 88 510-90-06">
+          </div>
+        </div>
+        <div class="fgrp">
+          <label>Yetkazib berish manzili</label>
+          <input type="text" id="oAddr" name="address" placeholder="Viloyat, tuman, mahalla, uy">
+        </div>
+        <div class="fgrp">
+          <label>Izoh (ixtiyoriy)</label>
+          <textarea id="oNote" name="note" placeholder="Artikul, model yoki boshqa ma'lumot..."></textarea>
+        </div>
+        <div class="fgrp">
+          <label>To'lov usuli</label>
+          <div class="pay-opts">
+            <label class="popt"><input type="radio" name="pay" value="click" checked> 💳 Click</label>
+            <label class="popt"><input type="radio" name="pay" value="payme"> 💚 Payme</label>
+            <label class="popt"><input type="radio" name="pay" value="naqd"> 💵 Naqd</label>
+            <label class="popt"><input type="radio" name="pay" value="bank"> 🏦 Bank o'tkazma</label>
+          </div>
+        </div>
+        <button type="button" class="btn-main" style="width:100%;justify-content:center;height:46px" onclick="submitOrder()">
+          ✅ Buyurtmani tasdiqlash
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- CART -->
+<div class="cart-ov" id="cartOv" onclick="closeCart()"></div>
+<div class="cart-side" id="cartSide">
+  <div class="chdr">
+    <h3>🛒 Savatcha</h3>
+    <button class="cclose" onclick="closeCart()">✕</button>
+  </div>
+  <div class="citems" id="cartItems">
+    <div class="empty"><div class="ei">🛒</div><p>Savatcha bo'sh</p></div>
+  </div>
+  <div class="cftr">
+    <div class="ctotal">Jami: <span id="cartTotal">0 so'm</span></div>
+    <button class="btn-main" style="width:100%;justify-content:center" onclick="closeCart();openOrder(null)">
+      Buyurtma berish →
+    </button>
+  </div>
+</div>
+
+<!-- ADMIN PANEL -->
+<div class="admin-wrap" id="adminPanel">
+  <div class="admin-modal">
+    <div class="admin-hdr">
+      <h2>🔐 ADMIN PANEL — BELARUS HOLDING</h2>
+      <div style="display:flex;align-items:center;gap:8px">
+        <div class="admin-tabs">
+          <button class="atab active" onclick="showAdTab('stats',this)">📊 Statistika</button>
+          <button class="atab" onclick="showAdTab('products',this)">📦 Mahsulotlar</button>
+          <button class="atab" onclick="showAdTab('add',this)">➕ Qo'shish</button>
+          <button class="atab" onclick="showAdTab('orders',this)">🧾 Buyurtmalar</button>
+        </div>
+        <button class="mclose" onclick="closeAdmin()" style="border-color:rgba(255,255,255,.2);color:#fff;background:rgba(255,255,255,.1)">✕</button>
+      </div>
+    </div>
+    <div class="admin-body">
+
+      <!-- STATS -->
+      <div class="admin-section active" id="adSec-stats">
+        <div class="admin-stats-grid" id="adminStatsGrid"></div>
+        <h3 style="font-size:14px;font-weight:700;margin-bottom:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px">Kategoriyalar bo'yicha</h3>
+        <div id="catStatsGrid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px"></div>
+      </div>
+
+      <!-- PRODUCTS LIST -->
+      <div class="admin-section" id="adSec-products">
+        <input class="admin-search" id="adminSearch" placeholder="🔍 Mahsulot nomi yoki artikul bo'yicha qidiring..." oninput="adminFilter(this.value)">
+        <div style="overflow-x:auto">
+          <table class="atable">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Nomi</th>
+                <th>Artikul</th>
+                <th>Kategoriya</th>
+                <th>Narx</th>
+                <th>Soni</th>
+                <th>Ishlab chiqaruvchi</th>
+                <th>Amal</th>
+              </tr>
+            </thead>
+            <tbody id="adminTbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ADD PRODUCT -->
+      <div class="admin-section" id="adSec-add">
+        <div style="background:var(--bg);border-radius:var(--r);padding:20px;border:1px solid var(--border)">
+          <h3 style="font-size:16px;font-weight:800;margin-bottom:18px">➕ Yangi mahsulot qo'shish</h3>
+          <div class="af-grid">
+            <div>
+              <label class="af-label">Mahsulot nomi *</label>
+              <input class="af-input" id="af-name" placeholder="masalan: Поршень D-240">
+            </div>
+            <div>
+              <label class="af-label">Artikul (zavod kodi) *</label>
+              <input class="af-input" id="af-art" placeholder="masalan: 240-1004021-Е-01">
+            </div>
+            <div>
+              <label class="af-label">Kategoriya *</label>
+              <select class="af-select" id="af-cat">
+                <option value="Dvigatel">⚙️ Dvigatel qismlari</option>
+                <option value="Transmissiya">🔩 Transmissiya</option>
+                <option value="Gidravlika">💧 Gidravlika</option>
+                <option value="Elektr">⚡ Elektr jihozlar</option>
+                <option value="Sovitish">🌡️ Sovitish tizimi</option>
+                <option value="Zapchast">🔧 Qo'shimcha</option>
+              </select>
+            </div>
+            <div>
+              <label class="af-label">Narx (so'm) *</label>
+              <input class="af-input" id="af-price" type="number" placeholder="masalan: 250000">
+            </div>
+            <div>
+              <label class="af-label">Soni (ombor)</label>
+              <input class="af-input" id="af-qty" type="number" placeholder="masalan: 10">
+            </div>
+            <div>
+              <label class="af-label">Ishlab chiqaruvchi</label>
+              <input class="af-input" id="af-mfr" placeholder="masalan: ММЗ (Беларусь)">
+            </div>
+          </div>
+          <button class="btn-main" style="margin-top:16px" onclick="addProduct()">💾 Mahsulotni saqlash</button>
+        </div>
+
+        <div style="background:#FFF7ED;border-radius:var(--r);padding:20px;border:1px solid #FED7AA;margin-top:18px;display:none" id="editForm">
+          <h3 style="font-size:16px;font-weight:800;margin-bottom:18px;color:var(--orange)">✏️ Mahsulotni tahrirlash</h3>
+          <input type="hidden" id="ef-id">
+          <div class="af-grid">
+            <div>
+              <label class="af-label">Nomi *</label>
+              <input class="af-input" id="ef-name">
+            </div>
+            <div>
+              <label class="af-label">Artikul *</label>
+              <input class="af-input" id="ef-art">
+            </div>
+            <div>
+              <label class="af-label">Kategoriya</label>
+              <select class="af-select" id="ef-cat">
+                <option value="Dvigatel">⚙️ Dvigatel</option>
+                <option value="Transmissiya">🔩 Transmissiya</option>
+                <option value="Gidravlika">💧 Gidravlika</option>
+                <option value="Elektr">⚡ Elektr</option>
+                <option value="Sovitish">🌡️ Sovitish</option>
+                <option value="Zapchast">🔧 Qo'shimcha</option>
+              </select>
+            </div>
+            <div>
+              <label class="af-label">Narx (so'm)</label>
+              <input class="af-input" id="ef-price" type="number">
+            </div>
+            <div>
+              <label class="af-label">Soni</label>
+              <input class="af-input" id="ef-qty" type="number">
+            </div>
+            <div>
+              <label class="af-label">Ishlab chiqaruvchi</label>
+              <input class="af-input" id="ef-mfr">
+            </div>
+          </div>
+          <div style="margin-top:16px;display:flex;gap:10px">
+            <button class="btn-main" onclick="saveEdit()">💾 Saqlash</button>
+            <button class="btn-ghost" style="color:var(--dark);border-color:var(--border)" onclick="cancelEdit()">Bekor qilish</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="admin-section" id="adSec-orders">
+        <div style="margin-bottom: 15px; display: flex; gap: 10px;">
+          <span class="badge" style="background: #22c55e; padding: 6px 12px; color: white; border-radius: 4px;">🟢 To'landi</span>
+          <span class="badge" style="background: #ef4444; padding: 6px 12px; color: white; border-radius: 4px;">🔴 Kutilmoqda</span>
+        </div>
+
+        <div id="adminOrders" style="display:flex;flex-direction:column;gap:12px">
+          {% for order in orders %}
+          <div style="background: white; border: 1px solid var(--border); padding: 15px; border-radius: var(--r); position: relative;">
+            
+            <div style="position: absolute; top: 15px; right: 15px;">
+              {% if order.is_paid %}
+                <span style="color: #22c55e; font-weight: bold; font-size: 14px;">✅ TO'LANDI (Karta)</span>
+              {% else %}
+                <span style="color: #ef4444; font-weight: bold; font-size: 14px;">⏳ TO'LOV KUTILMOQDA</span>
+              {% endif %}
+            </div>
+
+            <h4 style="margin: 0 0 8px 0; color: var(--dark);">Buyurtma #ORDER_{{ order.id }}</h4>
+            <p style="margin: 4px 0; font-size: 14px;">👤 <strong>Mijoz:</strong> {{ order.full_name }} | 📞 {{ order.phone }}</p>
+            <p style="margin: 4px 0; font-size: 14px;">📍 <strong>Manzil:</strong> {{ order.address }}</p>
+            
+            <hr style="border: 0; border-top: 1px dashed var(--border); margin: 10px 0;">
+            
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="color: var(--muted); font-size: 13px;">Sana: {{ order.created_at|date:"d.m.Y H:i" }}</span>
+              <span style="font-size: 16px; color: var(--blue); font-weight: 800;">Jami: {{ order.total_price }} so'm</span>
+            </div>
+          </div>
+          {% empty %}
+          <div class="empty" id="noOrders"><div class="ei">📋</div><p>Hali buyurtmalar yo'q</p></div>
+          {% endfor %}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast">
+  <span id="toastMsg"></span>
+</div>
+
+<footer>
+  <div class="ftr-grid">
+    <div class="ftr-brand">
+      <a href="#" class="logo" onclick="viewShop()">
+        <div class="logo-ico">BH</div>
+        <div class="logo-txt">
+          <strong style="color:#fff">BELARUS HOLDING</strong>
+          <span>Traktor ehtiyot qismlari</span>
+        </div>
+      </a>
+      <p>O'zbekistondagi Belarus traktorlari uchun original ehtiyot qismlarining yetakchi yetkazib beruvchisi. 30 yildan ortiq tajriba va 4500+ mahsulot assortimenti.</p>
+    </div>
+
+    <div class="ftr-col">
+      <h4>Kompaniya</h4>
+      <a href="#">Biz haqimizda</a>
+      <a href="#">Topshirish punktlari</a>
+      <a href="#">Vakansiyalar</a>
+    </div>
+
+    <div class="ftr-col">
+      <h4>Foydalanuvchilarga</h4>
+      <a href="#">Biz bilan bogʻlanish</a>
+      <a href="#">Savol-Javob</a>
+    </div>
+
+    <div class="ftr-col">
+      <h4>Tadbirkorlarga</h4>
+      <a href="#">Biz bilan soting</a>
+      <a href="#">Sotuvchi kabinetiga kirish</a>
+      <a href="#">Topshirish punktini ochish</a>
+    </div>
+
+    <div class="ftr-col">
+      <h4>Bog'lanish va Ilovalar</h4>
+      <a href="tel:+998974438836">📞 +998 97 443-88-36 ШЕРЗОДБЕК</a>
+      <a href="tel:+998974036900">📱 +998 97 403-69-00 ОДИЛБЕК АКА</a>
+      <a href="#" class="app-link">🤖 Google Play</a>
+      <a href="https://t.me/MTZTD" target="_blank">💬 Telegram kanal</a>
+    </div>
+  </div>
+
+  <div class="ftr-bottom">
+    <div class="ftr-legal">
+      <span>© 2026 Belarus Holding. Barcha huquqlar himoyalangan.</span>
+      <div class="legal-links">
+        <a href="#">Maxfiylik kelishuvi</a> | 
+        <a href="#">Foydalanuvchi kelishuvi</a> | 
+        <a href="#">Shaxsiy ma'lumotlarni qayta ishlash nizomi</a>
+      </div>
+    </div>
+    <div class="admin-section" id="adSec-products">
+  <input class="admin-search" id="adminSearch" placeholder="🔍 Mahsulot nomi yoki artikul bo'yicha qidiring..." oninput="adminFilter(this.value)">
+  
+  <div style="overflow-x:auto">
+    <table class="atable">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nomi</th>
+          <th>Artikul</th>
+          <th>Kategoriya</th>
+          <th>Narx</th>
+          <th>Soni</th>
+          <th>Ishlab chiqaruvchi</th>
+          <th>Amal</th>
+        </tr>
+      </thead>
+      <tbody id="adminTbody">
+        </tbody>
+    </table>
+  </div>
+
+  <div class="admin-pagination" id="adminPagination"></div>
+</div>
+
+<script>
+</script>
+</footer>
+
+<script>
+
+// ═══════════════════════════════════════════════════
+// REAL PRODUCT DATABASE (161 products from your data)
+// ═══════════════════════════════════════════════════
+const DB = [
+  {id:1,name:"Фара дорожная 112 08 70",cat:"Elektr",art:"112.08.70",qty:159,price:172000,mfr:"Руденск (Беларусь)"},
+  {id:2,name:"Фонарь передний многофункциональный 3703 3712",cat:"Elektr",art:"3703.3712",qty:40,price:54000,mfr:"Руденск (Беларусь)"},
+  {id:3,name:"Фонарь задний многофункциональный 7303 3716",cat:"Elektr",art:"7303.3716",qty:39,price:67000,mfr:"Руденск (Беларусь)"},
+  {id:4,name:"ПОРШЕНЬ 240-1004021-Е-01",cat:"Dvigatel",art:"240-1004021-Е-01",qty:94,price:223000,mfr:"ММЗ (Беларусь)"},
+  {id:5,name:"ГИЛЬЗА БЛОКА ЦИЛИНДРОВ 245-1002021-А1-10",cat:"Dvigatel",art:"245-1002021-А1-10",qty:190,price:282000,mfr:"ММЗ (Беларусь)"},
+  {id:6,name:"ПОРШЕНЬ 260-1004021-В-04",cat:"Dvigatel",art:"260-1004021-В-04",qty:160,price:390000,mfr:"ММЗ (Беларусь)"},
+  {id:7,name:"КОЛЬЦО КОМПРЕССИОННОЕ 260-1004062",cat:"Dvigatel",art:"260-1004062",qty:188,price:30000,mfr:"Костромской завод (Россия)"},
+  {id:8,name:"КОЛЬЦО КОМПРЕССИОННОЕ 260-1004063-А",cat:"Dvigatel",art:"260-1004063-А",qty:188,price:11000,mfr:"Костромской завод (Россия)"},
+  {id:9,name:"КОЛЬЦО МАСЛОСЪЕМНОЕ 260-1004080",cat:"Dvigatel",art:"260-1004080",qty:154,price:20000,mfr:"Костромской завод (Россия)"},
+  {id:10,name:"ПОРШЕНЬ 260-1004021-Т-04",cat:"Dvigatel",art:"260-1004021-Т-04",qty:188,price:390000,mfr:"ММЗ (Беларусь)"},
+  {id:11,name:"Поршень 240-1004021-Д-01",cat:"Dvigatel",art:"240-1004021-Д-01",qty:75,price:217000,mfr:"ММЗ (Беларусь)"},
+  {id:12,name:"Кольцо компрессионное 240-1004062",cat:"Dvigatel",art:"240-1004062",qty:225,price:17000,mfr:"ММЗ (Беларусь)"},
+  {id:13,name:"Краник отопителя ПО11-02",cat:"Elektr",art:"ПО11-02",qty:9,price:49000,mfr:"ВИПРА (Беларусь)"},
+  {id:14,name:"Электромагнит ЭМ-03.12.01.02",cat:"Elektr",art:"ЭМ-03.12.01.02",qty:9,price:151000,mfr:"ВИПРА (Беларусь)"},
+  {id:15,name:"Катушка электромагнита КЭМ-12.50.000",cat:"Elektr",art:"КЭМ-12.50.000",qty:5,price:97000,mfr:"ВИПРА (Беларусь)"},
+  {id:16,name:"Кран конусный газовый ДУ-15",cat:"Gidravlika",art:"11Б34бк-ДУ15",qty:105,price:24000,mfr:"ВИПРА (Беларусь)"},
+  {id:17,name:"Кран конусный газовый ДУ-20",cat:"Gidravlika",art:"11Б34бк-ДУ20",qty:86,price:30000,mfr:"ВИПРА (Беларусь)"},
+  {id:18,name:"Вентиль баллонный ВБ-2",cat:"Gidravlika",art:"ВБ-2",qty:74,price:33000,mfr:"ВИПРА (Беларусь)"},
+  {id:19,name:"Корпус заднего моста 50-2401015-08",cat:"Transmissiya",art:"50-2401015-08",qty:1,price:8637000,mfr:"МТЗ (Беларусь)"},
+  {id:20,name:"Стартер 8072.3708",cat:"Elektr",art:"8072.3708",qty:2,price:884000,mfr:"БАТЭ (Беларусь)"},
+  {id:21,name:"Насос шестеренный НШ 6Ж-3",cat:"Gidravlika",art:"НШ-6Ж-3",qty:5,price:432000,mfr:"ЖМЗ (Беларусь)"},
+  {id:22,name:"Насос шестеренный НШ 10Ж-3",cat:"Gidravlika",art:"НШ-10Ж-3",qty:7,price:264000,mfr:"ЖМЗ (Беларусь)"},
+  {id:23,name:"Насос шестеренный НШ 14Ж-3",cat:"Gidravlika",art:"НШ-14Ж-3",qty:9,price:321000,mfr:"ЖМЗ (Беларусь)"},
+  {id:24,name:"Насос шестеренный НШ 16Ж-3",cat:"Gidravlika",art:"НШ-16Ж-3",qty:14,price:324000,mfr:"ЖМЗ (Беларусь)"},
+  {id:25,name:"Насос шестеренный НШ 32УМЖ-3Л",cat:"Gidravlika",art:"НШ-32УМЖ-3Л",qty:5,price:492000,mfr:"ЖМЗ (Беларусь)"},
+  {id:26,name:"Насос шестеренный НШ 50УЖ-3",cat:"Gidravlika",art:"НШ-50УЖ-3",qty:10,price:515000,mfr:"ЖМЗ (Беларусь)"},
+  {id:27,name:"Кондиционер МТЗ 1523 крышный",cat:"Sovitish",art:"МТЗ-1523-КР",qty:1,price:7442000,mfr:"ТерраФриго (Россия)"},
+  {id:28,name:"Кондиционер МТЗ 1523 подкапотный",cat:"Sovitish",art:"МТЗ-1523-ПК",qty:5,price:6974000,mfr:"ТерраФриго (Россия)"},
+  {id:29,name:"Гидрораспределитель 1РГЕ-6Т",cat:"Gidravlika",art:"1РГЕ-6Т",qty:1,price:1032000,mfr:"САЛЕО-Гомель (Беларусь)"},
+  {id:30,name:"Гидрораспределитель Р80-3/4-222-3Гг",cat:"Gidravlika",art:"Р80-3/4-222",qty:8,price:2133000,mfr:"САЛЕО-Гомель (Беларусь)"},
+  {id:31,name:"Насос-дозатор DOC160ADS1",cat:"Gidravlika",art:"DOC160ADS1",qty:1,price:1243000,mfr:"САЛЕО (Беларусь)"},
+  {id:32,name:"Насос-дозатор DOC500BDL1",cat:"Gidravlika",art:"DOC500BDL1",qty:2,price:1896000,mfr:"САЛЕО (Беларусь)"},
+  {id:33,name:"Гидроцилиндр 50-3405015",cat:"Gidravlika",art:"50-3405015",qty:4,price:626000,mfr:"САЛЕО-Кобрин (Беларусь)"},
+  {id:34,name:"Гидроцилиндр 1221-4625010",cat:"Gidravlika",art:"1221-4625010",qty:2,price:1211000,mfr:"САЛЕО-Кобрин (Беларусь)"},
+  {id:35,name:"Корпус сцепления 80-1601015",cat:"Transmissiya",art:"80-1601015",qty:1,price:9040000,mfr:"МТЗ (Беларусь)"},
+  {id:36,name:"Стакан коробки передач 80-1701034-01",cat:"Transmissiya",art:"80-1701034-01",qty:2,price:1294000,mfr:"МТЗ (Беларусь)"},
+  {id:37,name:"Насос шестеренный НШ 6Ж-3-04Л",cat:"Gidravlika",art:"НШ-6Ж-3-04Л",qty:10,price:461500,mfr:"ЖМЗ (Беларусь)"},
+  {id:38,name:"Насос шестеренный НШ 32АЖ-3",cat:"Gidravlika",art:"НШ-32АЖ-3",qty:8,price:974500,mfr:"ЖМЗ (Беларусь)"},
+  {id:39,name:"Брус передний 80х-2801124",cat:"Transmissiya",art:"80х-2801124",qty:1,price:2900000,mfr:"ВЗТЗЧ (Беларусь)"},
+  {id:40,name:"Фильтр воздушный кабины 80-8104070",cat:"Sovitish",art:"80-8104070",qty:7,price:71000,mfr:"Белагро Бел"},
+  {id:41,name:"Кран пробковый ПП6-1-О",cat:"Gidravlika",art:"ПП6-1-О",qty:2100,price:28000,mfr:"ВИПРА (Беларусь)"},
+  {id:42,name:"Вал корпуса сцепления 80-1601113-01",cat:"Transmissiya",art:"80-1601113-01",qty:2,price:700000,mfr:"МТЗ (Беларусь)"},
+  {id:43,name:"Рукав полуоси левый 1523М-2407018",cat:"Transmissiya",art:"1523М-2407018",qty:1,price:5051000,mfr:"МТЗ (Беларусь)"},
+  {id:44,name:"Топливопровод высокого давления 240-1104300",cat:"Dvigatel",art:"240-1104300",qty:10,price:64500,mfr:"ММЗ (Беларусь)"},
+  {id:45,name:"Крышка корпуса топливного фильтра 240-1105016",cat:"Dvigatel",art:"240-1105016",qty:9,price:97500,mfr:"ММЗ (Беларусь)"},
+  {id:46,name:"Шестерня коленчатого вала 260-1005030-Д1",cat:"Dvigatel",art:"260-1005030-Д1",qty:2,price:465000,mfr:"ММЗ (Беларусь)"},
+  {id:47,name:"Клапан впускной 3LD-1007014-В",cat:"Dvigatel",art:"3LD-1007014-В",qty:10,price:60500,mfr:"GUNES MOTOR (Турция)"},
+  {id:48,name:"Клапан выпускной 3LD-1007015-В",cat:"Dvigatel",art:"3LD-1007015-В",qty:12,price:64000,mfr:"GUNES MOTOR (Турция)"},
+  {id:49,name:"Свеча накаливания IIC-SV-121235",cat:"Elektr",art:"IIC-SV-121235",qty:12,price:102000,mfr:"ISKRA (Турция)"},
+  {id:50,name:"Поршень 3LD-1004021-А",cat:"Dvigatel",art:"3LD-1004021-А",qty:12,price:313500,mfr:"ММЗ (Беларусь)"},
+  {id:51,name:"Фара дорожная 112.08.70",cat:"Elektr",art:"112.08.70-R",qty:49,price:180000,mfr:"Руденск (Беларусь)"},
+  {id:52,name:"Фонарь передний 112.21.18.3712",cat:"Elektr",art:"112.21.18.3712",qty:40,price:142500,mfr:"Руденск (Беларусь)"},
+  {id:53,name:"Фонарь задний 112.21.17.3716",cat:"Elektr",art:"112.21.17.3716",qty:40,price:152000,mfr:"Руденск (Беларусь)"},
+  {id:54,name:"Указатель поворота боковой 112.01.12",cat:"Elektr",art:"112.01.12",qty:50,price:23000,mfr:"Руденск (Беларусь)"},
+  {id:55,name:"Привод насоса шестеренного 260-3407030",cat:"Gidravlika",art:"260-3407030",qty:2,price:291000,mfr:"БЗА (Беларусь)"},
+  {id:56,name:"Турбокомпрессор ТКР 7-00.01",cat:"Dvigatel",art:"ТКР-7-00.01",qty:4,price:3250000,mfr:"БЗА (Беларусь)"},
+  {id:57,name:"Турбокомпрессор ТКР 7.1-01.03",cat:"Dvigatel",art:"ТКР-7.1-01.03",qty:1,price:3710000,mfr:"БЗА (Беларусь)"},
+  {id:58,name:"Фланец коробки раздаточной 52-1802078-А",cat:"Transmissiya",art:"52-1802078-А",qty:5,price:136000,mfr:"БЗТДиА (Беларусь)"},
+  {id:59,name:"Вал отбора мощности 80-4202017-Б",cat:"Transmissiya",art:"80-4202017-Б",qty:6,price:425000,mfr:"БЗТДиА (Беларусь)"},
+  {id:60,name:"Теплообменник ТЖМ-7500",cat:"Sovitish",art:"ТЖМ-7500",qty:16,price:640000,mfr:"Радиоволна (Беларусь)"},
+  {id:61,name:"Глушитель с накладкой 245-1205020",cat:"Sovitish",art:"245-1205020",qty:3,price:470000,mfr:"Универсал Бобруйск"},
+  {id:62,name:"Переключатель клавишный П147М-09.09",cat:"Elektr",art:"П147М-09.09",qty:80,price:19000,mfr:"ЯСМА (Беларусь)"},
+  {id:63,name:"Переключатель клавишный П150М-06.14",cat:"Elektr",art:"П150М-06.14",qty:66,price:15000,mfr:"ЯСМА (Беларусь)"},
+  {id:64,name:"Выключатель стартера и приборов 3121.3704",cat:"Elektr",art:"3121.3704",qty:49,price:135000,mfr:"ЯСМА (Беларусь)"},
+  {id:65,name:"Фара рабочая ФР LED 523-3",cat:"Elektr",art:"ФР-LED-523-3",qty:16,price:870000,mfr:"ЯСМА (Беларусь)"},
+  {id:66,name:"Фара рабочая ФР LED 523-2",cat:"Elektr",art:"ФР-LED-523-2",qty:16,price:906000,mfr:"ЯСМА (Беларусь)"},
+  {id:67,name:"Корпус сцепления 1522-1601015-01",cat:"Transmissiya",art:"1522-1601015-01",qty:1,price:8849000,mfr:"МТЗ (Беларусь)"},
+  {id:68,name:"Бак топливный МТЗ правый 70-1101010-02",cat:"Sovitish",art:"70-1101010-02",qty:2,price:1003000,mfr:"МТЗ (Беларусь)"},
+  {id:69,name:"Вал вилок переключения 85-1601215",cat:"Transmissiya",art:"85-1601215",qty:6,price:109000,mfr:"МТЗ (Беларусь)"},
+  {id:70,name:"Колесо рулевое 70-3402015-А1",cat:"Transmissiya",art:"70-3402015-А1",qty:7,price:361000,mfr:"Белагро Бел"},
+  {id:71,name:"Генератор тракторный Г9695.3701-1",cat:"Elektr",art:"Г9695.3701-1",qty:55,price:867000,mfr:"Радиоволна (Беларусь)"},
+  {id:72,name:"Генератор тракторный Г9721.3701",cat:"Elektr",art:"Г9721.3701",qty:54,price:981000,mfr:"Радиоволна (Беларусь)"},
+  {id:73,name:"Теплообменник ТЖМ-5200",cat:"Sovitish",art:"ТЖМ-5200",qty:80,price:569000,mfr:"Радиоволна (Беларусь)"},
+  {id:74,name:"Натяжитель ремня 260-1310105",cat:"Dvigatel",art:"260-1310105",qty:6,price:602000,mfr:"Радиоволна (Беларусь)"},
+  {id:75,name:"Обойма воздушного фильтра 240-1109095",cat:"Sovitish",art:"240-1109095",qty:1000,price:2500,mfr:"Радиоволна (Беларусь)"},
+  {id:76,name:"Вентилятор ИЖКС.632558.005",cat:"Sovitish",art:"ИЖКС.632558.005",qty:78,price:178000,mfr:"Радиоволна (Беларусь)"},
+  {id:77,name:"Блок цилиндров 245-1002001-05",cat:"Dvigatel",art:"245-1002001-05",qty:3,price:9430000,mfr:"ММЗ (Беларусь)"},
+  {id:78,name:"Вал коленчатый 260-1005015-Д-04",cat:"Dvigatel",art:"260-1005015-Д-04",qty:2,price:15285000,mfr:"ММЗ (Беларусь)"},
+  {id:79,name:"Головка цилиндров 240-1003012-А1",cat:"Dvigatel",art:"240-1003012-А1",qty:42,price:3618000,mfr:"ММЗ (Беларусь)"},
+  {id:80,name:"Клапан впускной 260-1007014-В",cat:"Dvigatel",art:"260-1007014-В",qty:100,price:91000,mfr:"ММЗ (Беларусь)"},
+  {id:81,name:"Клапан выпускной 240-1007015-В",cat:"Dvigatel",art:"240-1007015-В",qty:100,price:117000,mfr:"ММЗ (Беларусь)"},
+  {id:82,name:"Шатун 260-1004100-Д",cat:"Dvigatel",art:"260-1004100-Д",qty:32,price:945000,mfr:"ММЗ (Беларусь)"},
+  {id:83,name:"Реле 74.3708800-10",cat:"Elektr",art:"74.3708800-10",qty:29,price:300000,mfr:"БАТЭ (Беларусь)"},
+  {id:84,name:"Привод 7402.3708600",cat:"Elektr",art:"7402.3708600",qty:100,price:96000,mfr:"БАТЭ (Беларусь)"},
+  {id:85,name:"Фара рабочего освещения 112.07.54-02",cat:"Elektr",art:"112.07.54-02",qty:50,price:86500,mfr:"Руденск (Беларусь)"},
+  {id:86,name:"Фонарь передний 3713.3712",cat:"Elektr",art:"3713.3712",qty:50,price:49000,mfr:"Руденск (Беларусь)"},
+  {id:87,name:"Световозвращатель 3202.3731",cat:"Elektr",art:"3202.3731",qty:800,price:8000,mfr:"Руденск (Беларусь)"},
+  {id:88,name:"Крыло заднее левое Н82-8404011",cat:"Zapchast",art:"Н82-8404011",qty:50,price:320000,mfr:"Новотех Автопром"},
+  {id:89,name:"Крыло заднее правое Н82-8404011-01",cat:"Zapchast",art:"Н82-8404011-01",qty:50,price:320000,mfr:"Новотех Автопром"},
+  {id:90,name:"Датчик давления ДД-6МИ1",cat:"Elektr",art:"ДД-6МИ1",qty:50,price:263000,mfr:"Экран (Беларусь)"},
+  {id:91,name:"Датчик давления ДД-20МИ1",cat:"Elektr",art:"ДД-20МИ1",qty:100,price:263000,mfr:"Экран (Беларусь)"},
+  {id:92,name:"Корпус фильтра 245-1017015-Б",cat:"Dvigatel",art:"245-1017015-Б",qty:33,price:446000,mfr:"БЗА (Беларусь)"},
+  {id:93,name:"Насос масляный 245-1403010",cat:"Dvigatel",art:"245-1403010",qty:47,price:450000,mfr:"БЗА (Беларусь)"},
+  {id:94,name:"Турбокомпрессор ТКР 6-01.01",cat:"Dvigatel",art:"ТКР-6-01.01",qty:2,price:2676000,mfr:"БЗА (Беларусь)"},
+  {id:95,name:"Турбокомпрессор ТКР 6.1-13.08",cat:"Dvigatel",art:"ТКР-6.1-13.08",qty:4,price:3573000,mfr:"БЗА (Беларусь)"},
+  {id:96,name:"Плафон освещения кабины 111.3714",cat:"Elektr",art:"111.3714",qty:180,price:63000,mfr:"Белагро Бел"},
+  {id:97,name:"Фланец редуктора 1521-2308070",cat:"Transmissiya",art:"1521-2308070",qty:10,price:746000,mfr:"Белагро Бел"},
+  {id:98,name:"Вал вторичный 50-1701252",cat:"Transmissiya",art:"50-1701252",qty:20,price:587000,mfr:"Белагро Бел"},
+  {id:99,name:"Диск сцепления 70-1601090",cat:"Transmissiya",art:"70-1601090",qty:9,price:585000,mfr:"Белагро Бел"},
+  {id:100,name:"Гидрораспределитель Р80-3/1-222",cat:"Gidravlika",art:"Р80-3/1-222",qty:14,price:1784000,mfr:"САЛЕО-Гомель (Беларусь)"},
+  {id:101,name:"Гидрораспределитель 820-4634010",cat:"Gidravlika",art:"820-4634010",qty:25,price:1061000,mfr:"САЛЕО-Гомель (Беларусь)"},
+  {id:102,name:"Гидрораспределитель РП70-890.1",cat:"Gidravlika",art:"РП70-890.1",qty:40,price:2172000,mfr:"САЛЕО-Гомель (Беларусь)"},
+  {id:103,name:"Насос-дозатор DOC100ADS1",cat:"Gidravlika",art:"DOC100ADS1",qty:247,price:1128000,mfr:"САЛЕО (Беларусь)"},
+  {id:104,name:"Насос-дозатор DOC160ADS1",cat:"Gidravlika",art:"DOC160ADS1-2",qty:90,price:1185500,mfr:"САЛЕО (Беларусь)"},
+  {id:105,name:"Реле свечей накала 13.3777",cat:"Elektr",art:"13.3777",qty:100,price:141000,mfr:"Белагро Бел"},
+  {id:106,name:"Датчик температуры 301.3828",cat:"Elektr",art:"301.3828",qty:186,price:33000,mfr:"Белагро Бел"},
+  {id:107,name:"Реле поворота 68.3787",cat:"Elektr",art:"68.3787",qty:99,price:81000,mfr:"Белагро Бел"},
+  {id:108,name:"Стартер 5404.3708",cat:"Elektr",art:"5404.3708",qty:2,price:1830000,mfr:"БАТЭ (Беларусь)"},
+  {id:109,name:"Стартер 7402.3708-01",cat:"Elektr",art:"7402.3708-01",qty:10,price:1302000,mfr:"БАТЭ (Беларусь)"},
+  {id:110,name:"Стартер 74.3708-01",cat:"Elektr",art:"74.3708-01",qty:107,price:1302000,mfr:"БАТЭ (Беларусь)"},
+  {id:111,name:"Стартер 8232.3708",cat:"Elektr",art:"8232.3708",qty:175,price:847000,mfr:"БАТЭ (Беларусь)"},
+  {id:112,name:"Насос масляный 240-1403010",cat:"Dvigatel",art:"240-1403010",qty:50,price:413000,mfr:"Борисовский завод"},
+  {id:113,name:"Турбокомпрессор ТКР 6-00.01",cat:"Dvigatel",art:"ТКР-6-00.01",qty:78,price:2458000,mfr:"Борисовский завод"},
+  {id:114,name:"Блок цилиндров 240-1002001-Б2",cat:"Dvigatel",art:"240-1002001-Б2",qty:2,price:8260000,mfr:"ММЗ (Беларусь)"},
+  {id:115,name:"Вал коленчатый 245-1005015-А",cat:"Dvigatel",art:"245-1005015-А",qty:19,price:4365000,mfr:"ММЗ (Беларусь)"},
+  {id:116,name:"Вал распределительный 240-1006015-А-У",cat:"Dvigatel",art:"240-1006015-А-У",qty:98,price:473000,mfr:"ММЗ (Беларусь)"},
+  {id:117,name:"Головка цилиндров 240-1003012-А1 (ММЗ)",cat:"Dvigatel",art:"240-1003012-А1-М",qty:117,price:3353000,mfr:"ММЗ (Беларусь)"},
+  {id:118,name:"Термостат ТА107-1306100-04",cat:"Sovitish",art:"ТА107-1306100-04",qty:200,price:62000,mfr:"ММЗ (Беларусь)"},
+  {id:119,name:"Генератор тракторный Г9695.3701-1 (картон)",cat:"Elektr",art:"Г9695.3701-1К",qty:100,price:805000,mfr:"Радиоволна (Беларусь)"},
+  {id:120,name:"Генератор тракторный Г464.3701",cat:"Elektr",art:"Г464.3701",qty:171,price:677000,mfr:"Радиоволна (Беларусь)"},
+  {id:121,name:"Вентилятор центробежный ЭВ 12-1",cat:"Sovitish",art:"ЭВ-12-1",qty:92,price:512000,mfr:"Радиоволна (Беларусь)"},
+  {id:122,name:"Дизельный двигатель Д-245-2009 с ЗИП",cat:"Dvigatel",art:"Д-245-2009",qty:2,price:74533000,mfr:"ММЗ (Беларусь)"},
+  {id:123,name:"Дизельный двигатель Д-243-91М с ЗИП",cat:"Dvigatel",art:"Д-243-91М",qty:1,price:65029000,mfr:"ММЗ (Беларусь)"},
+  {id:124,name:"ДИСК СЦЕПЛЕНИЯ 80-1601090",cat:"Transmissiya",art:"80-1601090",qty:50,price:1493000,mfr:"Бобруйский завод"},
+  {id:125,name:"ДИСК СЦЕПЛЕНИЯ 85-1601090-В",cat:"Transmissiya",art:"85-1601090-В",qty:30,price:1905000,mfr:"Бобруйский завод"},
+  {id:126,name:"ДИСК ВЕДОМЫЙ СЦЕПЛЕНИЯ 85-1601130",cat:"Transmissiya",art:"85-1601130",qty:250,price:328000,mfr:"Бобруйский завод"},
+  {id:127,name:"ОТВОДКА СЦЕПЛЕНИЯ 50-1601180-А",cat:"Transmissiya",art:"50-1601180-А",qty:360,price:178000,mfr:"Бобруйский завод"},
+  {id:128,name:"ВАЛ МУФТЫ КПП 70-1721113-А",cat:"Transmissiya",art:"70-1721113-А",qty:100,price:333000,mfr:"Бобруйский завод"},
+  {id:129,name:"КОРОБКА РАЗДАТОЧНАЯ 72-1802020",cat:"Transmissiya",art:"72-1802020",qty:10,price:2685000,mfr:"Бобруйский завод"},
+  {id:130,name:"ОПОРА КАРДАННОГО ВАЛА 72-2209010-А",cat:"Transmissiya",art:"72-2209010-А",qty:30,price:1650000,mfr:"Бобруйский завод"},
+  {id:131,name:"ЦАПФА ПОВОРОТНАЯ 70-3001085",cat:"Transmissiya",art:"70-3001085",qty:20,price:696000,mfr:"Бобруйский завод"},
+  {id:132,name:"ДИСК ТОРМОЗНОЙ 587.85-3502040-01",cat:"Transmissiya",art:"587.85-3502040-01",qty:100,price:83000,mfr:"Бобруйский завод"},
+  {id:133,name:"Водяной радиатор 70У-1301.100",cat:"Sovitish",art:"70У-1301.100",qty:24,price:2626000,mfr:"ТАСПО-Ф"},
+  {id:134,name:"Водяной радиатор 1025Т-1301010",cat:"Sovitish",art:"1025Т-1301010",qty:5,price:5624000,mfr:"ТАСПО-Ф"},
+  {id:135,name:"Радиатор отопителя кабины 1522-8101060",cat:"Sovitish",art:"1522-8101060",qty:20,price:700000,mfr:"ТАСПО-Ф"},
+  {id:136,name:"Шестерня КПП 50-1701045",cat:"Transmissiya",art:"50-1701045",qty:420,price:204000,mfr:"Минский завод шестерен"},
+  {id:137,name:"Шестерня КПП 50-1701105-Б",cat:"Transmissiya",art:"50-1701105-Б",qty:440,price:330000,mfr:"Минский завод шестерен"},
+  {id:138,name:"Шестерня ведущая 50-1701196",cat:"Transmissiya",art:"50-1701196",qty:440,price:323000,mfr:"Минский завод шестерен"},
+  {id:139,name:"Шестерня z=34 70-1721025",cat:"Transmissiya",art:"70-1721025",qty:225,price:335000,mfr:"Минский завод шестерен"},
+  {id:140,name:"Насос водяной 240-1307010-А1",cat:"Sovitish",art:"240-1307010-А1",qty:30,price:620000,mfr:"БЗА (Беларусь)"},
+  {id:141,name:"Насос масляный 240-1403010 БЗА",cat:"Dvigatel",art:"240-1403010-Б",qty:100,price:444000,mfr:"БЗА (Беларусь)"},
+  {id:142,name:"Турбокомпрессор ТКР 6-00.01 БЗА",cat:"Dvigatel",art:"ТКР-6-00.01-Б",qty:50,price:1644000,mfr:"БЗА (Беларусь)"},
+  {id:143,name:"Турбокомпрессор ТКР 7-00.01 БЗА",cat:"Dvigatel",art:"ТКР-7-00.01-Б",qty:25,price:3101000,mfr:"БЗА (Беларусь)"},
+  {id:144,name:"Стартер 7402.3708 БАТЭ",cat:"Elektr",art:"7402.3708-Б",qty:50,price:1318000,mfr:"БАТЭ (Беларусь)"},
+  {id:145,name:"Стартер 74.3708 БАТЭ",cat:"Elektr",art:"74.3708-Б",qty:150,price:1318000,mfr:"БАТЭ (Беларусь)"},
+  {id:146,name:"Стартер 8232.3708 БАТЭ",cat:"Elektr",art:"8232.3708-Б",qty:250,price:855000,mfr:"БАТЭ (Беларусь)"},
+  {id:147,name:"Глушитель с усиленным патрубком 60-1205015",cat:"Sovitish",art:"60-1205015-А2",qty:297,price:356000,mfr:"РУПП Четырнадцать"},
+  {id:148,name:"ВАЛ сошки рулевого управления 70-3401050-Б",cat:"Transmissiya",art:"70-3401050-Б",qty:10,price:310000,mfr:"Бобруйский завод"},
+  {id:149,name:"Брус передний полурамы 70-2801120-А1",cat:"Zapchast",art:"70-2801120-А1",qty:200,price:1453000,mfr:"Витебский завод"},
+  {id:150,name:"Сателлит дифференциала 85-2403055-01",cat:"Transmissiya",art:"85-2403055-01",qty:192,price:173000,mfr:"Минский завод шестерен"},
+  {id:151,name:"Насос масляный 245-1307010-А1-11",cat:"Sovitish",art:"245-1307010-А1",qty:30,price:867000,mfr:"БЗА (Беларусь)"},
+  {id:152,name:"Насос масляный 245-1403010 БЗА",cat:"Dvigatel",art:"245-1403010-Б",qty:100,price:444000,mfr:"БЗА (Беларусь)"},
+  {id:153,name:"Компрессор А29.05.000",cat:"Dvigatel",art:"А29.05.000-БЗА",qty:10,price:1494000,mfr:"БЗА (Беларусь)"},
+  {id:154,name:"Стартер 8232.3708 (250шт серия)",cat:"Elektr",art:"8232.3708-250",qty:250,price:855000,mfr:"БАТЭ (Беларусь)"},
+  {id:155,name:"Глушитель усиленный 60-1205015 А*",cat:"Sovitish",art:"60-1205015-А",qty:900,price:264000,mfr:"РУПП Четырнадцать"},
+  {id:156,name:"ДИСК СЦЕПЛЕНИЯ 85-1601090-Б",cat:"Transmissiya",art:"85-1601090-Б",qty:4,price:1938000,mfr:"Бобруйский завод"},
+  {id:157,name:"Крыло заднее Н82 (кронштейн передний)",cat:"Zapchast",art:"Н82-кронш",qty:95,price:100000,mfr:"Новотех Автопром"},
+  {id:158,name:"Датчик уровня топлива ДУМП-21МИ",cat:"Elektr",art:"ДУМП-21МИ",qty:80,price:101000,mfr:"Экран (Беларусь)"},
+  {id:159,name:"Датчик уровня топлива ДУМП-22МИ",cat:"Elektr",art:"ДУМП-22МИ",qty:80,price:101000,mfr:"Экран (Беларусь)"},
+  {id:160,name:"Реле поворота 191.3759-01",cat:"Elektr",art:"191.3759-01",qty:40,price:277000,mfr:"Белагро Бел"},
+  {id:161,name:"Выключатель стартера ВПС-00.00",cat:"Elektr",art:"ВПС-00.00",qty:150,price:223000,mfr:"ВолМет"},
+  {id:162,name:"Тяга рулевая 1221-3003010",cat:"Transmissiya",art:"1221-3003010",qty:15,price:495000,mfr:"САЛЕО-Кобрин (Беларусь)"},
+  {id:163,name:"Гидроцилиндр 80-3405015-А",cat:"Gidravlika",art:"80-3405015-А",qty:8,price:710000,mfr:"САЛЕО-Кобрин (Беларусь)"},
+  {id:164,name:"Комплект колец 240-1004060-А",cat:"Dvigatel",art:"240-1004060-А",qty:45,price:48000,mfr:"Костромской завод (Россия)"},
+  {id:165,name:"Поршневой палец 240-1004042",cat:"Dvigatel",art:"240-1004042",qty:120,price:35000,mfr:"ММЗ (Беларусь)"},
+  {id:166,name:"Вкладыши шатунные 240-1004140-А2 (Н1)",cat:"Dvigatel",art:"240-1004140-Н1",qty:60,price:55000,mfr:"Димитровград (Россия)"},
+  {id:167,name:"Вкладыши коренные 240-1005140-А2 (Н1)",cat:"Dvigatel",art:"240-1005140-Н1",qty:40,price:85000,mfr:"Димитровград (Россия)"},
+  {id:168,name:"Прокладка головки цилиндров 240-1003011-А",cat:"Dvigatel",art:"240-1003011-А",qty:250,price:25000,mfr:"ММЗ (Беларусь)"},
+  {id:169,name:"Ремень вентилятора 11х10-1250",cat:"Sovitish",art:"11х10-1250",qty:300,price:12000,mfr:"Ярославль (Россия)"},
+  {id:170,name:"Ремень генератора 14х10-1280",cat:"Elektr",art:"14х10-1280",qty:150,price:15000,mfr:"Ярославль (Россия)"},
+  {id:171,name:"Фильтр масляный кувшин 240-1404010",cat:"Dvigatel",art:"240-1404010",qty:85,price:42000,mfr:"Реут (Беларусь)"},
+  {id:172,name:"Элемент фильтрующий топливный ЭТФ-3",cat:"Dvigatel",art:"ЭТФ-3",qty:500,price:8000,mfr:"ДИФА (Беларусь)"},
+  {id:173,name:"Элемент фильтрующий воздушный ЭФВ-3",cat:"Sovitish",art:"ЭФВ-3",qty:120,price:38000,mfr:"ДИФА (Беларусь)"},
+  {id:174,name:"Стеклоочиститель передний СЛ-230М",cat:"Elektr",art:"СЛ-230М",qty:35,price:185000,mfr:"КЗАЭ (Россия)"},
+  {id:175,name:"Мотор отопителя МЭ-237 (12В)",cat:"Sovitish",art:"МЭ-237",qty:40,price:145000,mfr:"КЗАЭ (Россия)"},
+  {id:176,name:"Амортизатор кабины 70-5001030",cat:"Zapchast",art:"70-5001030",qty:90,price:28000,mfr:"Белагро Бел"},
+  {id:177,name:"Зеркало заднего вида боковое 300х200",cat:"Zapchast",art:"ЗЗВ-300",qty:110,price:45000,mfr:"Пластмасс (Россия)"},
+  {id:178,name:"Палец рулевой гидроцилиндра 50-3405028-А",cat:"Gidravlika",art:"50-3405028-А",qty:75,price:32000,mfr:"МТЗ (Беларусь)"},
+  {id:179,name:"Муфта разрывная гидравлическая",cat:"Gidravlika",art:"МР-12",qty:210,price:48000,mfr:"Гидропривод (Россия)"},
+  {id:180,name:"Шланг высокого давления РВД 10-25-0650",cat:"Gidravlika",art:"РВД-0650",qty:180,price:25000,mfr:"Строймаш (Россия)"},
+  {id:181,name:"Шланг высокого давления РВД 10-25-1000",cat:"Gidravlika",art:"РВД-1000",qty:140,price:32000,mfr:"Строймаш (Россия)"},
+  {id:182,name:"Шланг высокого давления РВД 10-25-1250",cat:"Gidravlika",art:"РВД-1250",qty:115,price:37000,mfr:"Строймаш (Россия)"},
+  {id:183,name:"Шланг высокого давления РВД 10-25-1500",cat:"Gidravlika",art:"РВД-1500",qty:95,price:42000,mfr:"Строймаш (Россия)"},
+  {id:184,name:"Генератор тракторный Г466.3701",cat:"Elektr",art:"Г466.3701",qty:38,price:710000,mfr:"Радиоволна (Беларусь)"},
+  {id:185,name:"Датчик аварийного давления масла ММ-111Д",cat:"Elektr",art:"ММ-111Д",qty:240,price:18000,mfr:"Экран (Беларусь)"},
+  {id:186,name:"Датчик указателя температуры ТМ-100",cat:"Elektr",art:"ТМ-100",qty:195,price:22000,mfr:"Автоприбор (Россия)"},
+  {id:187,name:"Полоса навески задней 80-4605021",cat:"Transmissiya",art:"80-4605021",qty:18,price:245000,mfr:"МТЗ (Беларусь)"},
+  {id:188,name:"Вал силовой навески 70-4605025",cat:"Transmissiya",art:"70-4605025",qty:12,price:580000,mfr:"МТЗ (Беларусь)"},
+  {id:189,name:"Ремкомплект гидрораспределителя Р80 (полный)",cat:"Gidravlika",art:"РК-Р80-П",qty:350,price:15000,mfr:"Резинотехника (Россия)"},
+  {id:190,name:"Ремкомплект гидроцилиндра Ц-100 (с кольцами)",cat:"Gidravlika",art:"РК-Ц100",qty:400,price:12000,mfr:"Резинотехника (Россия)"},
+  {id:191,name:"Крышка бака топливного с ключом",cat:"Sovitish",art:"КБ-01",qty:65,price:45000,mfr:"Белагро Бел"},
+  {id:192,name:"Трос тахоспидометра 80-3802020",cat:"Elektr",art:"80-3802020",qty:80,price:28000,mfr:"Автоприбор (Россия)"},
+  {id:193,name:"Шестерня промежуточная КПП 50-1701082",cat:"Transmissiya",art:"50-1701082",qty:30,price:290000,mfr:"Минский завод шестерен"},
+  {id:194,name:"Вал первичный КПП 50-1701030-А",cat:"Transmissiya",art:"50-1701030-А",qty:22,price:610000,mfr:"Минский завод шестерен"},
+  {id:195,name:"Заклепка тормозной колодки 5х12",cat:"Transmissiya",art:"ЗК-5-12",qty:5000,price:300,mfr:"Россия"},
+  {id:196,name:"Лента тормозная ВОМ 70-4202090",cat:"Transmissiya",art:"70-4202090",qty:85,price:95000,mfr:"Бобруйский завод"},
+  {id:197,name:"Трубка сливная форсунки 240-1104160",cat:"Dvigatel",art:"240-1104160",qty:110,price:18000,mfr:"ММЗ (Беларусь)"},
+  {id:198,name:"Болт колеса заднего М20х1.5",cat:"Zapchast",art:"БЗ-20-15",qty:600,price:8000,mfr:"Красная Этна (Россия)"},
+  {id:199,name:"Гайка колеса заднего М20х1.5",cat:"Zapchast",art:"ГЗ-20-15",qty:600,price:4000,mfr:"Красная Этна (Россия)"},
+  {id:200,name:"Груз противовеса заднего колеса 70-3107015",cat:"Zapchast",art:"70-3107015",qty:16,price:380000,mfr:"МТЗ (Беларусь)"}
+]
+
+// ✅ Asosiy state o'zgaruvchilari (eskirgan/buzilgan blok o'rniga)
+let products = [...DB];
+let nextId = Math.max(...DB.map(p => p.id)) + 1;
+let cart = [];
+let curModal = null;
+let qty = 1;
+let activeCat = 'all';
+let activePrMin = 0;
+let activePrMax = 999999999;
+let sortMode = 'def';
+
+  // Jadvalni yangilash funksiyasi
+  function renderAdminTable() {
+    const tbody = document.getElementById("adminTbody");
+    tbody.innerHTML = "";
+
+    // Joriy sahifaga mos qatorlar indeksini hisoblash
+    const startIndex = (currentPage - 1) * rowsPerPage;
+    const endIndex = startIndex + rowsPerPage;
+    const pageItems = filteredProducts.slice(startIndex, endIndex);
+
+    if (pageItems.length === 0) {
+      tbody.innerHTML = `<tr><td colspan="8" style="text-align:center; color:#6c757d; padding:20px;">Hech qanday mahsulot topilmadi</td></tr>`;
+      renderPagination(0);
+      return;
+    }
+
+    // Ma'lumotlarni render qilish
+    pageItems.forEach((prod, index) => {
+      const row = `
+        <tr>
+          <td>${startIndex + index + 1}</td>
+          <td><strong>${prod.name}</strong></td>
+          <td><code>${prod.sku}</code></td>
+          <td>${prod.category}</td>
+          <td>${prod.price} so'm</td>
+          <td><span style="color: ${prod.stock > 10 ? '#28a745' : '#dc3545'}; font-weight:bold;">${prod.stock} dona</span></td>
+          <td>${prod.brand}</td>
+          <td><button class="btn-action">O'zgartirish</button></td>
+        </tr>
+      `;
+      tbody.insertAdjacentHTML('beforeend', row);
+    });
+
+    renderPagination(filteredProducts.length);
+  }
+
+  // Sahifalash (Pagination) tugmalarini chizish
+  function renderPagination(totalItems) {
+    const paginationContainer = document.getElementById("adminPagination");
+    paginationContainer.innerHTML = "";
+
+    const totalPages = Math.ceil(totalItems / rowsPerPage);
+    if (totalPages <= 1) return; // Agar faqat 1 sahifalik ma'lumot bo'lsa, tugmalar chiqmaydi
+
+    // "Orqaga" tugmasi
+    const prevDisabled = currentPage === 1 ? 'disabled' : '';
+    paginationContainer.insertAdjacentHTML('beforeend', `<button ${prevDisabled} onclick="changePage(${currentPage - 1})">Orqaga</button>`);
+
+    // Sahifa raqamlari tugmalari
+    for (let i = 1; i <= totalPages; i++) {
+      const activeClass = currentPage === i ? 'active' : '';
+      paginationContainer.insertAdjacentHTML('beforeend', `<button class="${activeClass}" onclick="changePage(${i})">${i}</button>`);
+    }
+
+    // "Oldinga" tugmasi
+    const nextDisabled = currentPage === totalPages ? 'disabled' : '';
+    paginationContainer.insertAdjacentHTML('beforeend', `<button ${nextDisabled} onclick="changePage(${currentPage + 1})">Oldinga</button>`);
+  }
+
+  // Sahifani o'zgartirish
+  function changePage(page) {
+    currentPage = page;
+    renderAdminTable();
+  }
+
+  // Qidiruv mantiqi (input hodisasi orqali ishlaydi)
+  function adminFilter(value) {
+    const searchWord = value.toLowerCase().trim();
+
+    filteredProducts = allProducts.filter(prod => 
+      prod.name.toLowerCase().includes(searchWord) || 
+      prod.sku.toLowerCase().includes(searchWord)
+    );
+
+    currentPage = 1; // Qidiruv amalga oshganda doim 1-sahifaga qaytaradi
+    renderAdminTable();
+  }
+
+  // Sahifa ilk bor yuklanganda ishga tushadi
+  document.addEventListener("DOMContentLoaded", () => {
+    renderAdminTable();
+  });
+
+// ═══════════════════════ EMOJI MAP ═══════════════════
+const EM = {
+  'Dvigatel':'⚙️','Elektr':'⚡','Электр':'⚡','Gidravlika':'💧',
+  'Transmissiya':'🔩','Sovitish':'🌡️','Zapchast':'🔧'
+};
+const CATN = {
+  'dvigatel':'Dvigatel qismlari','transmissiya':'Transmissiya',
+  'gidravlika':'Gidravlika tizimi','elektr':'Elektr jihozlari',
+  'sovitish':'Sovitish tizimi','zapchast':"Qo'shimcha",'all':'Barcha mahsulotlar'
+};
+
+function getEmoji(cat){return EM[cat]||'📦';}
+function normCat(c){
+  const m={'электр':'elektr','dvigatel':'dvigatel','elektr':'elektr','gidravlika':'gidravlika','transmissiya':'transmissiya','sovitish':'sovitish','zapchast':'zapchast'};
+  return m[c.toLowerCase()]||c.toLowerCase();
+}
+
+// ═══════════════════════ INIT ═══════════════════════
+window.onload = function(){
+  updateCounts();
+  buildMfrList();
+  renderProducts(getFiltered());
+  renderAdminStats();
+  renderAdminTable();
+};
+
+function getFiltered(){
+  let list = products.filter(p=>{
+    const nc = normCat(p.cat);
+    const catOk = activeCat==='all'||nc===activeCat;
+    const prOk = p.price>=activePrMin && p.price<=activePrMax;
+    return catOk && prOk;
+  });
+  if(sortMode==='asc') list.sort((a,b)=>a.price-b.price);
+  else if(sortMode==='desc') list.sort((a,b)=>b.price-a.price);
+  else if(sortMode==='az') list.sort((a,b)=>a.name.localeCompare(b.name));
+  else if(sortMode==='za') list.sort((a,b)=>b.name.localeCompare(a.name));
+  return list;
+}
+
+function updateCounts(){
+  const cats=['all','dvigatel','transmissiya','gidravlika','elektr','sovitish','zapchast'];
+  cats.forEach(c=>{
+    const n = c==='all'?products.length:products.filter(p=>normCat(p.cat)===c).length;
+    const el1=document.getElementById('cnt-'+c);
+    const el2=document.getElementById('sf-'+c);
+    if(el1)el1.textContent=n;
+    if(el2)el2.textContent=n;
+  });
+  // Price counts
+  document.getElementById('pc1').textContent=products.filter(p=>p.price<50000).length;
+  document.getElementById('pc2').textContent=products.filter(p=>p.price>=50000&&p.price<500000).length;
+  document.getElementById('pc3').textContent=products.filter(p=>p.price>=500000&&p.price<2000000).length;
+  document.getElementById('pc4').textContent=products.filter(p=>p.price>=2000000).length;
+  document.getElementById('stat-total').textContent=products.length;
+}
+
+function buildMfrList(){
+  const mfrs=[...new Set(products.map(p=>p.mfr))].sort();
+  const el=document.getElementById('mfrList');
+  el.innerHTML=mfrs.slice(0,8).map(m=>`
+    <div class="fitem" onclick="filterMfr('${m.replace(/'/g,"\\'")}',this)" style="font-size:12px">
+      🏭 ${m.split('(')[0].trim()} <span class="fcnt">${products.filter(p=>p.mfr===m).length}</span>
+    </div>
+  `).join('');
+}
+
+// ═══════════════════════ RENDER PRODUCTS ═══════════════════════
+function renderProducts(list){
+  const grid = document.getElementById('prodGrid');
+  document.getElementById('phCount').textContent=`(${list.length} ta)`;
+  document.getElementById('phTitle').innerHTML=`${CATN[activeCat]||'Barcha mahsulotlar'} <span id="phCount">(${list.length} ta)</span>`;
+  if(!list.length){
+    grid.innerHTML=`<div class="empty" style="grid-column:1/-1"><div class="ei">🔍</div><p>Mahsulot topilmadi</p></div>`;
+    return;
+  }
+  grid.innerHTML=list.map(p=>`
+    <div class="pcard" onclick="openModal(${p.id})">
+      <div class="cbadge">Original</div>
+      <div class="cimg">${getEmoji(p.cat)}</div>
+      <div class="cbody">
+        <div class="cart">ART: ${p.art}</div>
+        <div class="cstock">
+          <div class="dot ${p.qty>0?'g':'o'}"></div>
+          ${p.qty>0?'Omborda: '+p.qty+' dona':'Buyurtma ostida'}
+        </div>
+        <div class="cname">${p.name}</div>
+        <div class="cmfr">📦 ${p.mfr}</div>
+        <div class="cfoot">
+          <div class="cprice">${fmt(p.price)} <span>so'm</span></div>
+          <button class="addbtn" id="ab-${p.id}" onclick="event.stopPropagation();addCart(${p.id})">
+            <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ═══════════════════════ FILTERS ═══════════════════════
+function filterCat(cat, el){
+  activeCat=cat; activePrMin=0; activePrMax=999999999;
+  document.querySelectorAll('.nlink').forEach(l=>l.classList.remove('active'));
+  document.querySelectorAll('.fitem').forEach(f=>f.classList.remove('active'));
+  document.querySelectorAll('[id^="pr"]').forEach(f=>f.classList.remove('active'));
+  if(el){el.classList.add('active');}
+  renderProducts(getFiltered());
+  document.getElementById('shopSection').scrollIntoView({behavior:'smooth',block:'start'});
+  return false;
+}
+
+function filterPrice(mn,mx,el){
+  activePrMin=mn; activePrMax=mx;
+  document.querySelectorAll('[id^="pr"]').forEach(f=>f.classList.remove('active'));
+  el.classList.add('active');
+  renderProducts(getFiltered());
+}
+
+function filterMfr(mfr,el){
+  document.querySelectorAll('#mfrList .fitem').forEach(f=>f.classList.remove('active'));
+  el.classList.add('active');
+  const list=products.filter(p=>p.mfr===mfr);
+  const grid=document.getElementById('prodGrid');
+  document.getElementById('phCount').textContent=`(${list.length} ta)`;
+  document.getElementById('phTitle').innerHTML=`${mfr} <span id="phCount">(${list.length} ta)</span>`;
+  grid.innerHTML=list.map(p=>`
+    <div class="pcard" onclick="openModal(${p.id})">
+      <div class="cbadge">Original</div>
+      <div class="cimg">${getEmoji(p.cat)}</div>
+      <div class="cbody">
+        <div class="cart">ART: ${p.art}</div>
+        <div class="cstock"><div class="dot ${p.qty>0?'g':'o'}"></div>${p.qty>0?'Omborda: '+p.qty+' dona':'Buyurtma ostida'}</div>
+        <div class="cname">${p.name}</div>
+        <div class="cmfr">📦 ${p.mfr}</div>
+        <div class="cfoot">
+          <div class="cprice">${fmt(p.price)} <span>so'm</span></div>
+          <button class="addbtn" onclick="event.stopPropagation();addCart(${p.id})">
+            <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function sortProds(v){sortMode=v;renderProducts(getFiltered());}
+
+// ═══════════════════════ SEARCH ═══════════════════════
+let dropTimer;
+function doSearch(q){
+  if(!q.trim()){hideDrop();return;}
+  const res=products.filter(p=>
+    p.name.toLowerCase().includes(q.toLowerCase())||
+    p.art.toLowerCase().includes(q.toLowerCase())
+  ).slice(0,6);
+  const drop=document.getElementById('srchDrop');
+  if(!res.length){
+    drop.innerHTML=`<div class="sd-item"><div class="sd-info"><strong>Topilmadi</strong><span>Boshqa so'z yoki artikul kiriting</span></div></div>`;
+    drop.classList.add('open');return;
+  }
+  drop.innerHTML=res.map(p=>`
+    <div class="sd-item" onmousedown="openModal(${p.id})">
+      <div class="sd-emoji">${getEmoji(p.cat)}</div>
+      <div class="sd-info"><strong>${p.name}</strong><span>${p.art}</span></div>
+      <div class="sd-price">${fmt(p.price)} so'm</div>
+    </div>
+  `).join('');
+  drop.classList.add('open');
+}
+function openDrop(){clearTimeout(dropTimer);const d=document.getElementById('srchDrop');if(d.innerHTML)d.classList.add('open');}
+function hideDrop(){dropTimer=setTimeout(()=>document.getElementById('srchDrop').classList.remove('open'),200);}
+function closeDrop(){hideDrop();}
+
+// ═══════════════════════ MODAL ═══════════════════════
+function openModal(id){
+  const p=products.find(x=>x.id===id); if(!p)return;
+  curModal=p; qty=1;
+  document.getElementById('mTitle').textContent=p.name;
+  document.getElementById('mImg').textContent=getEmoji(p.cat);
+  document.getElementById('mArt').textContent=p.art;
+  document.getElementById('mMfr').textContent=p.mfr;
+  document.getElementById('mCat').textContent=CATN[normCat(p.cat)]||p.cat;
+  document.getElementById('mPrice').innerHTML=fmt(p.price)+' <span>so\'m</span>';
+  document.getElementById('qtyDisp').textContent=1;
+  // Related items
+  const same=products.filter(x=>normCat(x.cat)===normCat(p.cat)&&x.id!==p.id).slice(0,3);
+  const bs=document.getElementById('bundleSec');
+  if(same.length){
+    document.getElementById('bundleItems').innerHTML=same.map(b=>`
+      <div class="bitem">
+        <input type="checkbox">
+        <div class="bi-info"><div class="bi-name">${b.name}</div><div class="bi-art">${b.art}</div></div>
+        <div class="bi-price">${fmt(b.price)} so'm</div>
+      </div>
+    `).join('');
+    bs.style.display='block';
+  }else{bs.style.display='none';}
+  document.getElementById('prodModal').classList.add('open');
+}
+
+function closeModal(id){document.getElementById(id).classList.remove('open');}
+function chgQty(d){qty=Math.max(1,qty+d);document.getElementById('qtyDisp').textContent=qty;}
+function addFromModal(){if(curModal){addCart(curModal.id,qty);}closeModal('prodModal');}
+document.getElementById('prodModal').onclick=function(e){if(e.target===this)closeModal('prodModal');};
+document.getElementById('orderModal').onclick=function(e){if(e.target===this)closeModal('orderModal');};
+
+// ═══════════════════════ CART ═══════════════════════
+function addCart(id,count=1){
+  const p=products.find(x=>x.id===id);if(!p)return;
+  const ex=cart.find(x=>x.id===id);
+  if(ex)ex.qty+=count; else cart.push({...p,qty:count});
+  syncCart();
+  toast(`✅ ${p.name.substring(0,30)}... savatchaga qo'shildi`);
+  const btn=document.getElementById('ab-'+id);
+  if(btn){btn.classList.add('added');setTimeout(()=>btn.classList.remove('added'),1500);}
+}
+
+
+function removeCart(id){cart=cart.filter(x=>x.id!==id);syncCart();}
+function syncCart(){
+  const total=cart.reduce((s,x)=>s+x.qty,0);
+  document.getElementById('cartBadge').textContent=total;
+  document.getElementById('cartTotal').textContent=fmt(cart.reduce((s,x)=>s+x.price*x.qty,0))+' so\'m';
+  const el=document.getElementById('cartItems');
+  if(!cart.length){el.innerHTML=`<div class="empty"><div class="ei">🛒</div><p>Savatcha bo'sh</p></div>`;return;}
+  el.innerHTML=cart.map(x=>`
+    <div class="citem">
+      <div class="ci-img">${getEmoji(x.cat)}</div>
+      <div class="ci-info">
+        <div class="ci-name">${x.name}</div>
+        <div class="ci-art">${x.art} · ${x.qty} dona</div>
+      </div>
+      <div class="ci-right">
+        <div class="ci-price">${fmt(x.price*x.qty)} so'm</div>
+        <button class="ci-rm" onclick="removeCart(${x.id})">✕</button>
+      </div>
+    </div>
+  `).join('');
+}
+function openCart(){document.getElementById('cartSide').classList.add('open');document.getElementById('cartOv').classList.add('open');}
+function closeCart(){document.getElementById('cartSide').classList.remove('open');document.getElementById('cartOv').classList.remove('open');}
+
+// ═══════════════════════ ORDER (CSRF helper) ═══════════════════════
+function getCookie(name){
+  let v=null;
+  if(document.cookie && document.cookie!==''){
+    const cookies=document.cookie.split(';');
+    for(let c of cookies){
+      c=c.trim();
+      if(c.startsWith(name+'=')){v=decodeURIComponent(c.substring(name.length+1));break;}
+    }
+  }
+  return v;
+}
+
+function openOrder(){
+  closeModal('prodModal');
+  document.getElementById('orderModal').classList.add('open');
+  document.getElementById('orderBody').innerHTML=getOrderForm();
+}
+function getOrderForm(){
+  return `<form class="oform" id="liveOrderForm">
+    <input type="hidden" name="csrfmiddlewaretoken" value="${getCookie('csrftoken')||''}">
+    <input type="hidden" name="cart_data" id="oCartData" value='${JSON.stringify(cart).replace(/'/g,"&#39;")}'>
+    <div class="frow">
+      <div class="fgrp"><label>Ismingiz *</label><input type="text" id="oName" name="full_name" required placeholder="Abdullayev Jasur"></div>
+      <div class="fgrp"><label>Telefon *</label><input type="tel" id="oPhone" name="phone" required placeholder="+998 90 123-45-67"></div>
+    </div>
+    <div class="fgrp"><label>Yetkazib berish manzili</label><input type="text" id="oAddr" name="address" placeholder="Viloyat, tuman, mahalla, uy"></div>
+    <div class="fgrp"><label>Izoh (ixtiyoriy)</label><textarea id="oNote" name="note" placeholder="Artikul, model yoki boshqa ma'lumot..."></textarea></div>
+    <div class="fgrp"><label>To'lov usuli</label>
+      <div class="pay-opts">
+        <label class="popt"><input type="radio" name="pay" value="click" checked> 💳 Click</label>
+        <label class="popt"><input type="radio" name="pay" value="payme"> 💚 Payme</label>
+        <label class="popt"><input type="radio" name="pay" value="naqd"> 💵 Naqd</label>
+        <label class="popt"><input type="radio" name="pay" value="bank"> 🏦 Bank o'tkazma</label>
+      </div>
+    </div>
+    <button type="button" class="btn-main" style="width:100%;justify-content:center;height:46px" onclick="submitOrder()">✅ Buyurtmani tasdiqlash</button>
+  </form>`;
+}
+function submitOrder(){
+  const name=document.getElementById('oName')?.value?.trim();
+  const phone=document.getElementById('oPhone')?.value?.trim();
+  if(!name||!phone){toast('⚠️ Ism va telefon raqam kiriting!');return;}
+  const items = cart.length ? cart : (curModal ? [{...curModal, qty}] : []);
+  if(!items.length){toast('Savatcha bo\\'sh. Avval mahsulot tanlang!');return;}
+
+  const providerValue = document.querySelector('input[name="pay"]:checked')?.value || 'payme';
+  const providerMap = {payme:'PAYME', click:'CLICK', naqd:'PAYME', bank:'PAYME'};
+  const amount = items.reduce((sum,item)=>sum + Number(item.price || 0) * Number(item.qty || 1), 0);
+  const productName = items.map(item=>`${item.name} (${item.qty || 1} dona)`).join(', ');
+
+  if(providerValue === 'naqd' || providerValue === 'bank'){
+    toast('Buyurtma qabul qilindi! Operator siz bilan bog\\'lanadi.');
+    cart=[];
+    syncCart();
+    closeModal('orderModal');
+    return;
+  }
+
+  fetch('/api/anonymous-payment/', {
+    method:'POST',
+    headers:{
+      'Content-Type':'application/json',
+      'X-CSRFToken':getCookie('csrftoken') || ''
+    },
+    body:JSON.stringify({
+      product_name:productName,
+      amount:amount,
+      provider:providerMap[providerValue] || 'PAYME'
+    })
+  })
+  .then(async response=>{
+    const data = await response.json().catch(()=>({detail:'Serverdan noto\\'g\\'ri javob keldi.'}));
+    if(!response.ok){throw new Error(data.detail || 'Buyurtma yaratilmadi.');}
+    return data;
+  })
+  .then(data=>{
+    if(data.pay_url){
+      window.location.href=data.pay_url;
+      return;
+    }
+    toast('Buyurtma qabul qilindi!');
+    closeModal('orderModal');
+  })
+  .catch(err=>toast(err.message || 'Server bilan aloqa bo\\'lmadi.'));
+}
+// ═══════════════════════ ADMIN ═══════════════════════
+function openAdmin(){document.getElementById('adminPanel').classList.add('open');renderAdminStats();renderAdminTable();}
+function closeAdmin(){document.getElementById('adminPanel').classList.remove('open');}
+function showAdTab(tab,el){
+  document.querySelectorAll('.admin-section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.atab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('adSec-'+tab).classList.add('active');
+  el.classList.add('active');
+}
+function renderAdminStats(){
+  const total=products.length;
+  const totalVal=products.reduce((s,p)=>s+p.price*p.qty,0);
+  const inStock=products.filter(p=>p.qty>0).length;
+  const cats=[...new Set(products.map(p=>normCat(p.cat)))].length;
+  document.getElementById('adminStatsGrid').innerHTML=`
+    <div class="astat blue"><strong>${total}</strong><span>Jami mahsulot</span></div>
+    <div class="astat orange"><strong>${fmt(totalVal)}</strong><span>Ombor qiymati (so'm)</span></div>
+    <div class="astat green"><strong>${inStock}</strong><span>Omborda bor</span></div>
+    <div class="astat dark"><strong>${cats}</strong><span>Kategoriyalar</span></div>
+  `;
+  const catData={};
+  products.forEach(p=>{const c=normCat(p.cat);catData[c]=(catData[c]||0)+1;});
+  document.getElementById('catStatsGrid').innerHTML=Object.entries(catData).map(([c,n])=>`
+    <div class="astat"><strong>${n}</strong><span>${CATN[c]||c}</span></div>
+  `).join('');
+}
+function renderAdminTable(filter=''){
+  const list=filter?products.filter(p=>p.name.toLowerCase().includes(filter.toLowerCase())||p.art.toLowerCase().includes(filter.toLowerCase())):products;
+  document.getElementById('adminTbody').innerHTML=list.map(p=>`
+    <tr>
+      <td style="color:var(--muted);font-size:11px">${p.id}</td>
+      <td style="max-width:200px;font-size:12px">${p.name}</td>
+      <td class="art-col">${p.art}</td>
+      <td><span class="cat-badge cat-${p.cat}">${p.cat}</span></td>
+      <td class="price-col">${fmt(p.price)}</td>
+      <td>${p.qty}</td>
+      <td style="font-size:11px;color:var(--muted)">${p.mfr}</td>
+      <td>
+        <button class="edit-btn" onclick="startEdit(${p.id})">✏️</button>
+        <button class="del-btn" onclick="delProd(${p.id})">🗑️</button>
+      </td>
+    </tr>
+  `).join('');
+}
+function adminFilter(q){renderAdminTable(q);}
+function addProduct(){
+  const name=document.getElementById('af-name').value.trim();
+  const art=document.getElementById('af-art').value.trim();
+  const cat=document.getElementById('af-cat').value;
+  const price=parseInt(document.getElementById('af-price').value)||0;
+  const qty=parseInt(document.getElementById('af-qty').value)||0;
+  const mfr=document.getElementById('af-mfr').value.trim()||'Noma\'lum';
+  if(!name||!art||!price){toast('⚠️ Nomi, artikul va narxni kiriting!');return;}
+  const newP={id:nextId++,name,art,cat,price,qty,mfr};
+  products.push(newP);
+  updateCounts();buildMfrList();renderProducts(getFiltered());
+  renderAdminStats();renderAdminTable();
+  clearAddForm();
+  toast(`✅ "${name}" qo'shildi!`);
+}
+function clearAddForm(){
+  ['af-name','af-art','af-price','af-qty','af-mfr'].forEach(id=>{document.getElementById(id).value='';});
+}
+function startEdit(id){
+  const p=products.find(x=>x.id===id);if(!p)return;
+  document.getElementById('ef-id').value=id;
+  document.getElementById('ef-name').value=p.name;
+  document.getElementById('ef-art').value=p.art;
+  document.getElementById('ef-cat').value=p.cat;
+  document.getElementById('ef-price').value=p.price;
+  document.getElementById('ef-qty').value=p.qty;
+  document.getElementById('ef-mfr').value=p.mfr;
+  document.getElementById('editForm').style.display='block';
+  showAdTab('add',document.querySelectorAll('.atab')[2]);
+  document.getElementById('editForm').scrollIntoView({behavior:'smooth'});
+}
+function saveEdit(){
+  const id=parseInt(document.getElementById('ef-id').value);
+  const p=products.find(x=>x.id===id);if(!p)return;
+  p.name=document.getElementById('ef-name').value.trim();
+  p.art=document.getElementById('ef-art').value.trim();
+  p.cat=document.getElementById('ef-cat').value;
+  p.price=parseInt(document.getElementById('ef-price').value)||p.price;
+  p.qty=parseInt(document.getElementById('ef-qty').value)||0;
+  p.mfr=document.getElementById('ef-mfr').value.trim()||p.mfr;
+  cancelEdit();
+  updateCounts();buildMfrList();renderProducts(getFiltered());renderAdminTable();renderAdminStats();
+  toast(`✅ Mahsulot yangilandi!`);
+}
+function cancelEdit(){document.getElementById('editForm').style.display='none';}
+function delProd(id){
+  const p=products.find(x=>x.id===id);
+  if(!p)return;
+  if(!confirm(`"${p.name}" mahsulotini o'chirasizmi?`))return;
+  products=products.filter(x=>x.id!==id);
+  updateCounts();buildMfrList();renderProducts(getFiltered());renderAdminTable();renderAdminStats();
+  toast(`🗑️ Mahsulot o'chirildi`);
+}
+
+// ═══════════════════════ HELPERS ═══════════════════════
+function fmt(n){return Number(n).toLocaleString('uz');}
+function toast(msg){
+  const t=document.getElementById('toast');
+  document.getElementById('toastMsg').textContent=msg;
+  t.classList.add('show');
+  clearTimeout(t._t);
+  t._t=setTimeout(()=>t.classList.remove('show'),3500);
+}
+function viewShop(){window.scrollTo({top:0,behavior:'smooth'});}
+</script>
+</body>
+</html>

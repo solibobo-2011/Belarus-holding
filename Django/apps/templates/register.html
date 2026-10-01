@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ro'yxatdan o'tish - Belarus Holding</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background-color: #0b132b;
+            background-image: 
+                radial-gradient(at 10% 20%, rgba(27, 73, 101, 0.4) 0px, transparent 50%),
+                radial-gradient(at 90% 80%, rgba(0, 70, 155, 0.3) 0px, transparent 50%),
+                radial-gradient(#1c2541 15%, transparent 15%);
+            background-size: 100% 100%, 100% 100%, 30px 30px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+        .register-card {
+            background: rgba(255, 255, 255, 0.98);
+            width: 100%;
+            max-width: 450px;
+            padding: 40px 35px;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .logo-area {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .logo-title {
+            color: #00469b;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .logo-title span {
+            color: #ff7a00;
+        }
+        .form-group {
+            margin-bottom: 16px;
+            position: relative;
+            text-align: left;
+        }
+        .form-group i {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #8d99ae;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        .form-control {
+            width: 100%;
+            padding: 14px 16px 14px 48px;
+            border: 1.5px solid #edf2f4;
+            background: #f8f9fa;
+            border-radius: 12px;
+            font-size: 14px;
+            color: #2b2d42;
+            outline: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        .form-control:focus {
+            border-color: #00469b;
+            background: #fff;
+            box-shadow: 0 0 0 4px rgba(0, 70, 155, 0.1);
+        }
+        .form-control:focus + i {
+            color: #00469b;
+        }
+        .terms {
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-align: left;
+        }
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 14px 20px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            margin-bottom: 12px;
+        }
+        .btn-register {
+            background: #ff7a00;
+            color: white;
+            box-shadow: 0 4px 12px rgba(255, 122, 0, 0.2);
+        }
+        .btn-register:hover {
+            background: #e06b00;
+            transform: translateY(-1px);
+        }
+        .btn-google {
+            background: #ffffff;
+            color: #4a5568;
+            border: 1.5px solid #e2e8f0;
+        }
+        .btn-google:hover {
+            background: #f7fafc;
+            border-color: #cbd5e0;
+            transform: translateY(-1px);
+        }
+        .btn-google i {
+            color: #ea4335;
+            font-size: 16px;
+        }
+        .text-divider {
+            margin: 20px 0;
+            color: #a0aec0;
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .text-divider::before, .text-divider::after {
+            content: "";
+            flex: 1;
+            background: #edf2f4;
+            height: 1px;
+            margin: 0 10px;
+        }
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+        .login-link a {
+            color: #00469b;
+            text-decoration: none;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="register-card">
+        <div class="logo-area">
+            <h1 class="logo-title">BELARUS <span>HOLDING</span></h1>
+            <p style="color: #666; font-size: 13px; margin-top: 5px;">Yangi hisob yaratish</p>
+        </div>
+        
+        <form action="/register/" method="POST" id="registerForm">
+            {% csrf_token %}
+            
+            <div class="form-group">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" name="fullname" class="form-control" placeholder="To'liq ismingiz" required>
+            </div>
+
+            <div class="form-group">
+                <i class="fa-solid fa-envelope"></i>
+                <input type="email" name="email" class="form-control" placeholder="Email manzilingiz" required>
+            </div>
+
+            <div class="form-group">
+                <i class="fa-solid fa-phone"></i>
+                <input type="tel" name="phone" class="form-control" placeholder="+998 (90) 123-4567" required>
+            </div>
+            
+            <div class="form-group">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" name="password" class="form-control" placeholder="Parol kiriting" required>
+            </div>
+
+            <div class="form-group">
+                <i class="fa-solid fa-lock-open"></i>
+                <input type="password" name="confirm_password" class="form-control" placeholder="Parolni tasdiqlang" required>
+            </div>
+            
+            <div class="terms">
+                <input type="checkbox" id="agree" required>
+                <label for="agree">Foydalanish shartlariga roziman</label>
+            </div>
+            
+            <button type="submit" class="btn btn-register">
+                <i class="fa-solid fa-user-plus"></i> Ro'yxatdan o'tish
+            </button>
+        </form> <div class="text-divider">yoki</div>
+
+        <button type="button" onclick="googleBilanKirish()" class="btn btn-google">
+            <i class="fa-brands fa-google"></i> Google hisobi bilan kirish
+        </button>
+
+        <div class="login-link">
+            Sizda allaqachon akkaunt bormi? <a href="login.html">Kirish</a>
+        </div>
+    </div>
+
+    <script>
+        // Google hisoblar oynasini ochish funksiyasi
+        function googleBilanKirish() {
+            window.open(
+                "https://accounts.google.com/v3/signin/identifier?flowName=GlifWebSignIn&flowEntry=ServiceLogin", 
+                "Google Login", 
+                "width=500,height=600,left=350,top=100"
+            );
+        }
+    </script>
+
+</body>
+</html>
