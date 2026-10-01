@@ -4,1180 +4,993 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Belarus Holding — Traktor Ehtiyot Qismlari</title>
+<meta name="theme-color" content="#1D4ED8">
+<meta name="description" content="Belarus Holding — MTZ traktorlari uchun original ehtiyot qismlar onlayn do'koni. Katalog, savatcha, Click va Payme orqali to'lov, O'zbekiston bo'ylab yetkazib berish.">
+<title>Belarus Holding Market — Traktor ehtiyot qismlari onlayn do'koni</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --white:#fff;--bg:#F8F9FA;--card:#fff;--dark:#1E293B;--muted:#64748B;--light:#94A3B8;
-  --orange:#F97316;--blue:#1D4ED8;--blue-l:#EFF6FF;--green:#16A34A;
-  --border:#E2E8F0;--r:12px;--r-sm:8px;
-  --sh-sm:0 1px 3px rgba(0,0,0,.06);--sh-md:0 4px 16px rgba(0,0,0,.08);--sh-lg:0 12px 40px rgba(0,0,0,.14);
+  --primary:#1D4ED8;--primary-d:#1E40AF;--primary-l:#EEF3FF;
+  --accent:#F97316;--accent-d:#EA580C;--accent-l:#FFF4EB;
+  --success:#16A34A;--danger:#DC2626;
+  --text:#111827;--muted:#6B7280;--light:#9CA3AF;
+  --bg:#F4F5F7;--card:#FFFFFF;--border:#E5E7EB;--surface:#F9FAFB;
+  --r-lg:20px;--r:14px;--r-sm:10px;
+  --sh-sm:0 1px 2px rgba(17,24,39,.05);
+  --sh-md:0 6px 20px rgba(17,24,39,.08);
+  --sh-lg:0 20px 50px rgba(17,24,39,.16);
+  --wrap:1280px;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Manrope',sans-serif;background:var(--bg);color:var(--dark);font-size:15px;line-height:1.6;}
+html{scroll-behavior:smooth;}
+body{font-family:'Manrope',system-ui,sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;}
 a{text-decoration:none;color:inherit;}
-button{cursor:pointer;font-family:'Manrope',sans-serif;}
+button{cursor:pointer;font-family:inherit;border:none;background:none;color:inherit;}
+img{display:block;max-width:100%;}
+svg{flex-shrink:0;}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px;}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;}
+.ico{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;}
 
-/* TOPBAR */
-.topbar{background:var(--dark);color:#94A3B8;font-size:12px;padding:7px 0;}
-.topbar .inner{max-width:1300px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:4px;}
-.topbar a{color:#94A3B8;transition:color .2s;}
-.topbar a:hover{color:var(--orange);}
+/* ============ TOP STRIP ============ */
+.strip{background:var(--card);border-bottom:1px solid var(--border);font-size:13px;color:var(--muted);}
+.strip .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:38px;}
+.strip-l,.strip-r{display:flex;align-items:center;gap:20px;}
+.strip a{transition:color .15s;display:inline-flex;align-items:center;gap:6px;}
+.strip a:hover{color:var(--primary);}
+.strip .ico{width:15px;height:15px;}
+.strip strong{color:var(--text);font-weight:700;}
+.strip-badge{background:var(--accent-l);color:var(--accent-d);font-weight:700;padding:3px 10px;border-radius:999px;font-size:12px;}
 
-/* HEADER */
-header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:200;box-shadow:0 2px 12px rgba(0,0,0,.06);}
-.hdr{max-width:1300px;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:24px;height:68px;}
-
-/* LOGO */
-.logo{display:flex;align-items:center;gap:10px;}
-.logo-ico{width:42px;height:42px;background:var(--blue);border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:20px;color:#fff;letter-spacing:1px;flex-shrink:0;}
-.logo-txt strong{display:block;font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:1px;line-height:1.1;}
-.logo-txt span{font-size:11px;color:var(--muted);font-weight:500;}
-
-/* SEARCH */
-.srch{position:relative;}
-.srch input{width:100%;height:44px;border:2px solid var(--border);border-radius:10px;padding:0 48px 0 16px;font-family:'Manrope',sans-serif;font-size:14px;background:var(--bg);outline:none;transition:border-color .2s,background .2s;}
-.srch input:focus{border-color:var(--blue);background:#fff;}
-.srch input::placeholder{color:var(--light);}
-.srch-btn{position:absolute;right:6px;top:50%;transform:translateY(-50%);width:32px;height:32px;border-radius:7px;background:var(--blue);border:none;display:flex;align-items:center;justify-content:center;transition:background .2s;}
-.srch-btn:hover{background:#1e40af;}
-.srch-btn svg{width:15px;height:15px;stroke:#fff;fill:none;stroke-width:2.5;}
-.srch-drop{display:none;position:absolute;top:calc(100% + 6px);left:0;right:0;background:#fff;border-radius:var(--r);border:1px solid var(--border);box-shadow:var(--sh-lg);z-index:300;max-height:360px;overflow-y:auto;}
+/* ============ HEADER ============ */
+.hdr{background:var(--card);position:sticky;top:0;z-index:200;border-bottom:1px solid var(--border);}
+.hdr.scrolled{box-shadow:var(--sh-md);}
+.hdr .wrap{display:flex;align-items:center;gap:16px;height:76px;}
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.logo-ico{width:44px;height:44px;border-radius:12px;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;letter-spacing:.5px;}
+.logo-txt strong{display:block;font-size:18px;font-weight:800;letter-spacing:-.3px;line-height:1.1;}
+.logo-txt strong em{font-style:normal;color:var(--accent);}
+.logo-txt span{font-size:11px;color:var(--muted);font-weight:600;}
+.cat-btn{display:inline-flex;align-items:center;gap:8px;height:46px;padding:0 18px;border-radius:var(--r-sm);background:var(--primary-l);color:var(--primary);font-weight:700;font-size:14px;transition:background .15s;flex-shrink:0;}
+.cat-btn:hover,.cat-btn[aria-expanded="true"]{background:var(--primary);color:#fff;}
+.srch{position:relative;flex:1;min-width:0;}
+.srch-box{display:flex;height:46px;border:2px solid var(--primary);border-radius:var(--r-sm);overflow:hidden;background:#fff;}
+.srch-box input{flex:1;min-width:0;border:none;outline:none;padding:0 16px;font-family:inherit;font-size:14px;color:var(--text);}
+.srch-box input::placeholder{color:var(--light);}
+.srch-btn{width:56px;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;transition:background .15s;}
+.srch-btn:hover{background:var(--primary-d);}
+.srch-drop{display:none;position:absolute;top:calc(100% + 8px);left:0;right:0;background:#fff;border-radius:var(--r);border:1px solid var(--border);box-shadow:var(--sh-lg);z-index:300;max-height:420px;overflow-y:auto;padding:6px;}
 .srch-drop.open{display:block;}
-.sd-item{display:flex;align-items:center;gap:12px;padding:11px 16px;border-bottom:1px solid var(--border);cursor:pointer;transition:background .15s;}
-.sd-item:last-child{border-bottom:none;}
-.sd-item:hover{background:var(--bg);}
-.sd-emoji{width:40px;height:40px;background:var(--bg);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
-.sd-info strong{font-size:13px;display:block;}
-.sd-info span{font-size:11px;color:var(--muted);}
-.sd-price{margin-left:auto;font-weight:800;color:var(--orange);font-size:14px;white-space:nowrap;}
+.sd-item{display:flex;align-items:center;gap:12px;padding:10px;border-radius:var(--r-sm);cursor:pointer;transition:background .12s;}
+.sd-item:hover{background:var(--surface);}
+.sd-img{width:44px;height:44px;border-radius:8px;background:var(--surface);object-fit:cover;flex-shrink:0;}
+.sd-info{min-width:0;flex:1;}
+.sd-info strong{font-size:13px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:700;}
+.sd-info span{font-size:12px;color:var(--muted);}
+.sd-price{font-weight:800;font-size:14px;white-space:nowrap;}
+.hacts{display:flex;align-items:center;gap:4px;flex-shrink:0;}
+.hbtn{position:relative;display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 12px;border-radius:var(--r-sm);color:var(--text);font-size:12px;font-weight:600;transition:background .15s,color .15s;}
+.hbtn:hover{background:var(--surface);color:var(--primary);}
+.hbtn .ico{width:24px;height:24px;}
+.hbadge{position:absolute;top:0;right:8px;min-width:18px;height:18px;padding:0 5px;border-radius:999px;background:var(--accent);color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;border:2px solid #fff;}
+.hbadge[data-zero="true"]{display:none;}
+.profile{position:relative;}
+.profile-menu{display:none;position:absolute;right:0;top:calc(100% + 8px);min-width:210px;background:#fff;border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--sh-lg);padding:6px;z-index:310;}
+.profile-menu.open{display:block;}
+.profile-menu .pm-head{padding:10px 12px;border-bottom:1px solid var(--border);margin-bottom:4px;}
+.profile-menu .pm-head strong{display:block;font-size:14px;}
+.profile-menu .pm-head span{font-size:12px;color:var(--muted);}
+.profile-menu a,.profile-menu button{display:flex;align-items:center;gap:10px;width:100%;padding:10px 12px;border-radius:8px;font-size:14px;font-weight:600;text-align:left;transition:background .12s;}
+.profile-menu a:hover,.profile-menu button:hover{background:var(--surface);}
+.profile-menu .danger{color:var(--danger);}
 
-/* HDR ACTIONS */
-.hdr-acts{display:flex;align-items:center;gap:6px;}
-.hbtn{display:flex;flex-direction:column;align-items:center;gap:3px;padding:8px 12px;border-radius:var(--r-sm);border:none;background:transparent;color:var(--muted);font-size:10px;font-weight:600;transition:color .2s,background .2s;position:relative;}
-.hbtn:hover{color:var(--dark);background:var(--bg);}
-.hbtn svg{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:1.8;}
-.hbtn span{white-space:nowrap;}
-.badge{position:absolute;top:4px;right:8px;background:var(--orange);color:#fff;font-size:10px;font-weight:800;width:17px;height:17px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
-.admin-btn{display:flex;align-items:center;gap:6px;padding:8px 14px;background:var(--dark);color:#fff;border:none;border-radius:var(--r-sm);font-size:12px;font-weight:700;}
-.admin-btn:hover{background:#0F172A;}
-.admin-btn svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2;}
+/* MEGA CATALOG */
+.mega{display:none;position:absolute;left:0;right:0;top:100%;background:#fff;border-bottom:1px solid var(--border);box-shadow:var(--sh-lg);}
+.mega.open{display:block;}
+.mega .wrap{padding-top:20px;padding-bottom:24px;display:grid;grid-template-columns:repeat(6,1fr);gap:12px;}
+.mega-item{display:flex;flex-direction:column;gap:10px;padding:12px;border-radius:var(--r);border:1px solid var(--border);transition:border-color .15s,box-shadow .15s;cursor:pointer;text-align:left;}
+.mega-item:hover{border-color:var(--primary);box-shadow:var(--sh-md);}
+.mega-item img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;background:var(--surface);}
+.mega-item strong{font-size:14px;font-weight:700;}
+.mega-item span{font-size:12px;color:var(--muted);}
 
-/* NAV */
-nav{background:#fff;border-bottom:2px solid var(--border);}
-.nav-inner{max-width:1300px;margin:0 auto;padding:0 20px;display:flex;overflow-x:auto;}
-.nav-inner::-webkit-scrollbar{display:none;}
-.nlink{display:flex;align-items:center;gap:7px;padding:13px 16px;font-size:13px;font-weight:600;color:var(--muted);border-bottom:3px solid transparent;white-space:nowrap;transition:color .2s,border-color .2s;margin-bottom:-2px;}
-.nlink:hover{color:var(--dark);border-color:var(--border);}
-.nlink.active{color:var(--blue);border-color:var(--blue);}
-.nlink .cnt{background:var(--bg);color:var(--muted);font-size:10px;font-weight:700;padding:2px 6px;border-radius:20px;}
-.nlink.active .cnt{background:var(--blue);color:#fff;}
+/* CATEGORY CHIPS */
+.chips{background:var(--card);border-bottom:1px solid var(--border);}
+.chips .wrap{display:flex;gap:8px;overflow-x:auto;padding-top:10px;padding-bottom:10px;scrollbar-width:none;}
+.chips .wrap::-webkit-scrollbar{display:none;}
+.nlink{display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 14px;border-radius:999px;background:var(--surface);border:1px solid var(--border);font-size:13px;font-weight:600;color:var(--text);white-space:nowrap;transition:all .15s;}
+.nlink:hover{border-color:var(--primary);color:var(--primary);}
+.nlink.active{background:var(--text);border-color:var(--text);color:#fff;}
+.nlink .cnt{font-size:11px;font-weight:700;color:var(--muted);}
+.nlink.active .cnt{color:rgba(255,255,255,.7);}
 
-/* HERO */
-.hero{background:linear-gradient(135deg,#0F172A 0%,#1D4ED8 55%,#1E40AF 100%);color:#fff;padding:52px 20px;position:relative;overflow:hidden;}
-.hero::after{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23fff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/svg%3E");pointer-events:none;}
-.hero-in{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;position:relative;z-index:1;}
-.hero h1{font-family:'Bebas Neue',sans-serif;font-size:60px;line-height:1;letter-spacing:2px;margin-bottom:14px;}
-.hero h1 em{color:var(--orange);font-style:normal;}
-.hero p{font-size:15px;color:#94A3B8;margin-bottom:28px;line-height:1.75;}
-.hero-btns{display:flex;gap:10px;flex-wrap:wrap;}
-.btn-main{background:var(--orange);color:#fff;padding:13px 24px;border-radius:var(--r);font-weight:700;font-size:14px;border:none;display:inline-flex;align-items:center;gap:7px;transition:background .2s,transform .2s,box-shadow .2s;}
-.btn-main:hover{background:#ea6c05;transform:translateY(-2px);box-shadow:0 8px 24px rgba(249,115,22,.4);}
-.btn-ghost{background:transparent;color:#fff;padding:13px 24px;border-radius:var(--r);font-weight:600;font-size:14px;border:2px solid rgba(255,255,255,.3);transition:border-color .2s,background .2s;}
-.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.08);}
-.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
-.stat{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--r);padding:18px;text-align:center;}
-.stat strong{display:block;font-family:'Bebas Neue',sans-serif;font-size:34px;color:var(--orange);letter-spacing:1px;}
-.stat span{font-size:11px;color:#94A3B8;font-weight:500;}
+/* ============ HERO CAROUSEL ============ */
+.hero{padding-top:20px;}
+.hero-grid{display:grid;grid-template-columns:1fr 300px;gap:16px;}
+.carousel{position:relative;border-radius:var(--r-lg);overflow:hidden;background:var(--text);aspect-ratio:21/8;}
+.slides{display:flex;height:100%;transition:transform .6s cubic-bezier(.4,0,.2,1);}
+.slide{position:relative;flex:0 0 100%;height:100%;}
+.slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.slide::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,15,30,.82) 0%,rgba(10,15,30,.45) 45%,rgba(10,15,30,0) 75%);}
+.slide-c{position:relative;z-index:1;height:100%;display:flex;flex-direction:column;justify-content:center;gap:14px;padding:0 48px;max-width:560px;color:#fff;}
+.slide-tag{align-self:flex-start;background:var(--accent);color:#fff;font-size:12px;font-weight:800;padding:5px 12px;border-radius:999px;letter-spacing:.3px;text-transform:uppercase;}
+.slide-c h2{font-size:38px;line-height:1.1;font-weight:800;letter-spacing:-.8px;text-wrap:balance;}
+.slide-c p{font-size:15px;color:rgba(255,255,255,.82);max-width:420px;}
+.slide-btn{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;height:46px;padding:0 22px;border-radius:var(--r-sm);background:#fff;color:var(--text);font-weight:700;font-size:14px;transition:transform .15s;}
+.slide-btn:hover{transform:translateY(-2px);}
+.c-arrow{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.92);color:var(--text);display:flex;align-items:center;justify-content:center;z-index:2;box-shadow:var(--sh-md);transition:background .15s;}
+.c-arrow:hover{background:#fff;}
+.c-prev{left:16px;}.c-next{right:16px;}
+.c-dots{position:absolute;bottom:16px;left:48px;display:flex;gap:6px;z-index:2;}
+.c-dot{width:8px;height:8px;border-radius:999px;background:rgba(255,255,255,.45);transition:width .3s,background .3s;}
+.c-dot.active{width:28px;background:#fff;}
+.hero-side{display:flex;flex-direction:column;gap:16px;}
+.side-card{flex:1;border-radius:var(--r-lg);padding:20px;display:flex;flex-direction:column;justify-content:space-between;gap:10px;}
+.side-card h3{font-size:18px;font-weight:800;line-height:1.2;letter-spacing:-.3px;}
+.side-card p{font-size:13px;}
+.side-card .sc-btn{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:13px;padding:9px 14px;border-radius:999px;}
+.side-a{background:var(--primary);color:#fff;}
+.side-a p{color:rgba(255,255,255,.8);}
+.side-a .sc-btn{background:#fff;color:var(--primary);}
+.side-b{background:var(--accent-l);color:var(--text);border:1px solid #FFE1C7;}
+.side-b p{color:var(--muted);}
+.side-b .sc-btn{background:var(--accent);color:#fff;}
+.side-stat{font-size:34px;font-weight:800;letter-spacing:-1px;line-height:1;}
 
-/* TRUST */
-.trust{background:#fff;border-bottom:1px solid var(--border);padding:13px 20px;}
-.trust-in{max-width:1300px;margin:0 auto;display:flex;justify-content:center;gap:32px;flex-wrap:wrap;}
-.trust-item{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--muted);}
+/* ============ PERKS ============ */
+.perks{margin-top:16px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+.perk{display:flex;align-items:center;gap:12px;background:var(--card);border-radius:var(--r);padding:14px 16px;border:1px solid var(--border);}
+.perk-ico{width:42px;height:42px;border-radius:12px;background:var(--primary-l);color:var(--primary);display:flex;align-items:center;justify-content:center;}
+.perk strong{display:block;font-size:14px;font-weight:700;}
+.perk span{font-size:12px;color:var(--muted);}
 
-/* MAIN */
-.page{max-width:1300px;margin:0 auto;padding:28px 20px;}
-.layout{display:grid;grid-template-columns:250px 1fr;gap:24px;align-items:start;}
+/* ============ SECTIONS ============ */
+.sec{margin-top:36px;}
+.sec-h{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:16px;}
+.sec-h h2{font-size:24px;font-weight:800;letter-spacing:-.5px;}
+.sec-h a,.sec-h button{font-size:14px;font-weight:700;color:var(--primary);display:inline-flex;align-items:center;gap:4px;}
+.cats{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;}
+.cat-tile{position:relative;background:var(--card);border-radius:var(--r);border:1px solid var(--border);padding:14px;display:flex;flex-direction:column;gap:10px;text-align:left;transition:transform .2s,box-shadow .2s,border-color .2s;}
+.cat-tile:hover{transform:translateY(-3px);box-shadow:var(--sh-md);border-color:transparent;}
+.cat-tile img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;background:var(--surface);}
+.cat-tile strong{font-size:14px;font-weight:700;}
+.cat-tile span{font-size:12px;color:var(--muted);margin-top:-6px;}
 
-/* SIDEBAR */
-.sidebar{position:sticky;top:80px;}
-.fcard{background:#fff;border-radius:var(--r);border:1px solid var(--border);box-shadow:var(--sh-sm);overflow:hidden;}
-.fhead{background:var(--dark);color:#fff;padding:14px 18px;font-weight:700;font-size:13px;letter-spacing:.5px;text-transform:uppercase;display:flex;align-items:center;gap:7px;}
-.fhead svg{width:13px;height:13px;stroke:#fff;fill:none;stroke-width:2.5;}
-.fsec{border-bottom:1px solid var(--border);}
-.fsec:last-child{border:none;}
-.ftitle{padding:12px 18px 8px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);}
-.fitem{display:flex;align-items:center;gap:9px;padding:8px 18px;font-size:13px;color:var(--dark);transition:background .15s;cursor:pointer;}
-.fitem:hover{background:var(--bg);}
-.fitem.active{background:var(--blue-l);color:var(--blue);}
-.fitem input[type="checkbox"]{width:15px;height:15px;accent-color:var(--blue);}
-.fcnt{margin-left:auto;background:var(--bg);color:var(--muted);font-size:10px;font-weight:700;padding:2px 6px;border-radius:20px;}
-.fitem.active .fcnt{background:var(--blue);color:#fff;}
+/* horizontal rail */
+.rail-wrap{position:relative;}
+.rail{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 4*14px)/5);gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:4px;}
+.rail::-webkit-scrollbar{display:none;}
+.rail > *{scroll-snap-align:start;}
+.rail-btn{position:absolute;top:38%;width:40px;height:40px;border-radius:50%;background:#fff;box-shadow:var(--sh-md);display:flex;align-items:center;justify-content:center;z-index:2;border:1px solid var(--border);}
+.rail-btn.l{left:-14px;}.rail-btn.r{right:-14px;}
 
-/* PRODUCTS */
-.ph{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:10px;}
-.ph-title{font-size:20px;font-weight:800;}
-.ph-title span{color:var(--muted);font-weight:400;font-size:15px;margin-left:6px;}
-.sort-sel{padding:8px 12px;border-radius:var(--r-sm);border:1px solid var(--border);background:#fff;font-family:'Manrope',sans-serif;font-size:13px;color:var(--dark);outline:none;}
-.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:18px;}
+/* ============ CATALOG ============ */
+.layout{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:start;}
+.sidebar{position:sticky;top:96px;display:flex;flex-direction:column;gap:12px;}
+.fcard{background:var(--card);border-radius:var(--r);border:1px solid var(--border);padding:8px;}
+.ftitle{padding:10px 10px 6px;font-size:13px;font-weight:800;}
+.fitem{display:flex;align-items:center;gap:10px;padding:9px 10px;font-size:14px;font-weight:500;border-radius:8px;cursor:pointer;transition:background .12s,color .12s;width:100%;text-align:left;}
+.fitem:hover{background:var(--surface);}
+.fitem.active{background:var(--primary-l);color:var(--primary);font-weight:700;}
+.fitem .fdot{width:8px;height:8px;border-radius:50%;background:var(--border);flex-shrink:0;}
+.fitem.active .fdot{background:var(--primary);}
+.fcnt{margin-left:auto;font-size:12px;color:var(--light);font-weight:600;}
+.fitem.active .fcnt{color:var(--primary);}
+.fitem-sm{font-size:13px;}
+.reset-btn{width:100%;height:40px;border-radius:var(--r-sm);border:1px solid var(--border);background:var(--card);font-weight:700;font-size:13px;color:var(--muted);transition:all .15s;}
+.reset-btn:hover{color:var(--danger);border-color:#FECACA;background:#FEF2F2;}
+.ph{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;flex-wrap:wrap;}
+.ph-title{font-size:22px;font-weight:800;letter-spacing:-.4px;}
+.ph-title span{color:var(--muted);font-weight:500;font-size:15px;margin-left:4px;letter-spacing:0;}
+.ph-r{display:flex;align-items:center;gap:8px;}
+.sort-sel{height:40px;padding:0 36px 0 14px;border-radius:var(--r-sm);border:1px solid var(--border);background:var(--card) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2.5'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 12px center;appearance:none;font-family:inherit;font-size:13px;font-weight:600;color:var(--text);outline:none;cursor:pointer;}
+.filter-toggle{display:none;height:40px;padding:0 14px;border-radius:var(--r-sm);border:1px solid var(--border);background:var(--card);font-weight:700;font-size:13px;align-items:center;gap:6px;}
+.pgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
 
-/* CARD */
-.pcard{background:#fff;border-radius:var(--r);border:1px solid var(--border);box-shadow:var(--sh-sm);transition:transform .2s,box-shadow .2s,border-color .2s;overflow:hidden;cursor:pointer;position:relative;}
-.pcard:hover{transform:translateY(-4px);box-shadow:var(--sh-lg);border-color:#c7d7fa;}
-.cbadge{position:absolute;top:10px;left:10px;background:var(--orange);color:#fff;font-size:9px;font-weight:800;padding:3px 7px;border-radius:5px;letter-spacing:.5px;text-transform:uppercase;z-index:2;}
-.cimg{width:100%;height:150px;background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:52px;border-bottom:1px solid var(--border);transition:background .2s;}
-.pcard:hover .cimg{background:#EFF6FF;}
-.cbody{padding:14px;}
-.cart{font-size:10px;color:var(--light);font-weight:600;letter-spacing:.4px;margin-bottom:5px;font-family:'Courier New',monospace;}
-.cstock{display:flex;align-items:center;gap:5px;font-size:11px;font-weight:600;margin-bottom:6px;}
-.dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
-.dot.g{background:#22C55E;}.dot.o{background:var(--orange);}
-.cname{font-size:13px;font-weight:700;margin-bottom:3px;line-height:1.4;}
-.cmfr{font-size:11px;color:var(--muted);margin-bottom:12px;}
-.cfoot{display:flex;align-items:center;justify-content:space-between;padding-top:10px;border-top:1px solid var(--border);}
-.cprice{font-size:17px;font-weight:800;}
-.cprice span{font-size:11px;font-weight:500;color:var(--muted);}
-.addbtn{width:34px;height:34px;border-radius:8px;background:var(--blue);border:none;display:flex;align-items:center;justify-content:center;transition:background .2s,transform .15s;flex-shrink:0;}
-.addbtn:hover{background:#1e40af;transform:scale(1.1);}
-.addbtn.added{background:var(--green);}
-.addbtn svg{width:17px;height:17px;stroke:#fff;fill:none;stroke-width:2.5;}
+/* PRODUCT CARD */
+.pcard{position:relative;background:var(--card);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .2s,transform .2s;cursor:pointer;border:1px solid transparent;}
+.pcard:hover{box-shadow:var(--sh-lg);transform:translateY(-2px);}
+.pimg{position:relative;aspect-ratio:1/1;background:var(--surface);overflow:hidden;}
+.pimg img{width:100%;height:100%;object-fit:cover;transition:transform .4s;}
+.pcard:hover .pimg img{transform:scale(1.05);}
+.pbadges{position:absolute;left:10px;top:10px;display:flex;flex-direction:column;gap:4px;align-items:flex-start;}
+.pb{font-size:11px;font-weight:800;padding:3px 8px;border-radius:6px;letter-spacing:.2px;}
+.pb-orig{background:var(--primary);color:#fff;}
+.pb-low{background:var(--accent);color:#fff;}
+.pb-hit{background:var(--text);color:#fff;}
+.fav-btn{position:absolute;right:8px;top:8px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;color:var(--muted);transition:color .15s,transform .15s;}
+.fav-btn:hover{color:var(--danger);transform:scale(1.08);}
+.fav-btn.on{color:var(--danger);}
+.fav-btn.on .ico{fill:currentColor;}
+.pbody{padding:12px 12px 14px;display:flex;flex-direction:column;gap:6px;flex:1;}
+.pprice{font-size:19px;font-weight:800;letter-spacing:-.3px;line-height:1.1;}
+.pprice small{font-size:13px;font-weight:600;color:var(--muted);margin-left:2px;}
+.pname{font-size:13px;font-weight:600;color:var(--text);line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:35px;}
+.pmeta{font-size:12px;color:var(--muted);display:flex;flex-direction:column;gap:2px;}
+.pmeta code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;color:var(--light);}
+.pstock{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;color:var(--success);}
+.pstock.low{color:var(--accent-d);}
+.pstock::before{content:'';width:6px;height:6px;border-radius:50%;background:currentColor;}
+.addbtn{margin-top:auto;height:40px;border-radius:var(--r-sm);background:var(--primary);color:#fff;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;gap:6px;transition:background .15s;}
+.addbtn:hover{background:var(--primary-d);}
+.addbtn.added{background:var(--success);}
+.addbtn .ico{width:17px;height:17px;}
+.more-wrap{display:flex;justify-content:center;margin-top:20px;}
+.more-btn{height:46px;padding:0 28px;border-radius:var(--r-sm);background:var(--card);border:1px solid var(--border);font-weight:700;font-size:14px;transition:all .15s;}
+.more-btn:hover{border-color:var(--primary);color:var(--primary);}
+.empty{text-align:center;padding:60px 20px;color:var(--muted);grid-column:1/-1;display:flex;flex-direction:column;align-items:center;gap:10px;}
+.empty-ico{width:64px;height:64px;border-radius:50%;background:var(--surface);display:flex;align-items:center;justify-content:center;color:var(--light);}
+.empty-ico .ico{width:30px;height:30px;}
+.empty p{font-weight:700;color:var(--text);}
+.empty span{font-size:13px;}
 
-/* EMPTY */
-.empty{text-align:center;padding:60px 20px;color:var(--muted);}
-.empty .ei{font-size:48px;margin-bottom:12px;}
-.empty p{font-weight:600;}
+/* SELLER CTA */
+.cta{margin-top:40px;border-radius:var(--r-lg);background:var(--text);color:#fff;padding:36px 40px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+.cta h2{font-size:26px;font-weight:800;letter-spacing:-.5px;margin-bottom:6px;}
+.cta p{color:rgba(255,255,255,.7);font-size:14px;max-width:520px;}
+.cta-btns{display:flex;gap:10px;flex-wrap:wrap;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:46px;padding:0 22px;border-radius:var(--r-sm);font-weight:700;font-size:14px;transition:background .15s,transform .15s,border-color .15s;}
+.btn-accent{background:var(--accent);color:#fff;}
+.btn-accent:hover{background:var(--accent-d);}
+.btn-primary{background:var(--primary);color:#fff;}
+.btn-primary:hover{background:var(--primary-d);}
+.btn-outline{border:1px solid var(--border);background:#fff;color:var(--text);}
+.btn-outline:hover{border-color:var(--primary);color:var(--primary);}
+.btn-ghost-w{border:1px solid rgba(255,255,255,.25);color:#fff;}
+.btn-ghost-w:hover{border-color:#fff;}
+.btn-block{width:100%;}
 
-/* MODAL */
-.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:500;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px);}
+/* ============ MODALS ============ */
+.overlay{display:none;position:fixed;inset:0;background:rgba(17,24,39,.55);z-index:500;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(3px);}
 .overlay.open{display:flex;}
-.modal{background:#fff;border-radius:16px;width:100%;max-width:680px;box-shadow:0 24px 64px rgba(0,0,0,.2);overflow:hidden;animation:su .25s ease;}
+.modal{background:#fff;border-radius:var(--r-lg);width:100%;max-width:880px;max-height:92vh;overflow-y:auto;box-shadow:var(--sh-lg);animation:su .25s ease;}
 @keyframes su{from{transform:translateY(16px);opacity:0}to{transform:translateY(0);opacity:1}}
-.mhdr{padding:18px 22px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+.mhdr{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:12px;position:sticky;top:0;background:#fff;z-index:1;}
 .mhdr h3{font-size:17px;font-weight:800;}
-.mclose{width:30px;height:30px;border-radius:7px;border:1px solid var(--border);background:var(--bg);color:var(--muted);font-size:17px;display:flex;align-items:center;justify-content:center;transition:background .15s;}
-.mclose:hover{background:var(--border);}
-.mbody{padding:22px;display:grid;grid-template-columns:180px 1fr;gap:22px;}
-.mimg{height:180px;background:var(--bg);border-radius:var(--r);display:flex;align-items:center;justify-content:center;font-size:72px;}
-.mlabel{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);margin-bottom:3px;}
-.mval{font-size:14px;font-weight:600;margin-bottom:12px;}
-.mprice{font-size:26px;font-weight:800;color:var(--orange);margin:14px 0;}
-.mprice span{font-size:13px;font-weight:500;color:var(--muted);}
-.orig-badge{display:inline-flex;align-items:center;gap:5px;background:#FFF7ED;color:var(--orange);border:1px solid #FED7AA;border-radius:6px;padding:4px 10px;font-size:11px;font-weight:700;margin-bottom:14px;}
-.mfoot{padding:14px 22px;border-top:1px solid var(--border);display:flex;gap:10px;align-items:center;}
-.qty{display:flex;align-items:center;border:1px solid var(--border);border-radius:var(--r-sm);overflow:hidden;}
-.qty button{width:34px;height:34px;border:none;background:var(--bg);font-size:17px;color:var(--dark);transition:background .15s;}
-.qty button:hover{background:var(--border);}
-.qty span{width:44px;height:34px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;background:#fff;border-left:1px solid var(--border);border-right:1px solid var(--border);}
-.bundle-sec{padding:0 22px 16px;}
-.bundle-sec h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--muted);margin-bottom:10px;}
-.bitem{display:flex;align-items:center;gap:10px;padding:9px 12px;background:var(--bg);border-radius:var(--r-sm);border:1px solid var(--border);cursor:pointer;transition:border-color .15s,background .15s;margin-bottom:6px;}
-.bitem:hover{border-color:var(--blue);background:var(--blue-l);}
-.bitem input[type="checkbox"]{accent-color:var(--blue);width:15px;height:15px;}
-.bi-info{flex:1;}
-.bi-name{font-size:12px;font-weight:600;}
-.bi-art{font-size:10px;color:var(--muted);}
-.bi-price{font-weight:700;color:var(--orange);font-size:12px;white-space:nowrap;}
+.mclose{width:36px;height:36px;border-radius:50%;background:var(--surface);color:var(--muted);display:flex;align-items:center;justify-content:center;transition:background .15s;flex-shrink:0;}
+.mclose:hover{background:var(--border);color:var(--text);}
+.pd{display:grid;grid-template-columns:1fr 1fr;gap:28px;padding:24px;}
+.pd-img{border-radius:var(--r);overflow:hidden;background:var(--surface);aspect-ratio:1;}
+.pd-img img{width:100%;height:100%;object-fit:cover;}
+.pd-info{display:flex;flex-direction:column;gap:14px;}
+.pd-info h2{font-size:21px;font-weight:800;line-height:1.25;letter-spacing:-.3px;}
+.pd-tags{display:flex;gap:6px;flex-wrap:wrap;}
+.pd-tag{font-size:12px;font-weight:700;padding:5px 10px;border-radius:999px;background:var(--primary-l);color:var(--primary);}
+.pd-tag.ok{background:#ECFDF3;color:var(--success);}
+.pd-specs{display:flex;flex-direction:column;border:1px solid var(--border);border-radius:var(--r-sm);}
+.pd-row{display:flex;justify-content:space-between;gap:12px;padding:10px 14px;font-size:13px;border-bottom:1px solid var(--border);}
+.pd-row:last-child{border-bottom:none;}
+.pd-row span{color:var(--muted);}
+.pd-row strong{font-weight:700;text-align:right;}
+.pd-row .mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--primary);}
+.pd-buy{background:var(--surface);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:12px;}
+.pd-price{font-size:30px;font-weight:800;letter-spacing:-.8px;line-height:1;}
+.pd-price span{font-size:15px;color:var(--muted);font-weight:600;letter-spacing:0;}
+.pd-act{display:flex;gap:10px;}
+.qty{display:flex;align-items:center;border:1px solid var(--border);border-radius:var(--r-sm);background:#fff;height:46px;}
+.qty button{width:40px;height:100%;font-size:18px;font-weight:700;color:var(--text);}
+.qty button:hover{color:var(--primary);}
+.qty span{min-width:36px;text-align:center;font-weight:800;}
+.bundle-sec{padding:0 24px 24px;}
+.bundle-sec h4{font-size:15px;font-weight:800;margin-bottom:12px;}
+.bundle-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.bitem{display:flex;gap:10px;align-items:center;padding:10px;border-radius:var(--r-sm);border:1px solid var(--border);cursor:pointer;transition:border-color .15s;}
+.bitem:hover{border-color:var(--primary);}
+.bitem img{width:52px;height:52px;border-radius:8px;object-fit:cover;background:var(--surface);}
+.bi-info{min-width:0;}
+.bi-name{font-size:12px;font-weight:600;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.bi-price{font-weight:800;font-size:13px;margin-top:2px;}
 
-/* CART */
-.cart-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.3);z-index:498;}
+/* CART DRAWER */
+.cart-ov{display:none;position:fixed;inset:0;background:rgba(17,24,39,.45);z-index:498;}
 .cart-ov.open{display:block;}
-.cart-side{position:fixed;right:-390px;top:0;bottom:0;width:390px;background:#fff;z-index:499;box-shadow:-8px 0 40px rgba(0,0,0,.12);transition:right .3s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;}
-.cart-side.open{right:0;}
-.chdr{padding:18px 20px;background:var(--dark);color:#fff;display:flex;align-items:center;justify-content:space-between;}
-.chdr h3{font-size:17px;font-weight:800;}
-.cclose{width:30px;height:30px;border-radius:7px;border:1px solid rgba(255,255,255,.2);background:transparent;color:#fff;font-size:16px;display:flex;align-items:center;justify-content:center;}
-.citems{flex:1;overflow-y:auto;padding:14px;}
-.citem{display:flex;gap:12px;align-items:center;padding:12px;border-radius:var(--r);border:1px solid var(--border);margin-bottom:10px;background:var(--bg);}
-.ci-img{width:48px;height:48px;border-radius:8px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;border:1px solid var(--border);}
-.ci-info{flex:1;}
-.ci-name{font-size:12px;font-weight:700;margin-bottom:2px;}
-.ci-art{font-size:10px;color:var(--muted);}
-.ci-right{text-align:right;}
-.ci-price{font-weight:800;color:var(--orange);font-size:14px;}
-.ci-rm{width:24px;height:24px;border-radius:6px;border:1px solid var(--border);background:#fff;color:var(--muted);font-size:13px;display:flex;align-items:center;justify-content:center;margin-top:5px;margin-left:auto;transition:background .15s,color .15s;}
-.ci-rm:hover{background:#FEE2E2;color:#EF4444;border-color:#FECACA;}
-.cftr{padding:18px 20px;border-top:1px solid var(--border);background:var(--bg);}
-.ctotal{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;font-size:17px;font-weight:800;}
-.ctotal span{color:var(--orange);}
+.cart-side{position:fixed;right:0;top:0;bottom:0;width:420px;max-width:100%;background:#fff;z-index:499;box-shadow:var(--sh-lg);transform:translateX(100%);transition:transform .3s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;}
+.cart-side.open{transform:translateX(0);}
+.chdr{padding:18px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+.chdr h3{font-size:19px;font-weight:800;}
+.chdr h3 span{color:var(--muted);font-weight:600;font-size:15px;}
+.citems{flex:1;overflow-y:auto;padding:12px 20px;}
+.citem{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);}
+.citem:last-child{border-bottom:none;}
+.ci-img{width:72px;height:72px;border-radius:var(--r-sm);object-fit:cover;background:var(--surface);flex-shrink:0;}
+.ci-info{flex:1;min-width:0;display:flex;flex-direction:column;gap:6px;}
+.ci-name{font-size:13px;font-weight:600;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.ci-art{font-size:11px;color:var(--light);font-family:ui-monospace,monospace;}
+.ci-row{display:flex;align-items:center;justify-content:space-between;gap:8px;}
+.ci-qty{display:flex;align-items:center;border:1px solid var(--border);border-radius:8px;height:32px;}
+.ci-qty button{width:30px;height:100%;font-weight:700;}
+.ci-qty span{min-width:24px;text-align:center;font-weight:700;font-size:13px;}
+.ci-price{font-weight:800;font-size:15px;white-space:nowrap;}
+.ci-rm{color:var(--light);padding:4px;border-radius:6px;transition:color .15s;}
+.ci-rm:hover{color:var(--danger);}
+.ci-rm .ico{width:17px;height:17px;}
+.cftr{padding:18px 20px;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:12px;}
+.csum{display:flex;justify-content:space-between;font-size:14px;color:var(--muted);}
+.ctotal{display:flex;justify-content:space-between;align-items:baseline;font-size:15px;font-weight:700;}
+.ctotal span{font-size:22px;font-weight:800;letter-spacing:-.4px;}
 
-/* ORDER */
-.oform{padding:22px;display:flex;flex-direction:column;gap:14px;}
-.fgrp label{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);margin-bottom:5px;}
-.fgrp input,.fgrp select,.fgrp textarea{width:100%;height:42px;border:1.5px solid var(--border);border-radius:var(--r-sm);padding:0 13px;font-family:'Manrope',sans-serif;font-size:14px;color:var(--dark);outline:none;transition:border-color .2s;background:#fff;}
-.fgrp textarea{height:80px;padding:10px 13px;resize:none;}
-.fgrp input:focus,.fgrp select:focus,.fgrp textarea:focus{border-color:var(--blue);}
+/* ORDER FORM */
+.oform{padding:20px;display:flex;flex-direction:column;gap:14px;}
+.fgrp label{display:block;font-size:13px;font-weight:700;margin-bottom:6px;}
+.fgrp input,.fgrp textarea{width:100%;height:46px;border:1px solid var(--border);border-radius:var(--r-sm);padding:0 14px;font-family:inherit;font-size:14px;color:var(--text);outline:none;transition:border-color .15s,box-shadow .15s;background:#fff;}
+.fgrp textarea{height:84px;padding:12px 14px;resize:none;}
+.fgrp input:focus,.fgrp textarea:focus{border-color:var(--primary);box-shadow:0 0 0 3px var(--primary-l);}
 .frow{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-.pay-opts{display:flex;gap:12px;flex-wrap:wrap;padding:12px;background:var(--bg);border-radius:var(--r-sm);border:1px solid var(--border);}
-.popt{display:flex;align-items:center;gap:7px;cursor:pointer;font-size:13px;font-weight:600;}
-.popt input{accent-color:var(--blue);width:15px;height:15px;}
-.success-msg{text-align:center;padding:30px 22px;}
-.success-msg .si{font-size:52px;margin-bottom:12px;}
-.success-msg h3{font-size:18px;font-weight:800;margin-bottom:8px;color:var(--green);}
-.success-msg p{color:var(--muted);font-size:14px;}
+.pay-opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.popt{position:relative;display:flex;align-items:center;gap:10px;padding:12px;border:1px solid var(--border);border-radius:var(--r-sm);cursor:pointer;font-size:14px;font-weight:700;transition:border-color .15s,background .15s;}
+.popt:has(input:checked){border-color:var(--primary);background:var(--primary-l);}
+.popt input{accent-color:var(--primary);width:16px;height:16px;}
+.popt small{display:block;font-size:11px;color:var(--muted);font-weight:500;}
+.order-sum{display:flex;justify-content:space-between;align-items:center;padding:14px;border-radius:var(--r-sm);background:var(--surface);font-weight:700;}
+.order-sum span{font-size:20px;font-weight:800;}
 
-/* ADMIN PANEL */
-.admin-wrap{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:600;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(6px);}
+/* ADMIN */
+.admin-wrap{display:none;position:fixed;inset:0;background:rgba(17,24,39,.6);z-index:600;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px);}
 .admin-wrap.open{display:flex;}
-.admin-modal{background:#fff;border-radius:16px;width:100%;max-width:900px;max-height:90vh;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 32px 80px rgba(0,0,0,.25);animation:su .25s ease;}
-.admin-hdr{background:var(--dark);color:#fff;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;}
-.admin-hdr h2{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:1px;}
-.admin-tabs{display:flex;gap:4px;align-items:center;}
-.atab{padding:7px 14px;border-radius:7px;border:none;background:rgba(255,255,255,.1);color:#94A3B8;font-size:12px;font-weight:700;transition:background .2s,color .2s;}
-.atab.active,.atab:hover{background:rgba(255,255,255,.2);color:#fff;}
+.admin-modal{background:#fff;border-radius:var(--r-lg);width:100%;max-width:1000px;max-height:92vh;overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--sh-lg);animation:su .25s ease;}
+.admin-hdr{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+.admin-hdr h2{font-size:18px;font-weight:800;display:flex;align-items:center;gap:10px;}
+.admin-tabs{display:flex;gap:4px;background:var(--surface);padding:4px;border-radius:var(--r-sm);}
+.atab{padding:8px 14px;border-radius:8px;color:var(--muted);font-size:13px;font-weight:700;transition:all .15s;}
+.atab.active,.atab:hover{background:#fff;color:var(--text);box-shadow:var(--sh-sm);}
 .admin-body{flex:1;overflow-y:auto;padding:20px;}
 .admin-section{display:none;}
 .admin-section.active{display:block;}
-
-/* ADMIN PRODUCT ADD FORM */
 .af-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-.af-full{grid-column:1/-1;}
-.af-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);display:block;margin-bottom:5px;}
-.af-input{width:100%;height:40px;border:1.5px solid var(--border);border-radius:var(--r-sm);padding:0 12px;font-family:'Manrope',sans-serif;font-size:13px;color:var(--dark);outline:none;transition:border-color .2s;}
-.af-input:focus{border-color:var(--blue);}
-.af-select{width:100%;height:40px;border:1.5px solid var(--border);border-radius:var(--r-sm);padding:0 12px;font-family:'Manrope',sans-serif;font-size:13px;background:#fff;outline:none;}
-
-/* ADMIN TABLE */
+.af-label{font-size:13px;font-weight:700;display:block;margin-bottom:6px;}
+.af-input,.af-select{width:100%;height:42px;border:1px solid var(--border);border-radius:var(--r-sm);padding:0 12px;font-family:inherit;font-size:14px;color:var(--text);outline:none;background:#fff;transition:border-color .15s;}
+.af-input:focus,.af-select:focus{border-color:var(--primary);}
+.af-box{background:var(--surface);border-radius:var(--r);padding:20px;border:1px solid var(--border);}
+.af-box h3{font-size:16px;font-weight:800;margin-bottom:16px;}
+.af-box.edit{background:var(--accent-l);border-color:#FFE1C7;margin-top:16px;display:none;}
 .atable{width:100%;border-collapse:collapse;font-size:13px;}
-.atable th{background:var(--dark);color:#fff;padding:10px 12px;text-align:left;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;}
-.atable td{padding:9px 12px;border-bottom:1px solid var(--border);vertical-align:middle;}
-.atable tr:hover td{background:var(--bg);}
-.atable .art-col{font-family:'Courier New',monospace;font-size:11px;color:var(--blue);}
-.atable .price-col{font-weight:700;color:var(--orange);}
-.atable .cat-badge{display:inline-block;padding:2px 8px;border-radius:20px;font-size:10px;font-weight:700;}
-.cat-Dvigatel,.cat-dvigatel{background:#FEF3C7;color:#92400E;}
-.cat-Elektr,.cat-Электр,.cat-elektr{background:#EDE9FE;color:#5B21B6;}
-.cat-Gidravlika,.cat-gidravlika{background:#DBEAFE;color:#1E40AF;}
-.cat-Transmissiya,.cat-transmissiya{background:#D1FAE5;color:#065F46;}
-.cat-Sovitish,.cat-sovitish{background:#E0F2FE;color:#0369A1;}
-.cat-Zapchast,.cat-zapchast{background:#FCE7F3;color:#9D174D;}
-.edit-btn{padding:4px 10px;border-radius:6px;border:1px solid var(--border);background:#fff;font-size:11px;font-weight:700;color:var(--blue);transition:background .15s;}
-.edit-btn:hover{background:var(--blue-l);}
-.del-btn{padding:4px 10px;border-radius:6px;border:1px solid #FECACA;background:#FFF5F5;font-size:11px;font-weight:700;color:#EF4444;transition:background .15s;}
-.del-btn:hover{background:#FEE2E2;}
-.admin-search{width:100%;height:40px;border:1.5px solid var(--border);border-radius:var(--r-sm);padding:0 14px;font-family:'Manrope',sans-serif;font-size:13px;outline:none;margin-bottom:14px;transition:border-color .2s;}
-.admin-search:focus{border-color:var(--blue);}
-.admin-stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px;}
-.astat{background:var(--bg);border-radius:var(--r);padding:16px;border:1px solid var(--border);}
-.astat strong{display:block;font-size:24px;font-weight:800;margin-bottom:4px;}
-.astat span{font-size:12px;color:var(--muted);}
-.astat.blue strong{color:var(--blue);}
-.astat.orange strong{color:var(--orange);}
-.astat.green strong{color:var(--green);}
-.astat.dark strong{color:var(--dark);}
+.atable th{background:var(--surface);color:var(--muted);padding:10px 12px;text-align:left;font-size:12px;font-weight:700;border-bottom:1px solid var(--border);position:sticky;top:0;}
+.atable td{padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:middle;}
+.atable tr:hover td{background:var(--surface);}
+.art-col{font-family:ui-monospace,monospace;font-size:12px;color:var(--primary);}
+.price-col{font-weight:800;white-space:nowrap;}
+.cat-badge{display:inline-block;padding:3px 9px;border-radius:999px;font-size:11px;font-weight:700;background:var(--primary-l);color:var(--primary);}
+.row-btn{width:32px;height:32px;border-radius:8px;border:1px solid var(--border);display:inline-flex;align-items:center;justify-content:center;color:var(--muted);transition:all .15s;}
+.row-btn .ico{width:16px;height:16px;}
+.row-btn:hover{color:var(--primary);border-color:var(--primary);}
+.row-btn.del:hover{color:var(--danger);border-color:#FECACA;background:#FEF2F2;}
+.admin-search{width:100%;height:42px;border:1px solid var(--border);border-radius:var(--r-sm);padding:0 14px;font-family:inherit;font-size:14px;outline:none;margin-bottom:14px;}
+.admin-search:focus{border-color:var(--primary);}
+.admin-stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px;}
+.astat{background:var(--surface);border-radius:var(--r);padding:16px;border:1px solid var(--border);}
+.astat strong{display:block;font-size:22px;font-weight:800;letter-spacing:-.4px;margin-bottom:2px;}
+.astat span{font-size:12px;color:var(--muted);font-weight:600;}
+.astat.blue strong{color:var(--primary);}
+.astat.orange strong{color:var(--accent-d);}
+.astat.green strong{color:var(--success);}
+.order-card{background:#fff;border:1px solid var(--border);padding:16px;border-radius:var(--r);display:flex;flex-direction:column;gap:6px;font-size:14px;}
+.order-card .oc-top{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;}
+.status{font-size:12px;font-weight:800;padding:4px 10px;border-radius:999px;}
+.status.paid{background:#ECFDF3;color:var(--success);}
+.status.wait{background:#FEF2F2;color:var(--danger);}
 
 /* TOAST */
-.toast{position:fixed;bottom:22px;right:22px;background:var(--dark);color:#fff;padding:13px 18px;border-radius:var(--r);font-size:13px;font-weight:600;box-shadow:var(--sh-lg);z-index:2000;display:flex;align-items:center;gap:8px;transform:translateY(70px);opacity:0;transition:transform .3s,opacity .3s;max-width:310px;}
-.toast.show{transform:translateY(0);opacity:1;}
+.toast{position:fixed;bottom:24px;left:50%;transform:translate(-50%,80px);background:var(--text);color:#fff;padding:12px 18px;border-radius:999px;font-size:13px;font-weight:600;box-shadow:var(--sh-lg);z-index:2000;display:flex;align-items:center;gap:8px;opacity:0;transition:transform .3s,opacity .3s;max-width:calc(100% - 32px);}
+.toast.show{transform:translate(-50%,0);opacity:1;}
 
 /* FOOTER */
-footer{background:var(--dark);color:#64748B;padding:44px 20px 22px;margin-top:56px;}
-.ftr-grid{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:36px;}
-.ftr-brand p{font-size:12px;line-height:1.8;margin-top:12px;}
-.ftr-col h4{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#fff;margin-bottom:14px;}
-.ftr-col a{display:block;font-size:12px;color:#64748B;margin-bottom:8px;transition:color .2s;}
-.ftr-col a:hover{color:var(--orange);}
-.ftr-bottom{max-width:1300px;margin:0 auto;border-top:1px solid #334155;padding-top:20px;display:flex;justify-content:space-between;align-items:center;font-size:11px;flex-wrap:wrap;gap:10px;}
-.pay-tags{display:flex;gap:8px;}
-.ptag{background:#1E293B;border:1px solid #334155;border-radius:5px;padding:5px 12px;font-size:11px;font-weight:700;color:#64748B;}
+footer{background:var(--card);border-top:1px solid var(--border);margin-top:56px;padding:44px 0 24px;}
+.ftr-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1.2fr;gap:32px;margin-bottom:32px;}
+.ftr-brand p{font-size:13px;color:var(--muted);line-height:1.7;margin-top:14px;max-width:320px;}
+.ftr-col h4{font-size:14px;font-weight:800;margin-bottom:14px;}
+.ftr-col a{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);margin-bottom:10px;transition:color .15s;}
+.ftr-col a:hover{color:var(--primary);}
+.ftr-col .ico{width:16px;height:16px;}
+.app-btns{display:flex;flex-direction:column;gap:8px;margin-top:6px;}
+.app-btn{display:flex !important;align-items:center;gap:10px;background:var(--text);color:#fff !important;padding:8px 14px;border-radius:var(--r-sm);margin-bottom:0 !important;}
+.app-btn small{display:block;font-size:10px;opacity:.7;line-height:1;}
+.app-btn strong{font-size:14px;line-height:1.2;}
+.ftr-bottom{border-top:1px solid var(--border);padding-top:20px;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--muted);flex-wrap:wrap;gap:12px;}
+.legal{display:flex;gap:16px;flex-wrap:wrap;}
+.legal a:hover{color:var(--primary);}
+.pay-tags{display:flex;gap:6px;flex-wrap:wrap;}
+.ptag{border:1px solid var(--border);border-radius:6px;padding:5px 10px;font-size:11px;font-weight:800;color:var(--text);background:var(--surface);}
+
+/* MOBILE BOTTOM NAV */
+.mnav{display:none;position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--border);z-index:250;padding:6px 4px calc(6px + env(safe-area-inset-bottom));}
+.mnav-in{display:grid;grid-template-columns:repeat(5,1fr);}
+.mnav button,.mnav a{position:relative;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:10px;font-weight:700;color:var(--muted);padding:4px 0;}
+.mnav .active{color:var(--primary);}
+.mnav .ico{width:22px;height:22px;}
+.mnav .hbadge{right:calc(50% - 22px);top:0;}
 
 /* RESPONSIVE */
+@media(max-width:1100px){
+  .pgrid{grid-template-columns:repeat(3,1fr);}
+  .rail{grid-auto-columns:calc((100% - 3*14px)/4);}
+  .cats,.mega .wrap{grid-template-columns:repeat(3,1fr);}
+  .hero-grid{grid-template-columns:1fr;}
+  .hero-side{flex-direction:row;}
+  .ftr-grid{grid-template-columns:1fr 1fr 1fr;}
+  .ftr-brand{grid-column:1/-1;}
+}
 @media(max-width:900px){
-  .hdr{grid-template-columns:auto 1fr;height:60px;gap:12px;}
-  .admin-btn span{display:none;}
+  .strip-l .hide-md,.strip-r .hide-md{display:none;}
   .layout{grid-template-columns:1fr;}
-  .sidebar{position:static;}
-  .hero-in{grid-template-columns:1fr;}
-  .hero h1{font-size:42px;}
-  .stats-grid{grid-template-columns:repeat(3,1fr);}
-  .ftr-grid{grid-template-columns:1fr 1fr;}
-  .mbody{grid-template-columns:1fr;}
+  .sidebar{position:fixed;inset:0 auto 0 0;width:300px;max-width:85%;background:var(--bg);z-index:520;padding:16px;overflow-y:auto;transform:translateX(-100%);transition:transform .3s;top:0;}
+  .sidebar.open{transform:translateX(0);box-shadow:var(--sh-lg);}
+  .filter-toggle{display:inline-flex;}
+  .perks{grid-template-columns:repeat(2,1fr);}
+  .pd{grid-template-columns:1fr;}
+  .bundle-grid{grid-template-columns:1fr;}
   .admin-stats-grid{grid-template-columns:repeat(2,1fr);}
   .af-grid{grid-template-columns:1fr;}
-  .af-full{grid-column:1;}
-}
-@media(max-width:600px){
-  .topbar{display:none;}
-  .hdr{padding:0 14px;}
-  .logo-txt span{display:none;}
   .hbtn .hb-lbl{display:none;}
-  .pgrid{grid-template-columns:1fr 1fr;gap:12px;}
-  .ftr-grid{grid-template-columns:1fr;gap:20px;}
-  .hero{padding:32px 14px;}
-  .hero h1{font-size:34px;}
-  .stats-grid{grid-template-columns:1fr 1fr;}
-  .cart-side{width:100%;right:-100%;}
+  .cat-btn .cb-lbl{display:none;}
+  .cat-btn{padding:0 13px;}
 }
-.profile-menu{
-    position:relative;
-    display:inline-block;
-}
-
-.profile-btn{
-    width:45px;
-    height:45px;
-    border:none;
-    border-radius:50%;
-    background:#1e88e5;
-    color:white;
-    font-size:20px;
-    cursor:pointer;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    transition:.3s;
-}
-
-.profile-btn:hover{
-    background:#1565c0;
-}
-
-.profile-dropdown{
-    display:none;
-    position:absolute;
-    right:0;
-    top:55px;
-    min-width:180px;
-    background:#fff;
-    border-radius:12px;
-    box-shadow:0 10px 25px rgba(0,0,0,.15);
-    overflow:hidden;
-    z-index:999;
-}
-
-.profile-dropdown.show{
-    display:block;
-}
-
-.profile-dropdown a{
-    display:block;
-    padding:12px 16px;
-    text-decoration:none;
-    color:#333;
-    transition:.2s;
-}
-
-.profile-dropdown a:hover{
-    background:#f5f5f5;
-}
-/* Tugmalar joylashgan konteyner */
-.user-actions {
-    display: flex;
-    align-items: center;
-    gap: 12px; /* Tugmalar orasidagi masofa */
-}
-
-/* Umumiy tugma stillari */
-.btn-action, .btn-admin, .btn-logout {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 16px;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: 500;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-/* Kirish (Login) tugmasi - Chegarali ochiq uslub */
-.btn-login-nav {
-    color: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    background: transparent;
-}
-
-.btn-login-nav:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: #ffffff;
-}
-
-/* Ro'yxatdan o'tish tugmasi - Saytdagi to'q sariq rangga mos */
-.btn-register-nav {
-    background: #ff7a00;
-    color: #ffffff;
-}
-
-.btn-register-nav:hover {
-    background: #e06b00;
-}
-
-/* Asosiy qora satrni flexbox qilish va elementlarni ikki chekkaga surish */
-.top-bar {
-    display: flex;
-    justify-content: space-between; /* Chap va o'ng tomonni ajratadi */
-    align-items: center;
-    background-color: #111c24; /* Saytingizning o'sha tepadagi to'q foni */
-    padding: 10px 20px;
-}
-
-/* Tugmalar konteyneri */
-.user-actions {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Tugmalar orasidagi masofa */
-    margin-left: auto; /* Avtomatik o'ng tomonga suradi */
-}
-
-/* Kirish tugmasi (Oddiy oq matn, chekkalari yengil hoshiya) */
-.btn-login-nav {
-    color: #ffffff !important;
-    text-decoration: none;
-    font-size: 13px;
-    padding: 6px 14px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 4px;
-    transition: all 0.3s ease;
-}
-.btn-login-nav:hover {
-    background: rgba(255, 255, 255, 0.1);
-}
-
-/* Yangi tepadagi qora satr uchun maxsus qoidalar */
-.bh-top-navbar {
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    background-color: #1a2229 !important; /* To'q chiroyli fon */
-    padding: 10px 30px !important;
-    color: #ffffff !important;
-    font-family: 'Poppins', sans-serif !important;
-}
-
-/* Chap tomondagi kontaktlar */
-.bh-top-left {
-    display: flex !important;
-    gap: 20px !important;
-    font-size: 13px !important;
-    color: rgba(255, 255, 255, 0.8) !important;
-}
-
-.bh-top-left span i {
-    color: #ff7a00 !important; /* Ikonkalar to'q sariq rangda */
-}
-
-/* O'ng tomondagi qism */
-.bh-top-right {
-    display: flex !important;
-    align-items: center !important;
-    gap: 25px !important;
-}
-
-/* Ish vaqti matni */
-.bh-work-text {
-    font-size: 13px !important;
-    color: rgba(255, 255, 255, 0.7) !important;
-}
-
-/* Tugmalar bloki */
-.bh-user-buttons {
-    display: flex !important;
-    align-items: center !important;
-    gap: 10px !important;
-}
-
-/* Umumiy tugma stillari */
-.bh-btn {
-    text-decoration: none !important;
-    font-size: 13px !important;
-    padding: 6px 14px !important;
-    border-radius: 4px !important;
-    font-weight: 500 !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 6px !important;
-    transition: all 0.2s ease-in-out !important;
-}
-
-/* Kirish tugmasi */
-.bh-btn-login {
-    color: #ffffff !important;
-    border: 1px solid rgba(255, 255, 255, 0.3) !important;
-    background: transparent !important;
-}
-.bh-btn-login:hover {
-    background: rgba(255, 255, 255, 0.1) !important;
-    border-color: #ffffff !important;
-}
-
-/* Ro'yxatdan o'tish tugmasi */
-.bh-btn-register {
-    background-color: #ff7a00 !important;
-    color: #ffffff !important;
-    border: none !important;
-}
-.bh-btn-register:hover {
-    background-color: #e06b00 !important;
-}
-
-/* Admin tugmasi */
-.bh-btn-admin {
-    background-color: #2d3748 !important;
-    color: #ffffff !important;
-    border: none !important;
-}
-.bh-btn-admin:hover {
-    background-color: #1a202c !important;
-}
-
-/* Chiqish tugmasi */
-.bh-btn-logout {
-    background-color: rgba(239, 68, 68, 0.1) !important;
-    color: #ef4444 !important;
-    border: 1px solid rgba(239, 68, 68, 0.2) !important;
-}
-.bh-btn-logout:hover {
-    background-color: #ef4444 !important;
-    color: #ffffff !important;
-}
-
-
-/* Pagination dizayni - pastki o'ng tarafda turishi uchun */
-.pagination { 
-    margin-top: 40px; 
-    display: flex; 
-    justify-content: flex-end; /* Elementlarni o'ng tarafga tekislaydi */
-    align-items: center; 
-    gap: 8px; 
-    padding-bottom: 20px;
-}
-
-.pagination a, .pagination .current-page { 
-    padding: 8px 16px; 
-    border: 1px solid #dee2e6; 
-    text-decoration: none; 
-    color: #007bff; 
-    border-radius: 6px; 
-    font-weight: 500;
-    transition: all 0.2s ease;
-}
-
-.pagination .current-page { 
-    background-color: #007bff; 
-    color: white; 
-    border-color: #007bff; 
-}
-
-.pagination a:hover { 
-    background-color: #f1f3f5; 
-    border-color: #007bff;
-}
-
-.pagination .disabled { 
-    color: #6c757d; 
-    pointer-events: none; 
-    background-color: #fff; 
-    border-color: #dee2e6; 
-    opacity: 0.6;
-}
-/* Pagination dizayni - pastki o'ng tarafda turishi uchun */
-.pagination { 
-    margin-top: 40px; 
-    display: flex; 
-    justify-content: flex-end; /* Elementlarni o'ng tarafga tekislaydi */
-    align-items: center; 
-    gap: 8px; 
-    padding-bottom: 20px;
-}
-
-.pagination a, .pagination .current-page { 
-    padding: 8px 16px; 
-    border: 1px solid #dee2e6; 
-    text-decoration: none; 
-    color: #007bff; 
-    border-radius: 6px; 
-    font-weight: 500;
-    transition: all 0.2s ease;
-}
-
-.pagination .current-page { 
-    background-color: #007bff; 
-    color: white; 
-    border-color: #007bff; 
-}
-
-.pagination a:hover { 
-    background-color: #f1f3f5; 
-    border-color: #007bff;
-}
-
-.pagination .disabled { 
-    color: #6c757d; 
-    pointer-events: none; 
-    background-color: #fff; 
-    border-color: #dee2e6; 
-    opacity: 0.6;
+@media(max-width:640px){
+  body{padding-bottom:64px;}
+  .strip{display:none;}
+  .wrap{padding:0 14px;}
+  .hdr .wrap{height:auto;flex-wrap:wrap;padding-top:10px;padding-bottom:10px;gap:10px;}
+  .logo-txt span{display:none;}
+  .srch{order:3;flex-basis:100%;}
+  .hacts{margin-left:auto;}
+  .hacts .hide-sm{display:none;}
+  .cat-btn{display:none;}
+  .carousel{aspect-ratio:4/3;}
+  .slide-c{padding:0 20px;gap:10px;}
+  .slide-c h2{font-size:24px;}
+  .slide-c p{font-size:13px;}
+  .c-arrow{display:none;}
+  .c-dots{left:20px;}
+  .hero-side{flex-direction:column;}
+  .perks{grid-template-columns:1fr 1fr;gap:8px;}
+  .perk{padding:12px;flex-direction:column;align-items:flex-start;gap:8px;}
+  .pgrid{grid-template-columns:repeat(2,1fr);gap:8px;}
+  .rail{grid-auto-columns:46%;}
+  .rail-btn{display:none;}
+  .cats{grid-template-columns:repeat(3,1fr);gap:8px;}
+  .cat-tile{padding:8px;}
+  .cat-tile strong{font-size:12px;}
+  .cat-tile span{display:none;}
+  .sec-h h2{font-size:20px;}
+  .pprice{font-size:16px;}
+  .cta{padding:24px;}
+  .cta h2{font-size:21px;}
+  .frow,.pay-opts{grid-template-columns:1fr;}
+  .ftr-grid{grid-template-columns:1fr 1fr;gap:24px;}
+  .mnav{display:block;}
+  .toast{bottom:80px;}
+  .admin-tabs{overflow-x:auto;max-width:100%;}
 }
 </style>
 </head>
 <body>
 
-<!-- TOP BAR -->
-<div class="bh-top-navbar">
-    <div class="bh-top-left">
-     <p>📞 <strong>+998 97 443-88-36</strong> -SHERZODBEK</p>
-    <p>📞 <strong>+998 97 403-69-00</strong> -ODILBEK AKA</p>
-        <span><i class="fa-solid fa-location-dot"></i> Toshkent, Mirzo Ulug'bek</span>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+  <symbol id="i-cart" viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2.5 3h2.6l2.4 11.2a1.6 1.6 0 0 0 1.6 1.3h8.6a1.6 1.6 0 0 0 1.6-1.2L21 7H6"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20.5s-7.5-4.6-9.3-9.2C1.5 8 3.4 4.5 7 4.5c2 0 3.4 1.1 5 3 1.6-1.9 3-3 5-3 3.6 0 5.5 3.5 4.3 6.8-1.8 4.6-9.3 9.2-9.3 9.2Z"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7.5" height="7.5" rx="2"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="2"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="2"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="2"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3h3.5l1.8 4.5-2.3 1.4a11 11 0 0 0 7.1 7.1l1.4-2.3L21 15.5V19a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2Z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.4 7.5 9.5 4.3-1.1 7.5-4.9 7.5-9.5V6z"/><path d="m8.8 12 2.2 2.2 4.4-4.4"/></symbol>
+  <symbol id="i-truck" viewBox="0 0 24 24"><path d="M2 6h11v10H2zM13 9h4.5L21 12.5V16h-8"/><circle cx="6.5" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></symbol>
+  <symbol id="i-return" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></symbol>
+  <symbol id="i-card" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19M6.5 15h4"/></symbol>
+  <symbol id="i-chev-l" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+  <symbol id="i-chev-r" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/></symbol>
+  <symbol id="i-edit" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/></symbol>
+  <symbol id="i-filter" viewBox="0 0 24 24"><path d="M3 5h18M6 12h12M10 19h4"/></symbol>
+  <symbol id="i-store" viewBox="0 0 24 24"><path d="M3 9 4.5 4h15L21 9M3 9v11h18V9M3 9h18M9 20v-6h6v6"/></symbol>
+  <symbol id="i-logout" viewBox="0 0 24 24"><path d="M15 4h4a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-4M10 16l-4-4 4-4M6 12h10"/></symbol>
+  <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path d="M21 3 3 10.5l7 2.5 2.5 7z"/><path d="m10 13 4-4"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M5 3.5v17l15-8.5z"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24"><path d="M21 8 12 3 3 8v8l9 5 9-5zM3 8l9 5 9-5M12 13v8"/></symbol>
+</svg>
+
+<!-- TOP STRIP -->
+<div class="strip">
+  <div class="wrap">
+    <div class="strip-l">
+      <a href="#"><svg class="ico"><use href="#i-pin"/></svg> Toshkent, Mirzo Ulug'bek</a>
+      <a href="#" class="hide-md">Topshirish punktlari</a>
+      <span class="strip-badge hide-md">O'zbekiston bo'ylab yetkazib berish</span>
     </div>
-    
-    <div class="bh-top-right">
-        <span class="bh-work-text">Ish vaqti: chor-Yak 08:00–19:00 | Yetkazib berish | Kafolat</span>
-        
-        <div class="bh-user-buttons">
-            {% if user.is_authenticated %}
-                {% if user.is_staff %}
-                    <a href="/admin/" class="bh-btn bh-btn-admin">
-                        <i class="fa-solid fa-user-gear"></i> Admin
-                    </a>
-                {% endif %}
-                <a href="/logout/" class="bh-btn bh-btn-logout">
-                    <i class="fa-solid fa-power-off"></i> Chiqish
-                </a>
-            {% else %}
-                <a href="/login/" class="bh-btn bh-btn-login">
-                    <i class="fa-solid fa-right-to-bracket"></i> Kirish
-                </a>
-                <a href="/register/" class="bh-btn bh-btn-register">
-                    <i class="fa-solid fa-user-plus"></i> Ro'yxatdan o'tish
-                </a>
-            {% endif %}
-        </div>
+    <div class="strip-r">
+      <span class="hide-md" style="display:inline-flex;align-items:center;gap:6px"><svg class="ico"><use href="#i-clock"/></svg> Chor–Yak 08:00–19:00</span>
+      <a href="tel:+998974438836"><svg class="ico"><use href="#i-phone"/></svg> <strong>+998 97 443-88-36</strong></a>
+      <a href="tel:+998974036900" class="hide-md"><strong>+998 97 403-69-00</strong></a>
+      <a href="#" onclick="openAdmin();return false;">Sotuvchi kabineti</a>
     </div>
+  </div>
 </div>
 
 <!-- HEADER -->
-<header>
-  <div class="hdr">
-    <a href="#" class="logo" onclick="viewShop()">
-      <div class="logo-ico">BH</div>
+<header class="hdr" id="hdr">
+  <div class="wrap">
+    <a href="#" class="logo" onclick="viewShop();return false;" aria-label="Belarus Holding bosh sahifa">
+      <div class="logo-ico" aria-hidden="true">BH</div>
       <div class="logo-txt">
-        <strong>BELARUS HOLDING</strong>
+        <strong>Belarus<em>Market</em></strong>
         <span>Traktor ehtiyot qismlari</span>
       </div>
     </a>
 
-    <div class="srch" id="srchWrap">
-      <input type="text" id="srchInput" placeholder="Detal nomi yoki artikul... (masalan: Porshen, 240-1004021)" oninput="doSearch(this.value)" onfocus="openDrop()" onblur="closeDrop()">
-      <button class="srch-btn" onclick="doSearch(document.getElementById('srchInput').value)">
-        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-      </button>
+    <button class="cat-btn" id="catBtn" aria-expanded="false" aria-controls="mega" onclick="toggleMega()">
+      <svg class="ico"><use href="#i-grid"/></svg>
+      <span class="cb-lbl">Katalog</span>
+    </button>
+
+    <div class="srch" id="srchWrap" role="search">
+      <div class="srch-box">
+        <label for="srchInput" class="sr-only">Mahsulot qidirish</label>
+        <input type="search" id="srchInput" autocomplete="off" placeholder="Detal nomi yoki artikul: Porshen, 240-1004021…" oninput="doSearch(this.value)" onfocus="openDrop()" onblur="closeDrop()" onkeydown="if(event.key==='Enter'&&!event.nativeEvent?.isComposing&&event.keyCode!==229){searchToGrid(this.value)}">
+        <button class="srch-btn" aria-label="Qidirish" onclick="searchToGrid(document.getElementById('srchInput').value)">
+          <svg class="ico"><use href="#i-search"/></svg>
+        </button>
+      </div>
       <div class="srch-drop" id="srchDrop"></div>
     </div>
 
-    <div class="hdr-acts">
+    <div class="hacts">
+      {% if user.is_authenticated %}
+      <div class="profile">
+        <button class="hbtn" onclick="toggleProfile(event)" aria-haspopup="true">
+          <svg class="ico"><use href="#i-user"/></svg>
+          <span class="hb-lbl">{{ user.username|truncatechars:12 }}</span>
+        </button>
+        <div class="profile-menu" id="profileMenu">
+          <div class="pm-head"><strong>{{ user.get_full_name|default:user.username }}</strong><span>{{ user.email|default:"Mijoz" }}</span></div>
+          {% if user.is_staff %}
+          <a href="/admin/"><svg class="ico"><use href="#i-settings"/></svg> Admin panel</a>
+          {% endif %}
+          <button onclick="openAdmin()"><svg class="ico"><use href="#i-store"/></svg> Sotuvchi kabineti</button>
+          <a href="/logout/" class="danger"><svg class="ico"><use href="#i-logout"/></svg> Chiqish</a>
+        </div>
+      </div>
+      {% else %}
+      <a href="/login/" class="hbtn">
+        <svg class="ico"><use href="#i-user"/></svg>
+        <span class="hb-lbl">Kirish</span>
+      </a>
+      {% endif %}
+      <button class="hbtn hide-sm" onclick="showFavs()">
+        <svg class="ico"><use href="#i-heart"/></svg>
+        <span class="hb-lbl">Saralangan</span>
+        <span class="hbadge" id="favBadge" data-zero="true">0</span>
+      </button>
       <button class="hbtn" onclick="openCart()">
-        <svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-        <span class="hb-lbl">Savatcha</span>
-        <div class="badge" id="cartBadge">0</div>
-      </button>
-      <button class="hbtn" onclick="openOrder(null)">
-        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5 19.79 19.79 0 0 1 1.64 4.9 2 2 0 0 1 3.62 2.7h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10a16 16 0 0 0 6 6l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        <span class="hb-lbl">Buyurtma</span>
-      </button>
-      <button class="admin-btn" onclick="openAdmin()">
-        <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-        <span>Admin</span>
+        <svg class="ico"><use href="#i-cart"/></svg>
+        <span class="hb-lbl">Savat</span>
+        <span class="hbadge" id="cartBadge" data-zero="true">0</span>
       </button>
     </div>
+  </div>
+
+  <div class="mega" id="mega">
+    <div class="wrap" id="megaGrid"></div>
   </div>
 </header>
 
-<!-- NAV -->
-<nav>
-  <div class="nav-inner" id="navBar">
-    <a href="#" class="nlink active" onclick="return filterCat('all',this)">
-      🏠 Barchasi <span class="cnt" id="cnt-all">0</span>
-    </a>
-    <a href="#" class="nlink" onclick="return filterCat('dvigatel',this)">
-      ⚙️ Dvigatel <span class="cnt" id="cnt-dvigatel">0</span>
-    </a>
-    <a href="#" class="nlink" onclick="return filterCat('transmissiya',this)">
-      🔩 Transmissiya <span class="cnt" id="cnt-transmissiya">0</span>
-    </a>
-    <a href="#" class="nlink" onclick="return filterCat('gidravlika',this)">
-      💧 Gidravlika <span class="cnt" id="cnt-gidravlika">0</span>
-    </a>
-    <a href="#" class="nlink" onclick="return filterCat('elektr',this)">
-      ⚡ Elektr <span class="cnt" id="cnt-elektr">0</span>
-    </a>
-    <a href="#" class="nlink" onclick="return filterCat('sovitish',this)">
-      🌡️ Sovitish <span class="cnt" id="cnt-sovitish">0</span>
-    </a>
-    <a href="#" class="nlink" onclick="return filterCat('zapchast',this)">
-      🔧 Qo'shimcha <span class="cnt" id="cnt-zapchast">0</span>
-    </a>
+<!-- CATEGORY CHIPS -->
+<nav class="chips" aria-label="Kategoriyalar">
+  <div class="wrap" id="navBar">
+    <a href="#" class="nlink active" data-cat="all" onclick="return filterCat('all')">Barchasi <span class="cnt" id="cnt-all">0</span></a>
+    <a href="#" class="nlink" data-cat="dvigatel" onclick="return filterCat('dvigatel')">Dvigatel <span class="cnt" id="cnt-dvigatel">0</span></a>
+    <a href="#" class="nlink" data-cat="transmissiya" onclick="return filterCat('transmissiya')">Transmissiya <span class="cnt" id="cnt-transmissiya">0</span></a>
+    <a href="#" class="nlink" data-cat="gidravlika" onclick="return filterCat('gidravlika')">Gidravlika <span class="cnt" id="cnt-gidravlika">0</span></a>
+    <a href="#" class="nlink" data-cat="elektr" onclick="return filterCat('elektr')">Elektr jihozlari <span class="cnt" id="cnt-elektr">0</span></a>
+    <a href="#" class="nlink" data-cat="sovitish" onclick="return filterCat('sovitish')">Sovitish tizimi <span class="cnt" id="cnt-sovitish">0</span></a>
+    <a href="#" class="nlink" data-cat="zapchast" onclick="return filterCat('zapchast')">Qo'shimcha <span class="cnt" id="cnt-zapchast">0</span></a>
   </div>
 </nav>
 
-<!-- HERO -->
-<section class="hero" id="heroSection">
-  <div class="hero-in">
-    <div>
-      <h1>BELARUS<br><em> HOLDING</em><br>TRAKTOR DRTAL ORIGINAL</h1>
-      <p>MTZ-80, MTZ-82 va D-240 dvigatel uchun sertifikatlangan original ehtiyot qismlari. 4500+ mahsulot, zavod kafolati bilan.</p>
-      <div class="hero-btns">
-        <button class="btn-main" onclick="filterCat('all',document.querySelector('.nlink'))">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-          Katalogni ko'rish
-        </button>
-        <button class="btn-ghost" onclick="openOrder(null)">Buyurtma berish</button>
+<main>
+  <!-- HERO -->
+  <section class="hero wrap" id="heroSection" aria-label="Aksiyalar">
+    <div class="hero-grid">
+      <div class="carousel" id="carousel">
+        <div class="slides" id="slides">
+          <div class="slide">
+            <img src="{% static 'img/banner-main.png' %}" alt="Dalada turgan ko'k Belarus MTZ traktori">
+            <div class="slide-c">
+              <span class="slide-tag">100% Original</span>
+              <h2>MTZ traktorlari uchun original ehtiyot qismlar</h2>
+              <p>MTZ-80, MTZ-82 va D-240 dvigatellari uchun zavod kafolatli detallar bir joyda.</p>
+              <button class="slide-btn" onclick="filterCat('all')">Katalogga o'tish <svg class="ico" style="width:16px;height:16px"><use href="#i-chev-r"/></svg></button>
+            </div>
+          </div>
+          <div class="slide">
+            <img src="{% static 'img/banner-engine.png' %}" alt="Dvigatel qismlari: porshen, gilza va shesternyalar">
+            <div class="slide-c">
+              <span class="slide-tag">Dvigatel</span>
+              <h2>Porshen, gilza va turbokompressorlar</h2>
+              <p>MMZ, BZA va boshqa zavodlarning sertifikatlangan dvigatel qismlari.</p>
+              <button class="slide-btn" onclick="filterCat('dvigatel')">Dvigatel qismlari <svg class="ico" style="width:16px;height:16px"><use href="#i-chev-r"/></svg></button>
+            </div>
+          </div>
+          <div class="slide">
+            <img src="{% static 'img/banner-delivery.png' %}" alt="Ehtiyot qismlar solingan yetkazib berish qutilari">
+            <div class="slide-c">
+              <span class="slide-tag">Yetkazib berish</span>
+              <h2>Butun O'zbekiston bo'ylab tez yetkazib beramiz</h2>
+              <p>Buyurtmani onlayn bering — Click, Payme yoki naqd pul orqali to'lang.</p>
+              <button class="slide-btn" onclick="openOrder()">Buyurtma berish <svg class="ico" style="width:16px;height:16px"><use href="#i-chev-r"/></svg></button>
+            </div>
+          </div>
+        </div>
+        <button class="c-arrow c-prev" aria-label="Oldingi banner" onclick="slideTo(curSlide-1)"><svg class="ico"><use href="#i-chev-l"/></svg></button>
+        <button class="c-arrow c-next" aria-label="Keyingi banner" onclick="slideTo(curSlide+1)"><svg class="ico"><use href="#i-chev-r"/></svg></button>
+        <div class="c-dots" id="cDots"></div>
+      </div>
+
+      <div class="hero-side">
+        <div class="side-card side-a">
+          <div>
+            <div class="side-stat"><span id="stat-total">0</span>+</div>
+            <p>mahsulot omborda tayyor</p>
+          </div>
+          <h3>30 yildan ortiq tajriba</h3>
+          <button class="sc-btn" onclick="filterCat('all')">Hammasini ko'rish</button>
+        </div>
+        <div class="side-card side-b">
+          <h3>Kerakli detalni topa olmadingizmi?</h3>
+          <p>Artikulni yuboring — operator 15 daqiqada javob beradi.</p>
+          <a class="sc-btn" href="https://t.me/MTZTD" target="_blank" rel="noopener"><svg class="ico" style="width:16px;height:16px"><use href="#i-send"/></svg> Telegramda yozish</a>
+        </div>
       </div>
     </div>
-    <div class="stats-grid">
-      <div class="stat"><strong id="stat-total">4500+</strong><span>Mahsulot</span></div>
-      <div class="stat"><strong>30+</strong><span>Yil tajriba</span></div>
-      <div class="stat"><strong>100%</strong><span>Original</span></div>
-      <div class="stat"><strong>24/7</strong><span>Buyurtma</span></div>
-      <div class="stat"><strong>UZB</strong><span>Yetkazish</span></div>
-      <div class="stat"><strong>Click</strong><span>Payme</span></div>
+
+    <div class="perks">
+      <div class="perk"><div class="perk-ico"><svg class="ico"><use href="#i-shield"/></svg></div><div><strong>Original sertifikat</strong><span>Zavod kafolati bilan</span></div></div>
+      <div class="perk"><div class="perk-ico"><svg class="ico"><use href="#i-truck"/></svg></div><div><strong>Yetkazib berish</strong><span>Butun O'zbekiston bo'ylab</span></div></div>
+      <div class="perk"><div class="perk-ico"><svg class="ico"><use href="#i-return"/></svg></div><div><strong>14 kun qaytarish</strong><span>Muammosiz almashtirish</span></div></div>
+      <div class="perk"><div class="perk-ico"><svg class="ico"><use href="#i-card"/></svg></div><div><strong>Qulay to'lov</strong><span>Click, Payme, naqd</span></div></div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- TRUST BAR -->
-<div class="trust">
-  <div class="trust-in">
-    <div class="trust-item">✅ Original sertifikat</div>
-    <div class="trust-item">🚚 Butun O'zbekiston bo'yicha yetkazish</div>
-    <div class="trust-item">🔄 14 kun ichida qaytarish</div>
-    <div class="trust-item">💳 Click &amp; Payme to'lov</div>
-    <div class="trust-item">📦 Omborda 4500+ detal</div>
-  </div>
-</div>
+  <!-- CATEGORIES -->
+  <section class="sec wrap" aria-labelledby="catsTitle">
+    <div class="sec-h">
+      <h2 id="catsTitle">Mashhur kategoriyalar</h2>
+      <button onclick="toggleMega()">Barcha kategoriyalar <svg class="ico" style="width:16px;height:16px"><use href="#i-chev-r"/></svg></button>
+    </div>
+    <div class="cats" id="catTiles"></div>
+  </section>
 
-<!-- MAIN -->
-<div class="page" id="shopSection">
-  <div class="layout">
+  <!-- TOP RAIL -->
+  <section class="sec wrap" aria-labelledby="topTitle">
+    <div class="sec-h">
+      <h2 id="topTitle">Ommabop mahsulotlar</h2>
+      <button onclick="sortProds('def');filterCat('all')">Barchasi <svg class="ico" style="width:16px;height:16px"><use href="#i-chev-r"/></svg></button>
+    </div>
+    <div class="rail-wrap">
+      <button class="rail-btn l" aria-label="Chapga" onclick="scrollRail(-1)"><svg class="ico"><use href="#i-chev-l"/></svg></button>
+      <div class="rail" id="topRail"></div>
+      <button class="rail-btn r" aria-label="O'ngga" onclick="scrollRail(1)"><svg class="ico"><use href="#i-chev-r"/></svg></button>
+    </div>
+  </section>
 
-    <!-- SIDEBAR -->
-    <aside class="sidebar">
-      <div class="fcard">
-        <div class="fhead">
-          <svg viewBox="0 0 24 24"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
-          FILTRLAR
-        </div>
-        <div class="fsec">
+  <!-- CATALOG -->
+  <section class="sec wrap" id="shopSection" aria-label="Katalog">
+    <div class="layout">
+      <aside class="sidebar" id="sidebar" aria-label="Filtrlar">
+        <div class="fcard">
           <div class="ftitle">Kategoriya</div>
-          <label class="fitem active" onclick="filterCat('all',document.querySelector('.nlink'))">
-            🏠 Barchasi <span class="fcnt" id="sf-all">0</span>
-          </label>
-          <label class="fitem" onclick="filterCat('dvigatel',document.querySelectorAll('.nlink')[1])">
-            ⚙️ Dvigatel <span class="fcnt" id="sf-dvigatel">0</span>
-          </label>
-          <label class="fitem" onclick="filterCat('transmissiya',document.querySelectorAll('.nlink')[2])">
-            🔩 Transmissiya <span class="fcnt" id="sf-transmissiya">0</span>
-          </label>
-          <label class="fitem" onclick="filterCat('gidravlika',document.querySelectorAll('.nlink')[3])">
-            💧 Gidravlika <span class="fcnt" id="sf-gidravlika">0</span>
-          </label>
-          <label class="fitem" onclick="filterCat('elektr',document.querySelectorAll('.nlink')[4])">
-            ⚡ Elektr <span class="fcnt" id="sf-elektr">0</span>
-          </label>
-          <label class="fitem" onclick="filterCat('sovitish',document.querySelectorAll('.nlink')[5])">
-            🌡️ Sovitish <span class="fcnt" id="sf-sovitish">0</span>
-          </label>
-          <label class="fitem" onclick="filterCat('zapchast',document.querySelectorAll('.nlink')[6])">
-            🔧 Qo'shimcha <span class="fcnt" id="sf-zapchast">0</span>
-          </label>
+          <button class="fitem active" data-cat="all" onclick="filterCat('all')"><span class="fdot"></span>Barchasi <span class="fcnt" id="sf-all">0</span></button>
+          <button class="fitem" data-cat="dvigatel" onclick="filterCat('dvigatel')"><span class="fdot"></span>Dvigatel <span class="fcnt" id="sf-dvigatel">0</span></button>
+          <button class="fitem" data-cat="transmissiya" onclick="filterCat('transmissiya')"><span class="fdot"></span>Transmissiya <span class="fcnt" id="sf-transmissiya">0</span></button>
+          <button class="fitem" data-cat="gidravlika" onclick="filterCat('gidravlika')"><span class="fdot"></span>Gidravlika <span class="fcnt" id="sf-gidravlika">0</span></button>
+          <button class="fitem" data-cat="elektr" onclick="filterCat('elektr')"><span class="fdot"></span>Elektr jihozlari <span class="fcnt" id="sf-elektr">0</span></button>
+          <button class="fitem" data-cat="sovitish" onclick="filterCat('sovitish')"><span class="fdot"></span>Sovitish tizimi <span class="fcnt" id="sf-sovitish">0</span></button>
+          <button class="fitem" data-cat="zapchast" onclick="filterCat('zapchast')"><span class="fdot"></span>Qo'shimcha <span class="fcnt" id="sf-zapchast">0</span></button>
         </div>
-        <div class="fsec">
-          <div class="ftitle">Narx oralig'i</div>
-          <label class="fitem" id="pr1" onclick="filterPrice(0,50000,this)">
-            💚 50 000 gacha <span class="fcnt" id="pc1">0</span>
-          </label>
-          <label class="fitem" id="pr2" onclick="filterPrice(50000,500000,this)">
-            💛 50 000 – 500 000 <span class="fcnt" id="pc2">0</span>
-          </label>
-          <label class="fitem" id="pr3" onclick="filterPrice(500000,2000000,this)">
-            🟠 500 000 – 2 mln <span class="fcnt" id="pc3">0</span>
-          </label>
-          <label class="fitem" id="pr4" onclick="filterPrice(2000000,999999999,this)">
-            🔴 2 mln dan yuqori <span class="fcnt" id="pc4">0</span>
-          </label>
+        <div class="fcard">
+          <div class="ftitle">Narx, so'm</div>
+          <button class="fitem pr" id="pr1" onclick="filterPrice(0,50000,this)"><span class="fdot"></span>50 000 gacha <span class="fcnt" id="pc1">0</span></button>
+          <button class="fitem pr" id="pr2" onclick="filterPrice(50000,500000,this)"><span class="fdot"></span>50 000 – 500 000 <span class="fcnt" id="pc2">0</span></button>
+          <button class="fitem pr" id="pr3" onclick="filterPrice(500000,2000000,this)"><span class="fdot"></span>500 000 – 2 mln <span class="fcnt" id="pc3">0</span></button>
+          <button class="fitem pr" id="pr4" onclick="filterPrice(2000000,999999999,this)"><span class="fdot"></span>2 mln dan yuqori <span class="fcnt" id="pc4">0</span></button>
         </div>
-        <div class="fsec">
+        <div class="fcard">
           <div class="ftitle">Ishlab chiqaruvchi</div>
           <div id="mfrList"></div>
         </div>
-      </div>
-    </aside>
+        <button class="reset-btn" onclick="resetFilters()">Filtrlarni tozalash</button>
+      </aside>
 
-    <!-- PRODUCTS -->
-    <main>
-      <div class="ph">
-        <div class="ph-title" id="phTitle">Barcha mahsulotlar <span id="phCount">(0 ta)</span></div>
-        <select class="sort-sel" onchange="sortProds(this.value)">
-          <option value="def">Saralash: Standart</option>
-          <option value="asc">Narx: Arzondan qimmatga</option>
-          <option value="desc">Narx: Qimmatdan arzonga</option>
-          <option value="az">A → Z</option>
-          <option value="za">Z → A</option>
-        </select>
+      <div>
+        <div class="ph">
+          <h2 class="ph-title" id="phTitle">Barcha mahsulotlar <span id="phCount">(0 ta)</span></h2>
+          <div class="ph-r">
+            <button class="filter-toggle" onclick="toggleSidebar(true)"><svg class="ico" style="width:16px;height:16px"><use href="#i-filter"/></svg> Filtr</button>
+            <label for="sortSel" class="sr-only">Saralash</label>
+            <select class="sort-sel" id="sortSel" onchange="sortProds(this.value)">
+              <option value="def">Ommabop</option>
+              <option value="asc">Arzonroq</option>
+              <option value="desc">Qimmatroq</option>
+              <option value="az">Nomi: A → Z</option>
+              <option value="za">Nomi: Z → A</option>
+            </select>
+          </div>
+        </div>
+        <div class="pgrid" id="prodGrid"></div>
+        <div class="more-wrap" id="moreWrap" hidden>
+          <button class="more-btn" onclick="showMore()">Yana ko'rsatish</button>
+        </div>
       </div>
-      <div class="pgrid" id="prodGrid"></div>
-    </main>
-  </div>
-</div>
+    </div>
+  </section>
+
+  <!-- SELLER CTA -->
+  <section class="wrap" aria-label="Hamkorlik">
+    <div class="cta">
+      <div>
+        <h2>Biz bilan birga soting</h2>
+        <p>Ehtiyot qismlar yetkazib beruvchisimisiz? Belarus Market platformasida mahsulotlaringizni minglab fermer va mexanizatorlarga taklif qiling.</p>
+      </div>
+      <div class="cta-btns">
+        <button class="btn btn-accent" onclick="openAdmin()"><svg class="ico" style="width:18px;height:18px"><use href="#i-store"/></svg> Sotuvchi kabineti</button>
+        <a class="btn btn-ghost-w" href="tel:+998974438836">Bog'lanish</a>
+      </div>
+    </div>
+  </section>
+</main>
 
 <!-- PRODUCT MODAL -->
-<div class="overlay" id="prodModal">
-  <div class="modal" style="max-width:700px">
+<div class="overlay" id="prodModal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="modal">
     <div class="mhdr">
-      <h3 id="mTitle">Mahsulot</h3>
-      <button class="mclose" onclick="closeModal('prodModal')">✕</button>
+      <h3>Mahsulot haqida</h3>
+      <button class="mclose" aria-label="Yopish" onclick="closeModal('prodModal')"><svg class="ico"><use href="#i-x"/></svg></button>
     </div>
-    <div class="mbody">
-      <div class="mimg" id="mImg"></div>
-      <div>
-        <div class="mlabel">Artikul (Zavod kodi)</div>
-        <div class="mval" id="mArt" style="font-family:'Courier New',monospace;font-size:15px;color:var(--blue)"></div>
-        <div class="mlabel">Ishlab chiqaruvchi</div>
-        <div class="mval" id="mMfr"></div>
-        <div class="mlabel">Kategoriya</div>
-        <div class="mval" id="mCat"></div>
-        <div class="orig-badge">⭐ ORIGINAL — Zavod kafolati bor</div>
-        <div class="mprice" id="mPrice"></div>
-        <div class="cstock"><div class="dot g"></div> Omborda mavjud</div>
+    <div class="pd">
+      <div class="pd-img" id="mImg"></div>
+      <div class="pd-info">
+        <div class="pd-tags">
+          <span class="pd-tag">Original</span>
+          <span class="pd-tag ok" id="mStock">Omborda mavjud</span>
+        </div>
+        <h2 id="mTitle">Mahsulot</h2>
+        <div class="pd-specs">
+          <div class="pd-row"><span>Artikul</span><strong class="mono" id="mArt"></strong></div>
+          <div class="pd-row"><span>Ishlab chiqaruvchi</span><strong id="mMfr"></strong></div>
+          <div class="pd-row"><span>Kategoriya</span><strong id="mCat"></strong></div>
+          <div class="pd-row"><span>Kafolat</span><strong>Zavod kafolati</strong></div>
+        </div>
+        <div class="pd-buy">
+          <div class="pd-price" id="mPrice"></div>
+          <div class="pd-act">
+            <div class="qty">
+              <button aria-label="Kamaytirish" onclick="chgQty(-1)">−</button>
+              <span id="qtyDisp">1</span>
+              <button aria-label="Ko'paytirish" onclick="chgQty(1)">+</button>
+            </div>
+            <button class="btn btn-primary" style="flex:1" onclick="addFromModal()">
+              <svg class="ico" style="width:18px;height:18px"><use href="#i-cart"/></svg> Savatga
+            </button>
+          </div>
+          <button class="btn btn-accent btn-block" onclick="buyNow()">Hoziroq sotib olish</button>
+        </div>
       </div>
     </div>
     <div class="bundle-sec" id="bundleSec" style="display:none">
-      <h4>🔗 Birgalikda sotib olinadi</h4>
-      <div id="bundleItems"></div>
-    </div>
-    <div class="mfoot">
-      <div class="qty">
-        <button onclick="chgQty(-1)">−</button>
-        <span id="qtyDisp">1</span>
-        <button onclick="chgQty(1)">+</button>
-      </div>
-      <button class="btn-main" style="flex:1;justify-content:center" onclick="addFromModal()">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-        Savatchaga
-      </button>
-      <button class="btn-main" style="background:var(--blue);justify-content:center" onclick="openOrder(null);closeModal('prodModal')">Buyurtma</button>
+      <h4>O'xshash mahsulotlar</h4>
+      <div class="bundle-grid" id="bundleItems"></div>
     </div>
   </div>
 </div>
 
 <!-- ORDER MODAL -->
-<div class="overlay" id="orderModal">
-  <div class="modal" style="max-width:500px">
+<div class="overlay" id="orderModal" role="dialog" aria-modal="true" aria-labelledby="orderTitle">
+  <div class="modal" style="max-width:520px">
     <div class="mhdr">
-      <h3>📦 Buyurtma berish</h3>
-      <button class="mclose" onclick="closeModal('orderModal')">✕</button>
+      <h3 id="orderTitle">Buyurtmani rasmiylashtirish</h3>
+      <button class="mclose" aria-label="Yopish" onclick="closeModal('orderModal')"><svg class="ico"><use href="#i-x"/></svg></button>
     </div>
-    <div id="orderBody">
-      <form class="oform" id="liveOrderForm">
-        {% csrf_token %} <div class="frow">
-          <div class="fgrp">
-            <label>Ismingiz *</label>
-            <input type="text" id="oName" name="full_name" required placeholder="Matyoqubov Solibobo">
-          </div>
-          <div class="fgrp">
-            <label>Telefon *</label>
-            <input type="tel" id="oPhone" name="phone" required placeholder="+998 88 510-90-06">
-          </div>
-        </div>
-        <div class="fgrp">
-          <label>Yetkazib berish manzili</label>
-          <input type="text" id="oAddr" name="address" placeholder="Viloyat, tuman, mahalla, uy">
-        </div>
-        <div class="fgrp">
-          <label>Izoh (ixtiyoriy)</label>
-          <textarea id="oNote" name="note" placeholder="Artikul, model yoki boshqa ma'lumot..."></textarea>
-        </div>
-        <div class="fgrp">
-          <label>To'lov usuli</label>
-          <div class="pay-opts">
-            <label class="popt"><input type="radio" name="pay" value="click" checked> 💳 Click</label>
-            <label class="popt"><input type="radio" name="pay" value="payme"> 💚 Payme</label>
-            <label class="popt"><input type="radio" name="pay" value="naqd"> 💵 Naqd</label>
-            <label class="popt"><input type="radio" name="pay" value="bank"> 🏦 Bank o'tkazma</label>
-          </div>
-        </div>
-        <button type="button" class="btn-main" style="width:100%;justify-content:center;height:46px" onclick="submitOrder()">
-          ✅ Buyurtmani tasdiqlash
-        </button>
-      </form>
-    </div>
+    <div id="orderBody">{% csrf_token %}</div>
   </div>
 </div>
 
 <!-- CART -->
 <div class="cart-ov" id="cartOv" onclick="closeCart()"></div>
-<div class="cart-side" id="cartSide">
+<aside class="cart-side" id="cartSide" aria-label="Savat">
   <div class="chdr">
-    <h3>🛒 Savatcha</h3>
-    <button class="cclose" onclick="closeCart()">✕</button>
+    <h3>Savat <span id="cartCount"></span></h3>
+    <button class="mclose" aria-label="Yopish" onclick="closeCart()"><svg class="ico"><use href="#i-x"/></svg></button>
   </div>
-  <div class="citems" id="cartItems">
-    <div class="empty"><div class="ei">🛒</div><p>Savatcha bo'sh</p></div>
-  </div>
+  <div class="citems" id="cartItems"></div>
   <div class="cftr">
+    <div class="csum"><span>Yetkazib berish</span><span>Operator bilan kelishiladi</span></div>
     <div class="ctotal">Jami: <span id="cartTotal">0 so'm</span></div>
-    <button class="btn-main" style="width:100%;justify-content:center" onclick="closeCart();openOrder(null)">
-      Buyurtma berish →
-    </button>
+    <button class="btn btn-primary btn-block" onclick="closeCart();openOrder()">Rasmiylashtirishga o'tish</button>
   </div>
-</div>
+</aside>
 
 <!-- ADMIN PANEL -->
-<div class="admin-wrap" id="adminPanel">
+<div class="admin-wrap" id="adminPanel" role="dialog" aria-modal="true" aria-label="Sotuvchi kabineti">
   <div class="admin-modal">
     <div class="admin-hdr">
-      <h2>🔐 ADMIN PANEL — BELARUS HOLDING</h2>
+      <h2><span class="logo-ico" style="width:34px;height:34px;font-size:13px;border-radius:9px">BH</span> Sotuvchi kabineti</h2>
       <div style="display:flex;align-items:center;gap:8px">
         <div class="admin-tabs">
-          <button class="atab active" onclick="showAdTab('stats',this)">📊 Statistika</button>
-          <button class="atab" onclick="showAdTab('products',this)">📦 Mahsulotlar</button>
-          <button class="atab" onclick="showAdTab('add',this)">➕ Qo'shish</button>
-          <button class="atab" onclick="showAdTab('orders',this)">🧾 Buyurtmalar</button>
+          <button class="atab active" data-tab="stats" onclick="showAdTab('stats',this)">Statistika</button>
+          <button class="atab" data-tab="products" onclick="showAdTab('products',this)">Mahsulotlar</button>
+          <button class="atab" data-tab="add" onclick="showAdTab('add',this)">Qo'shish</button>
+          <button class="atab" data-tab="orders" onclick="showAdTab('orders',this)">Buyurtmalar</button>
         </div>
-        <button class="mclose" onclick="closeAdmin()" style="border-color:rgba(255,255,255,.2);color:#fff;background:rgba(255,255,255,.1)">✕</button>
+        <button class="mclose" aria-label="Yopish" onclick="closeAdmin()"><svg class="ico"><use href="#i-x"/></svg></button>
       </div>
     </div>
     <div class="admin-body">
-
-      <!-- STATS -->
       <div class="admin-section active" id="adSec-stats">
         <div class="admin-stats-grid" id="adminStatsGrid"></div>
-        <h3 style="font-size:14px;font-weight:700;margin-bottom:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px">Kategoriyalar bo'yicha</h3>
-        <div id="catStatsGrid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px"></div>
+        <h3 style="font-size:15px;font-weight:800;margin-bottom:12px">Kategoriyalar bo'yicha</h3>
+        <div id="catStatsGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px"></div>
       </div>
 
-      <!-- PRODUCTS LIST -->
       <div class="admin-section" id="adSec-products">
-        <input class="admin-search" id="adminSearch" placeholder="🔍 Mahsulot nomi yoki artikul bo'yicha qidiring..." oninput="adminFilter(this.value)">
+        <label for="adminSearch" class="sr-only">Mahsulot qidirish</label>
+        <input class="admin-search" id="adminSearch" placeholder="Mahsulot nomi yoki artikul bo'yicha qidiring…" oninput="adminFilter(this.value)">
         <div style="overflow-x:auto">
           <table class="atable">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Nomi</th>
-                <th>Artikul</th>
-                <th>Kategoriya</th>
-                <th>Narx</th>
-                <th>Soni</th>
-                <th>Ishlab chiqaruvchi</th>
-                <th>Amal</th>
-              </tr>
-            </thead>
+            <thead><tr><th>#</th><th>Nomi</th><th>Artikul</th><th>Kategoriya</th><th>Narx</th><th>Soni</th><th>Ishlab chiqaruvchi</th><th><span class="sr-only">Amallar</span></th></tr></thead>
             <tbody id="adminTbody"></tbody>
           </table>
         </div>
       </div>
 
-      <!-- ADD PRODUCT -->
       <div class="admin-section" id="adSec-add">
-        <div style="background:var(--bg);border-radius:var(--r);padding:20px;border:1px solid var(--border)">
-          <h3 style="font-size:16px;font-weight:800;margin-bottom:18px">➕ Yangi mahsulot qo'shish</h3>
+        <div class="af-box">
+          <h3>Yangi mahsulot qo'shish</h3>
           <div class="af-grid">
-            <div>
-              <label class="af-label">Mahsulot nomi *</label>
-              <input class="af-input" id="af-name" placeholder="masalan: Поршень D-240">
-            </div>
-            <div>
-              <label class="af-label">Artikul (zavod kodi) *</label>
-              <input class="af-input" id="af-art" placeholder="masalan: 240-1004021-Е-01">
-            </div>
-            <div>
-              <label class="af-label">Kategoriya *</label>
+            <div><label class="af-label" for="af-name">Mahsulot nomi *</label><input class="af-input" id="af-name" placeholder="masalan: Поршень D-240"></div>
+            <div><label class="af-label" for="af-art">Artikul (zavod kodi) *</label><input class="af-input" id="af-art" placeholder="masalan: 240-1004021-Е-01"></div>
+            <div><label class="af-label" for="af-cat">Kategoriya *</label>
               <select class="af-select" id="af-cat">
-                <option value="Dvigatel">⚙️ Dvigatel qismlari</option>
-                <option value="Transmissiya">🔩 Transmissiya</option>
-                <option value="Gidravlika">💧 Gidravlika</option>
-                <option value="Elektr">⚡ Elektr jihozlar</option>
-                <option value="Sovitish">🌡️ Sovitish tizimi</option>
-                <option value="Zapchast">🔧 Qo'shimcha</option>
+                <option value="Dvigatel">Dvigatel qismlari</option><option value="Transmissiya">Transmissiya</option><option value="Gidravlika">Gidravlika</option><option value="Elektr">Elektr jihozlar</option><option value="Sovitish">Sovitish tizimi</option><option value="Zapchast">Qo'shimcha</option>
               </select>
             </div>
-            <div>
-              <label class="af-label">Narx (so'm) *</label>
-              <input class="af-input" id="af-price" type="number" placeholder="masalan: 250000">
-            </div>
-            <div>
-              <label class="af-label">Soni (ombor)</label>
-              <input class="af-input" id="af-qty" type="number" placeholder="masalan: 10">
-            </div>
-            <div>
-              <label class="af-label">Ishlab chiqaruvchi</label>
-              <input class="af-input" id="af-mfr" placeholder="masalan: ММЗ (Беларусь)">
-            </div>
+            <div><label class="af-label" for="af-price">Narx (so'm) *</label><input class="af-input" id="af-price" type="number" min="0" placeholder="masalan: 250000"></div>
+            <div><label class="af-label" for="af-qty">Soni (ombor)</label><input class="af-input" id="af-qty" type="number" min="0" placeholder="masalan: 10"></div>
+            <div><label class="af-label" for="af-mfr">Ishlab chiqaruvchi</label><input class="af-input" id="af-mfr" placeholder="masalan: ММЗ (Беларусь)"></div>
           </div>
-          <button class="btn-main" style="margin-top:16px" onclick="addProduct()">💾 Mahsulotni saqlash</button>
+          <button class="btn btn-primary" style="margin-top:16px" onclick="addProduct()">Mahsulotni saqlash</button>
         </div>
 
-        <div style="background:#FFF7ED;border-radius:var(--r);padding:20px;border:1px solid #FED7AA;margin-top:18px;display:none" id="editForm">
-          <h3 style="font-size:16px;font-weight:800;margin-bottom:18px;color:var(--orange)">✏️ Mahsulotni tahrirlash</h3>
+        <div class="af-box edit" id="editForm">
+          <h3>Mahsulotni tahrirlash</h3>
           <input type="hidden" id="ef-id">
           <div class="af-grid">
-            <div>
-              <label class="af-label">Nomi *</label>
-              <input class="af-input" id="ef-name">
-            </div>
-            <div>
-              <label class="af-label">Artikul *</label>
-              <input class="af-input" id="ef-art">
-            </div>
-            <div>
-              <label class="af-label">Kategoriya</label>
+            <div><label class="af-label" for="ef-name">Nomi *</label><input class="af-input" id="ef-name"></div>
+            <div><label class="af-label" for="ef-art">Artikul *</label><input class="af-input" id="ef-art"></div>
+            <div><label class="af-label" for="ef-cat">Kategoriya</label>
               <select class="af-select" id="ef-cat">
-                <option value="Dvigatel">⚙️ Dvigatel</option>
-                <option value="Transmissiya">🔩 Transmissiya</option>
-                <option value="Gidravlika">💧 Gidravlika</option>
-                <option value="Elektr">⚡ Elektr</option>
-                <option value="Sovitish">🌡️ Sovitish</option>
-                <option value="Zapchast">🔧 Qo'shimcha</option>
+                <option value="Dvigatel">Dvigatel</option><option value="Transmissiya">Transmissiya</option><option value="Gidravlika">Gidravlika</option><option value="Elektr">Elektr</option><option value="Sovitish">Sovitish</option><option value="Zapchast">Qo'shimcha</option>
               </select>
             </div>
-            <div>
-              <label class="af-label">Narx (so'm)</label>
-              <input class="af-input" id="ef-price" type="number">
-            </div>
-            <div>
-              <label class="af-label">Soni</label>
-              <input class="af-input" id="ef-qty" type="number">
-            </div>
-            <div>
-              <label class="af-label">Ishlab chiqaruvchi</label>
-              <input class="af-input" id="ef-mfr">
-            </div>
+            <div><label class="af-label" for="ef-price">Narx (so'm)</label><input class="af-input" id="ef-price" type="number" min="0"></div>
+            <div><label class="af-label" for="ef-qty">Soni</label><input class="af-input" id="ef-qty" type="number" min="0"></div>
+            <div><label class="af-label" for="ef-mfr">Ishlab chiqaruvchi</label><input class="af-input" id="ef-mfr"></div>
           </div>
           <div style="margin-top:16px;display:flex;gap:10px">
-            <button class="btn-main" onclick="saveEdit()">💾 Saqlash</button>
-            <button class="btn-ghost" style="color:var(--dark);border-color:var(--border)" onclick="cancelEdit()">Bekor qilish</button>
+            <button class="btn btn-accent" onclick="saveEdit()">Saqlash</button>
+            <button class="btn btn-outline" onclick="cancelEdit()">Bekor qilish</button>
           </div>
         </div>
       </div>
 
       <div class="admin-section" id="adSec-orders">
-        <div style="margin-bottom: 15px; display: flex; gap: 10px;">
-          <span class="badge" style="background: #22c55e; padding: 6px 12px; color: white; border-radius: 4px;">🟢 To'landi</span>
-          <span class="badge" style="background: #ef4444; padding: 6px 12px; color: white; border-radius: 4px;">🔴 Kutilmoqda</span>
-        </div>
-
         <div id="adminOrders" style="display:flex;flex-direction:column;gap:12px">
           {% for order in orders %}
-          <div style="background: white; border: 1px solid var(--border); padding: 15px; border-radius: var(--r); position: relative;">
-            
-            <div style="position: absolute; top: 15px; right: 15px;">
-              {% if order.is_paid %}
-                <span style="color: #22c55e; font-weight: bold; font-size: 14px;">✅ TO'LANDI (Karta)</span>
+          <div class="order-card">
+            <div class="oc-top">
+              <strong>Buyurtma #{{ order.id|truncatechars:10 }}</strong>
+              {% if order.status == 'PAID' or order.is_paid %}
+                <span class="status paid">To'landi</span>
               {% else %}
-                <span style="color: #ef4444; font-weight: bold; font-size: 14px;">⏳ TO'LOV KUTILMOQDA</span>
+                <span class="status wait">To'lov kutilmoqda</span>
               {% endif %}
             </div>
-
-            <h4 style="margin: 0 0 8px 0; color: var(--dark);">Buyurtma #ORDER_{{ order.id }}</h4>
-            <p style="margin: 4px 0; font-size: 14px;">👤 <strong>Mijoz:</strong> {{ order.full_name }} | 📞 {{ order.phone }}</p>
-            <p style="margin: 4px 0; font-size: 14px;">📍 <strong>Manzil:</strong> {{ order.address }}</p>
-            
-            <hr style="border: 0; border-top: 1px dashed var(--border); margin: 10px 0;">
-            
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-              <span style="color: var(--muted); font-size: 13px;">Sana: {{ order.created_at|date:"d.m.Y H:i" }}</span>
-              <span style="font-size: 16px; color: var(--blue); font-weight: 800;">Jami: {{ order.total_price }} so'm</span>
+            {% if order.full_name %}<div>Mijoz: <strong>{{ order.full_name }}</strong> · {{ order.phone }}</div>{% endif %}
+            {% if order.address %}<div style="color:var(--muted)">Manzil: {{ order.address }}</div>{% endif %}
+            <div class="oc-top" style="margin-top:6px">
+              <span style="color:var(--muted);font-size:13px">{{ order.created_at|date:"d.m.Y H:i" }}</span>
+              <strong style="color:var(--primary)">{{ order.amount|default:order.total_price }} so'm</strong>
             </div>
           </div>
           {% empty %}
-          <div class="empty" id="noOrders"><div class="ei">📋</div><p>Hali buyurtmalar yo'q</p></div>
+          <div class="empty" id="noOrders"><div class="empty-ico"><svg class="ico"><use href="#i-box"/></svg></div><p>Hali buyurtmalar yo'q</p><span>Yangi buyurtmalar shu yerda ko'rinadi</span></div>
           {% endfor %}
         </div>
       </div>
-
     </div>
   </div>
 </div>
 
-<div class="toast" id="toast">
-  <span id="toastMsg"></span>
-</div>
+<div class="toast" id="toast" role="status" aria-live="polite"><span id="toastMsg"></span></div>
 
 <footer>
-  <div class="ftr-grid">
-    <div class="ftr-brand">
-      <a href="#" class="logo" onclick="viewShop()">
-        <div class="logo-ico">BH</div>
-        <div class="logo-txt">
-          <strong style="color:#fff">BELARUS HOLDING</strong>
-          <span>Traktor ehtiyot qismlari</span>
+  <div class="wrap">
+    <div class="ftr-grid">
+      <div class="ftr-brand">
+        <a href="#" class="logo" onclick="viewShop();return false;">
+          <div class="logo-ico" aria-hidden="true">BH</div>
+          <div class="logo-txt"><strong>Belarus<em>Market</em></strong><span>Traktor ehtiyot qismlari</span></div>
+        </a>
+        <p>O'zbekistondagi Belarus traktorlari uchun original ehtiyot qismlarining yetakchi yetkazib beruvchisi. 30 yildan ortiq tajriba va keng assortiment.</p>
+      </div>
+      <div class="ftr-col">
+        <h4>Kompaniya</h4>
+        <a href="#">Biz haqimizda</a>
+        <a href="#">Topshirish punktlari</a>
+        <a href="#">Vakansiyalar</a>
+      </div>
+      <div class="ftr-col">
+        <h4>Xaridorlarga</h4>
+        <a href="#">Biz bilan bog'lanish</a>
+        <a href="#">Savol-javob</a>
+        <a href="#">Qaytarish shartlari</a>
+      </div>
+      <div class="ftr-col">
+        <h4>Tadbirkorlarga</h4>
+        <a href="#">Biz bilan soting</a>
+        <a href="#" onclick="openAdmin();return false;">Sotuvchi kabineti</a>
+        <a href="#">Topshirish punktini ochish</a>
+      </div>
+      <div class="ftr-col">
+        <h4>Aloqa</h4>
+        <a href="tel:+998974438836"><svg class="ico"><use href="#i-phone"/></svg> +998 97 443-88-36 · Sherzodbek</a>
+        <a href="tel:+998974036900"><svg class="ico"><use href="#i-phone"/></svg> +998 97 403-69-00 · Odilbek aka</a>
+        <a href="https://t.me/MTZTD" target="_blank" rel="noopener"><svg class="ico"><use href="#i-send"/></svg> Telegram kanal</a>
+        <div class="app-btns">
+          <a href="#" class="app-btn"><svg class="ico" style="width:20px;height:20px;fill:#fff;stroke:none"><use href="#i-play"/></svg><span><small>Yuklab oling</small><strong>Google Play</strong></span></a>
         </div>
-      </a>
-      <p>O'zbekistondagi Belarus traktorlari uchun original ehtiyot qismlarining yetakchi yetkazib beruvchisi. 30 yildan ortiq tajriba va 4500+ mahsulot assortimenti.</p>
-    </div>
-
-    <div class="ftr-col">
-      <h4>Kompaniya</h4>
-      <a href="#">Biz haqimizda</a>
-      <a href="#">Topshirish punktlari</a>
-      <a href="#">Vakansiyalar</a>
-    </div>
-
-    <div class="ftr-col">
-      <h4>Foydalanuvchilarga</h4>
-      <a href="#">Biz bilan bogʻlanish</a>
-      <a href="#">Savol-Javob</a>
-    </div>
-
-    <div class="ftr-col">
-      <h4>Tadbirkorlarga</h4>
-      <a href="#">Biz bilan soting</a>
-      <a href="#">Sotuvchi kabinetiga kirish</a>
-      <a href="#">Topshirish punktini ochish</a>
-    </div>
-
-    <div class="ftr-col">
-      <h4>Bog'lanish va Ilovalar</h4>
-      <a href="tel:+998974438836">📞 +998 97 443-88-36 ШЕРЗОДБЕК</a>
-      <a href="tel:+998974036900">📱 +998 97 403-69-00 ОДИЛБЕК АКА</a>
-      <a href="#" class="app-link">🤖 Google Play</a>
-      <a href="https://t.me/MTZTD" target="_blank">💬 Telegram kanal</a>
-    </div>
-  </div>
-
-  <div class="ftr-bottom">
-    <div class="ftr-legal">
-      <span>© 2026 Belarus Holding. Barcha huquqlar himoyalangan.</span>
-      <div class="legal-links">
-        <a href="#">Maxfiylik kelishuvi</a> | 
-        <a href="#">Foydalanuvchi kelishuvi</a> | 
-        <a href="#">Shaxsiy ma'lumotlarni qayta ishlash nizomi</a>
       </div>
     </div>
-    <div class="admin-section" id="adSec-products">
-  <input class="admin-search" id="adminSearch" placeholder="🔍 Mahsulot nomi yoki artikul bo'yicha qidiring..." oninput="adminFilter(this.value)">
-  
-  <div style="overflow-x:auto">
-    <table class="atable">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Nomi</th>
-          <th>Artikul</th>
-          <th>Kategoriya</th>
-          <th>Narx</th>
-          <th>Soni</th>
-          <th>Ishlab chiqaruvchi</th>
-          <th>Amal</th>
-        </tr>
-      </thead>
-      <tbody id="adminTbody">
-        </tbody>
-    </table>
+    <div class="ftr-bottom">
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <span>© 2026 Belarus Holding. Barcha huquqlar himoyalangan.</span>
+        <div class="legal"><a href="#">Maxfiylik kelishuvi</a><a href="#">Foydalanuvchi kelishuvi</a><a href="#">Shaxsiy ma'lumotlar nizomi</a></div>
+      </div>
+      <div class="pay-tags"><span class="ptag">Click</span><span class="ptag">Payme</span><span class="ptag">Uzum</span><span class="ptag">Visa</span><span class="ptag">Mastercard</span></div>
+    </div>
   </div>
-
-  <div class="admin-pagination" id="adminPagination"></div>
-</div>
-
-<script>
-</script>
 </footer>
 
-<script>
+<!-- MOBILE NAV -->
+<nav class="mnav" aria-label="Mobil navigatsiya">
+  <div class="mnav-in">
+    <button class="active" onclick="viewShop()"><svg class="ico"><use href="#i-home"/></svg>Bosh sahifa</button>
+    <button onclick="toggleSidebar(true);document.getElementById('shopSection').scrollIntoView()"><svg class="ico"><use href="#i-grid"/></svg>Katalog</button>
+    <button onclick="openCart()"><svg class="ico"><use href="#i-cart"/></svg>Savat<span class="hbadge" id="cartBadgeM" data-zero="true">0</span></button>
+    <button onclick="showFavs()"><svg class="ico"><use href="#i-heart"/></svg>Saralangan</button>
+    {% if user.is_authenticated %}
+    <a href="/logout/"><svg class="ico"><use href="#i-user"/></svg>Kabinet</a>
+    {% else %}
+    <a href="/login/"><svg class="ico"><use href="#i-user"/></svg>Kirish</a>
+    {% endif %}
+  </div>
+</nav>
 
-// ═══════════════════════════════════════════════════
-// REAL PRODUCT DATABASE (161 products from your data)
-// ═══════════════════════════════════════════════════
+<script>
+const IMG = {
+  dvigatel: "{% static 'img/cat-dvigatel.png' %}",
+  transmissiya: "{% static 'img/cat-transmissiya.png' %}",
+  gidravlika: "{% static 'img/cat-gidravlika.png' %}",
+  elektr: "{% static 'img/cat-elektr.png' %}",
+  sovitish: "{% static 'img/cat-sovitish.png' %}",
+  zapchast: "{% static 'img/cat-zapchast.png' %}"
+};
+</script>
+<script>
 const DB = [
   {id:1,name:"Фара дорожная 112 08 70",cat:"Elektr",art:"112.08.70",qty:159,price:172000,mfr:"Руденск (Беларусь)"},
   {id:2,name:"Фонарь передний многофункциональный 3703 3712",cat:"Elektr",art:"3703.3712",qty:40,price:54000,mfr:"Руденск (Беларусь)"},
@@ -1381,150 +1194,87 @@ const DB = [
   {id:200,name:"Груз противовеса заднего колеса 70-3107015",cat:"Zapchast",art:"70-3107015",qty:16,price:380000,mfr:"МТЗ (Беларусь)"}
 ]
 
-// ✅ Asosiy state o'zgaruvchilari (eskirgan/buzilgan blok o'rniga)
 let products = [...DB];
 let nextId = Math.max(...DB.map(p => p.id)) + 1;
 let cart = [];
+let favs = new Set();
 let curModal = null;
 let qty = 1;
 let activeCat = 'all';
+let activeMfr = null;
 let activePrMin = 0;
 let activePrMax = 999999999;
 let sortMode = 'def';
+let searchTerm = '';
+let showOnlyFavs = false;
+const PAGE = 20;
+let visible = PAGE;
 
-  // Jadvalni yangilash funksiyasi
-  function renderAdminTable() {
-    const tbody = document.getElementById("adminTbody");
-    tbody.innerHTML = "";
-
-    // Joriy sahifaga mos qatorlar indeksini hisoblash
-    const startIndex = (currentPage - 1) * rowsPerPage;
-    const endIndex = startIndex + rowsPerPage;
-    const pageItems = filteredProducts.slice(startIndex, endIndex);
-
-    if (pageItems.length === 0) {
-      tbody.innerHTML = `<tr><td colspan="8" style="text-align:center; color:#6c757d; padding:20px;">Hech qanday mahsulot topilmadi</td></tr>`;
-      renderPagination(0);
-      return;
-    }
-
-    // Ma'lumotlarni render qilish
-    pageItems.forEach((prod, index) => {
-      const row = `
-        <tr>
-          <td>${startIndex + index + 1}</td>
-          <td><strong>${prod.name}</strong></td>
-          <td><code>${prod.sku}</code></td>
-          <td>${prod.category}</td>
-          <td>${prod.price} so'm</td>
-          <td><span style="color: ${prod.stock > 10 ? '#28a745' : '#dc3545'}; font-weight:bold;">${prod.stock} dona</span></td>
-          <td>${prod.brand}</td>
-          <td><button class="btn-action">O'zgartirish</button></td>
-        </tr>
-      `;
-      tbody.insertAdjacentHTML('beforeend', row);
-    });
-
-    renderPagination(filteredProducts.length);
-  }
-
-  // Sahifalash (Pagination) tugmalarini chizish
-  function renderPagination(totalItems) {
-    const paginationContainer = document.getElementById("adminPagination");
-    paginationContainer.innerHTML = "";
-
-    const totalPages = Math.ceil(totalItems / rowsPerPage);
-    if (totalPages <= 1) return; // Agar faqat 1 sahifalik ma'lumot bo'lsa, tugmalar chiqmaydi
-
-    // "Orqaga" tugmasi
-    const prevDisabled = currentPage === 1 ? 'disabled' : '';
-    paginationContainer.insertAdjacentHTML('beforeend', `<button ${prevDisabled} onclick="changePage(${currentPage - 1})">Orqaga</button>`);
-
-    // Sahifa raqamlari tugmalari
-    for (let i = 1; i <= totalPages; i++) {
-      const activeClass = currentPage === i ? 'active' : '';
-      paginationContainer.insertAdjacentHTML('beforeend', `<button class="${activeClass}" onclick="changePage(${i})">${i}</button>`);
-    }
-
-    // "Oldinga" tugmasi
-    const nextDisabled = currentPage === totalPages ? 'disabled' : '';
-    paginationContainer.insertAdjacentHTML('beforeend', `<button ${nextDisabled} onclick="changePage(${currentPage + 1})">Oldinga</button>`);
-  }
-
-  // Sahifani o'zgartirish
-  function changePage(page) {
-    currentPage = page;
-    renderAdminTable();
-  }
-
-  // Qidiruv mantiqi (input hodisasi orqali ishlaydi)
-  function adminFilter(value) {
-    const searchWord = value.toLowerCase().trim();
-
-    filteredProducts = allProducts.filter(prod => 
-      prod.name.toLowerCase().includes(searchWord) || 
-      prod.sku.toLowerCase().includes(searchWord)
-    );
-
-    currentPage = 1; // Qidiruv amalga oshganda doim 1-sahifaga qaytaradi
-    renderAdminTable();
-  }
-
-  // Sahifa ilk bor yuklanganda ishga tushadi
-  document.addEventListener("DOMContentLoaded", () => {
-    renderAdminTable();
-  });
-
-// ═══════════════════════ EMOJI MAP ═══════════════════
-const EM = {
-  'Dvigatel':'⚙️','Elektr':'⚡','Электр':'⚡','Gidravlika':'💧',
-  'Transmissiya':'🔩','Sovitish':'🌡️','Zapchast':'🔧'
-};
+const CATS = ['dvigatel','transmissiya','gidravlika','elektr','sovitish','zapchast'];
 const CATN = {
-  'dvigatel':'Dvigatel qismlari','transmissiya':'Transmissiya',
-  'gidravlika':'Gidravlika tizimi','elektr':'Elektr jihozlari',
-  'sovitish':'Sovitish tizimi','zapchast':"Qo'shimcha",'all':'Barcha mahsulotlar'
+  dvigatel:'Dvigatel qismlari', transmissiya:'Transmissiya', gidravlika:'Gidravlika tizimi',
+  elektr:'Elektr jihozlari', sovitish:'Sovitish tizimi', zapchast:"Qo'shimcha", all:'Barcha mahsulotlar'
 };
 
-function getEmoji(cat){return EM[cat]||'📦';}
 function normCat(c){
-  const m={'электр':'elektr','dvigatel':'dvigatel','elektr':'elektr','gidravlika':'gidravlika','transmissiya':'transmissiya','sovitish':'sovitish','zapchast':'zapchast'};
-  return m[c.toLowerCase()]||c.toLowerCase();
+  const m={'электр':'elektr'};
+  const k=String(c||'').toLowerCase();
+  return m[k]||k;
 }
+function getImg(cat){return IMG[normCat(cat)]||IMG.zapchast;}
+function esc(s){return String(s??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));}
+function fmt(n){return Number(n).toLocaleString('ru-RU').replace(/,/g,' ');}
+function svg(id,cls='ico',style=''){return `<svg class="${cls}" ${style?`style="${style}"`:''} aria-hidden="true"><use href="#${id}"/></svg>`;}
 
-// ═══════════════════════ INIT ═══════════════════════
-window.onload = function(){
+/* INIT */
+window.addEventListener('DOMContentLoaded',()=>{
   updateCounts();
   buildMfrList();
+  buildCatTiles();
+  buildTopRail();
   renderProducts(getFiltered());
+  syncCart();
+  initCarousel();
   renderAdminStats();
   renderAdminTable();
-};
+});
+window.addEventListener('scroll',()=>{
+  document.getElementById('hdr').classList.toggle('scrolled',window.scrollY>40);
+},{passive:true});
+document.addEventListener('click',e=>{
+  const pm=document.getElementById('profileMenu');
+  if(pm&&!e.target.closest('.profile'))pm.classList.remove('open');
+  if(!e.target.closest('#mega')&&!e.target.closest('#catBtn')&&!e.target.closest('.sec-h'))closeMega();
+});
+document.addEventListener('keydown',e=>{
+  if(e.key!=='Escape')return;
+  closeModal('prodModal');closeModal('orderModal');closeCart();closeAdmin();closeMega();toggleSidebar(false);
+});
 
+/* FILTERING */
 function getFiltered(){
-  let list = products.filter(p=>{
-    const nc = normCat(p.cat);
-    const catOk = activeCat==='all'||nc===activeCat;
-    const prOk = p.price>=activePrMin && p.price<=activePrMax;
-    return catOk && prOk;
+  const q=searchTerm.toLowerCase();
+  let list=products.filter(p=>{
+    if(showOnlyFavs&&!favs.has(p.id))return false;
+    if(activeCat!=='all'&&normCat(p.cat)!==activeCat)return false;
+    if(activeMfr&&p.mfr!==activeMfr)return false;
+    if(p.price<activePrMin||p.price>activePrMax)return false;
+    if(q&&!(p.name.toLowerCase().includes(q)||p.art.toLowerCase().includes(q)))return false;
+    return true;
   });
-  if(sortMode==='asc') list.sort((a,b)=>a.price-b.price);
-  else if(sortMode==='desc') list.sort((a,b)=>b.price-a.price);
-  else if(sortMode==='az') list.sort((a,b)=>a.name.localeCompare(b.name));
-  else if(sortMode==='za') list.sort((a,b)=>b.name.localeCompare(a.name));
+  if(sortMode==='asc')list.sort((a,b)=>a.price-b.price);
+  else if(sortMode==='desc')list.sort((a,b)=>b.price-a.price);
+  else if(sortMode==='az')list.sort((a,b)=>a.name.localeCompare(b.name));
+  else if(sortMode==='za')list.sort((a,b)=>b.name.localeCompare(a.name));
   return list;
 }
 
 function updateCounts(){
-  const cats=['all','dvigatel','transmissiya','gidravlika','elektr','sovitish','zapchast'];
-  cats.forEach(c=>{
-    const n = c==='all'?products.length:products.filter(p=>normCat(p.cat)===c).length;
-    const el1=document.getElementById('cnt-'+c);
-    const el2=document.getElementById('sf-'+c);
-    if(el1)el1.textContent=n;
-    if(el2)el2.textContent=n;
+  ['all',...CATS].forEach(c=>{
+    const n=c==='all'?products.length:products.filter(p=>normCat(p.cat)===c).length;
+    const a=document.getElementById('cnt-'+c),b=document.getElementById('sf-'+c);
+    if(a)a.textContent=n;if(b)b.textContent=n;
   });
-  // Price counts
   document.getElementById('pc1').textContent=products.filter(p=>p.price<50000).length;
   document.getElementById('pc2').textContent=products.filter(p=>p.price>=50000&&p.price<500000).length;
   document.getElementById('pc3').textContent=products.filter(p=>p.price>=500000&&p.price<2000000).length;
@@ -1533,385 +1283,408 @@ function updateCounts(){
 }
 
 function buildMfrList(){
-  const mfrs=[...new Set(products.map(p=>p.mfr))].sort();
-  const el=document.getElementById('mfrList');
-  el.innerHTML=mfrs.slice(0,8).map(m=>`
-    <div class="fitem" onclick="filterMfr('${m.replace(/'/g,"\\'")}',this)" style="font-size:12px">
-      🏭 ${m.split('(')[0].trim()} <span class="fcnt">${products.filter(p=>p.mfr===m).length}</span>
-    </div>
+  const counts={};
+  products.forEach(p=>{counts[p.mfr]=(counts[p.mfr]||0)+1;});
+  const mfrs=Object.keys(counts).sort((a,b)=>counts[b]-counts[a]).slice(0,8);
+  document.getElementById('mfrList').innerHTML=mfrs.map((m,i)=>`
+    <button class="fitem fitem-sm${activeMfr===m?' active':''}" data-mfr-idx="${i}"><span class="fdot"></span>${esc(m.split('(')[0].trim())} <span class="fcnt">${counts[m]}</span></button>
   `).join('');
+  document.querySelectorAll('#mfrList .fitem').forEach((el,i)=>{el.onclick=()=>filterMfr(mfrs[i]);});
 }
 
-// ═══════════════════════ RENDER PRODUCTS ═══════════════════════
-function renderProducts(list){
-  const grid = document.getElementById('prodGrid');
-  document.getElementById('phCount').textContent=`(${list.length} ta)`;
-  document.getElementById('phTitle').innerHTML=`${CATN[activeCat]||'Barcha mahsulotlar'} <span id="phCount">(${list.length} ta)</span>`;
-  if(!list.length){
-    grid.innerHTML=`<div class="empty" style="grid-column:1/-1"><div class="ei">🔍</div><p>Mahsulot topilmadi</p></div>`;
-    return;
-  }
-  grid.innerHTML=list.map(p=>`
-    <div class="pcard" onclick="openModal(${p.id})">
-      <div class="cbadge">Original</div>
-      <div class="cimg">${getEmoji(p.cat)}</div>
-      <div class="cbody">
-        <div class="cart">ART: ${p.art}</div>
-        <div class="cstock">
-          <div class="dot ${p.qty>0?'g':'o'}"></div>
-          ${p.qty>0?'Omborda: '+p.qty+' dona':'Buyurtma ostida'}
-        </div>
-        <div class="cname">${p.name}</div>
-        <div class="cmfr">📦 ${p.mfr}</div>
-        <div class="cfoot">
-          <div class="cprice">${fmt(p.price)} <span>so'm</span></div>
-          <button class="addbtn" id="ab-${p.id}" onclick="event.stopPropagation();addCart(${p.id})">
-            <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-          </button>
-        </div>
+function buildCatTiles(){
+  const html=CATS.map(c=>{
+    const n=products.filter(p=>normCat(p.cat)===c).length;
+    return `<button class="cat-tile" onclick="filterCat('${c}')">
+      <img src="${IMG[c]}" alt="" loading="lazy">
+      <strong>${CATN[c]}</strong><span>${n} ta mahsulot</span>
+    </button>`;
+  }).join('');
+  document.getElementById('catTiles').innerHTML=html;
+  document.getElementById('megaGrid').innerHTML=CATS.map(c=>{
+    const n=products.filter(p=>normCat(p.cat)===c).length;
+    return `<button class="mega-item" onclick="filterCat('${c}');closeMega()">
+      <img src="${IMG[c]}" alt="" loading="lazy"><strong>${CATN[c]}</strong><span>${n} ta mahsulot</span></button>`;
+  }).join('');
+}
+
+function buildTopRail(){
+  const top=[...products].filter(p=>p.qty>0).sort((a,b)=>b.qty-a.qty).slice(0,12);
+  document.getElementById('topRail').innerHTML=top.map(p=>cardHTML(p,true)).join('');
+}
+function scrollRail(d){const r=document.getElementById('topRail');r.scrollBy({left:d*r.clientWidth*.8,behavior:'smooth'});}
+
+/* CARDS */
+function cardHTML(p,hit=false){
+  const low=p.qty>0&&p.qty<=3;
+  const fav=favs.has(p.id);
+  return `<article class="pcard" onclick="openModal(${p.id})">
+    <div class="pimg">
+      <img src="${getImg(p.cat)}" alt="${esc(p.name)}" loading="lazy">
+      <div class="pbadges">
+        <span class="pb pb-orig">Original</span>
+        ${hit?'<span class="pb pb-hit">Ommabop</span>':''}
+        ${low?'<span class="pb pb-low">Kam qoldi</span>':''}
       </div>
+      <button class="fav-btn${fav?' on':''}" data-fav="${p.id}" aria-label="Saralanganga qo'shish" aria-pressed="${fav}" onclick="event.stopPropagation();toggleFav(${p.id})">${svg('i-heart')}</button>
     </div>
-  `).join('');
+    <div class="pbody">
+      <div class="pprice">${fmt(p.price)}<small>so'm</small></div>
+      <h3 class="pname">${esc(p.name)}</h3>
+      <div class="pmeta">
+        <span>${esc(p.mfr.split('(')[0].trim())}</span>
+        <code>${esc(p.art)}</code>
+      </div>
+      <span class="pstock${p.qty>0?(low?' low':''):' low'}">${p.qty>0?'Omborda: '+p.qty+' dona':'Buyurtma asosida'}</span>
+      <button class="addbtn" data-add="${p.id}" onclick="event.stopPropagation();addCart(${p.id})">${svg('i-cart')} Savatga</button>
+    </div>
+  </article>`;
 }
 
-// ═══════════════════════ FILTERS ═══════════════════════
-function filterCat(cat, el){
-  activeCat=cat; activePrMin=0; activePrMax=999999999;
-  document.querySelectorAll('.nlink').forEach(l=>l.classList.remove('active'));
-  document.querySelectorAll('.fitem').forEach(f=>f.classList.remove('active'));
-  document.querySelectorAll('[id^="pr"]').forEach(f=>f.classList.remove('active'));
-  if(el){el.classList.add('active');}
-  renderProducts(getFiltered());
-  document.getElementById('shopSection').scrollIntoView({behavior:'smooth',block:'start'});
+function renderProducts(list){
+  const grid=document.getElementById('prodGrid');
+  let title=CATN[activeCat]||'Barcha mahsulotlar';
+  if(activeMfr)title=activeMfr.split('(')[0].trim();
+  if(searchTerm)title=`"${esc(searchTerm)}" bo'yicha`;
+  if(showOnlyFavs)title='Saralangan';
+  document.getElementById('phTitle').innerHTML=`${title} <span id="phCount">(${list.length} ta)</span>`;
+  const more=document.getElementById('moreWrap');
+  if(!list.length){
+    grid.innerHTML=`<div class="empty"><div class="empty-ico">${svg(showOnlyFavs?'i-heart':'i-search')}</div><p>${showOnlyFavs?"Saralangan mahsulotlar yo'q":'Mahsulot topilmadi'}</p><span>${showOnlyFavs?'Yoqqan mahsulotlarni yurakcha orqali saqlang':"Boshqa so'z yoki filtrni sinab ko'ring"}</span></div>`;
+    more.hidden=true;return;
+  }
+  grid.innerHTML=list.slice(0,visible).map(p=>cardHTML(p)).join('');
+  more.hidden=list.length<=visible;
+}
+function rerender(resetPage=true){if(resetPage)visible=PAGE;renderProducts(getFiltered());}
+function showMore(){visible+=PAGE;renderProducts(getFiltered());}
+function goShop(){document.getElementById('shopSection').scrollIntoView({behavior:'smooth',block:'start'});}
+
+function setActiveCatUI(){
+  document.querySelectorAll('.nlink,.sidebar [data-cat]').forEach(el=>el.classList.toggle('active',el.dataset.cat===activeCat&&!showOnlyFavs));
+}
+function filterCat(cat){
+  activeCat=cat;activeMfr=null;activePrMin=0;activePrMax=999999999;searchTerm='';showOnlyFavs=false;
+  document.querySelectorAll('.pr').forEach(f=>f.classList.remove('active'));
+  setActiveCatUI();buildMfrList();rerender();toggleSidebar(false);goShop();
   return false;
 }
-
 function filterPrice(mn,mx,el){
-  activePrMin=mn; activePrMax=mx;
-  document.querySelectorAll('[id^="pr"]').forEach(f=>f.classList.remove('active'));
-  el.classList.add('active');
-  renderProducts(getFiltered());
+  const same=activePrMin===mn&&activePrMax===mx;
+  document.querySelectorAll('.pr').forEach(f=>f.classList.remove('active'));
+  if(same){activePrMin=0;activePrMax=999999999;}else{activePrMin=mn;activePrMax=mx;el.classList.add('active');}
+  rerender();
+}
+function filterMfr(mfr){activeMfr=activeMfr===mfr?null:mfr;buildMfrList();rerender();}
+function sortProds(v){sortMode=v;document.getElementById('sortSel').value=v;rerender();}
+function resetFilters(){
+  document.getElementById('srchInput').value='';
+  sortProds('def');filterCat('all');
+}
+function showFavs(){
+  showOnlyFavs=true;activeCat='all';activeMfr=null;searchTerm='';activePrMin=0;activePrMax=999999999;
+  document.querySelectorAll('.pr').forEach(f=>f.classList.remove('active'));
+  setActiveCatUI();buildMfrList();rerender();goShop();
+}
+function toggleSidebar(open){document.getElementById('sidebar').classList.toggle('open',!!open);}
+function toggleMega(){
+  const m=document.getElementById('mega'),b=document.getElementById('catBtn');
+  const open=!m.classList.contains('open');
+  m.classList.toggle('open',open);b.setAttribute('aria-expanded',open);
+}
+function closeMega(){document.getElementById('mega').classList.remove('open');document.getElementById('catBtn').setAttribute('aria-expanded','false');}
+function toggleProfile(e){e.stopPropagation();document.getElementById('profileMenu').classList.toggle('open');}
+
+/* FAVORITES */
+function toggleFav(id){
+  if(favs.has(id))favs.delete(id);else favs.add(id);
+  const on=favs.has(id);
+  document.querySelectorAll(`[data-fav="${id}"]`).forEach(b=>{b.classList.toggle('on',on);b.setAttribute('aria-pressed',on);});
+  const fb=document.getElementById('favBadge');fb.textContent=favs.size;fb.dataset.zero=favs.size===0;
+  toast(on?"Saralanganga qo'shildi":'Saralangandan olib tashlandi');
+  if(showOnlyFavs)rerender(false);
 }
 
-function filterMfr(mfr,el){
-  document.querySelectorAll('#mfrList .fitem').forEach(f=>f.classList.remove('active'));
-  el.classList.add('active');
-  const list=products.filter(p=>p.mfr===mfr);
-  const grid=document.getElementById('prodGrid');
-  document.getElementById('phCount').textContent=`(${list.length} ta)`;
-  document.getElementById('phTitle').innerHTML=`${mfr} <span id="phCount">(${list.length} ta)</span>`;
-  grid.innerHTML=list.map(p=>`
-    <div class="pcard" onclick="openModal(${p.id})">
-      <div class="cbadge">Original</div>
-      <div class="cimg">${getEmoji(p.cat)}</div>
-      <div class="cbody">
-        <div class="cart">ART: ${p.art}</div>
-        <div class="cstock"><div class="dot ${p.qty>0?'g':'o'}"></div>${p.qty>0?'Omborda: '+p.qty+' dona':'Buyurtma ostida'}</div>
-        <div class="cname">${p.name}</div>
-        <div class="cmfr">📦 ${p.mfr}</div>
-        <div class="cfoot">
-          <div class="cprice">${fmt(p.price)} <span>so'm</span></div>
-          <button class="addbtn" onclick="event.stopPropagation();addCart(${p.id})">
-            <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-          </button>
-        </div>
-      </div>
-    </div>
-  `).join('');
-}
-
-function sortProds(v){sortMode=v;renderProducts(getFiltered());}
-
-// ═══════════════════════ SEARCH ═══════════════════════
+/* SEARCH */
 let dropTimer;
 function doSearch(q){
-  if(!q.trim()){hideDrop();return;}
-  const res=products.filter(p=>
-    p.name.toLowerCase().includes(q.toLowerCase())||
-    p.art.toLowerCase().includes(q.toLowerCase())
-  ).slice(0,6);
   const drop=document.getElementById('srchDrop');
-  if(!res.length){
-    drop.innerHTML=`<div class="sd-item"><div class="sd-info"><strong>Topilmadi</strong><span>Boshqa so'z yoki artikul kiriting</span></div></div>`;
-    drop.classList.add('open');return;
-  }
-  drop.innerHTML=res.map(p=>`
+  if(!q.trim()){drop.classList.remove('open');drop.innerHTML='';return;}
+  const s=q.toLowerCase();
+  const res=products.filter(p=>p.name.toLowerCase().includes(s)||p.art.toLowerCase().includes(s)).slice(0,6);
+  drop.innerHTML=res.length?res.map(p=>`
     <div class="sd-item" onmousedown="openModal(${p.id})">
-      <div class="sd-emoji">${getEmoji(p.cat)}</div>
-      <div class="sd-info"><strong>${p.name}</strong><span>${p.art}</span></div>
+      <img class="sd-img" src="${getImg(p.cat)}" alt="">
+      <div class="sd-info"><strong>${esc(p.name)}</strong><span>${esc(p.art)}</span></div>
       <div class="sd-price">${fmt(p.price)} so'm</div>
-    </div>
-  `).join('');
+    </div>`).join('')+`<div class="sd-item" onmousedown="searchToGrid(document.getElementById('srchInput').value)"><div class="sd-info"><strong style="color:var(--primary)">Barcha natijalarni ko'rish</strong></div></div>`
+    :`<div class="sd-item"><div class="sd-info"><strong>Topilmadi</strong><span>Boshqa so'z yoki artikul kiriting</span></div></div>`;
   drop.classList.add('open');
 }
+function searchToGrid(q){
+  searchTerm=q.trim();activeCat='all';activeMfr=null;showOnlyFavs=false;
+  setActiveCatUI();rerender();
+  document.getElementById('srchDrop').classList.remove('open');
+  document.getElementById('srchInput').blur();goShop();
+}
 function openDrop(){clearTimeout(dropTimer);const d=document.getElementById('srchDrop');if(d.innerHTML)d.classList.add('open');}
-function hideDrop(){dropTimer=setTimeout(()=>document.getElementById('srchDrop').classList.remove('open'),200);}
-function closeDrop(){hideDrop();}
+function closeDrop(){dropTimer=setTimeout(()=>document.getElementById('srchDrop').classList.remove('open'),200);}
 
-// ═══════════════════════ MODAL ═══════════════════════
+/* CAROUSEL */
+let curSlide=0,slideTimer;
+function initCarousel(){
+  const n=document.querySelectorAll('#slides .slide').length;
+  document.getElementById('cDots').innerHTML=Array.from({length:n},(_,i)=>`<button class="c-dot${i?'':' active'}" aria-label="Banner ${i+1}" onclick="slideTo(${i})"></button>`).join('');
+  const c=document.getElementById('carousel');
+  c.addEventListener('mouseenter',()=>clearInterval(slideTimer));
+  c.addEventListener('mouseleave',autoSlide);
+  autoSlide();
+}
+function autoSlide(){clearInterval(slideTimer);slideTimer=setInterval(()=>slideTo(curSlide+1),5500);}
+function slideTo(i){
+  const n=document.querySelectorAll('#slides .slide').length;
+  curSlide=(i+n)%n;
+  document.getElementById('slides').style.transform=`translateX(-${curSlide*100}%)`;
+  document.querySelectorAll('.c-dot').forEach((d,k)=>d.classList.toggle('active',k===curSlide));
+}
+
+/* PRODUCT MODAL */
 function openModal(id){
-  const p=products.find(x=>x.id===id); if(!p)return;
-  curModal=p; qty=1;
+  const p=products.find(x=>x.id===id);if(!p)return;
+  curModal=p;qty=1;
   document.getElementById('mTitle').textContent=p.name;
-  document.getElementById('mImg').textContent=getEmoji(p.cat);
+  document.getElementById('mImg').innerHTML=`<img src="${getImg(p.cat)}" alt="${esc(p.name)}">`;
   document.getElementById('mArt').textContent=p.art;
   document.getElementById('mMfr').textContent=p.mfr;
   document.getElementById('mCat').textContent=CATN[normCat(p.cat)]||p.cat;
-  document.getElementById('mPrice').innerHTML=fmt(p.price)+' <span>so\'m</span>';
+  document.getElementById('mPrice').innerHTML=fmt(p.price)+" <span>so'm</span>";
+  document.getElementById('mStock').textContent=p.qty>0?`Omborda: ${p.qty} dona`:'Buyurtma asosida';
   document.getElementById('qtyDisp').textContent=1;
-  // Related items
   const same=products.filter(x=>normCat(x.cat)===normCat(p.cat)&&x.id!==p.id).slice(0,3);
   const bs=document.getElementById('bundleSec');
   if(same.length){
     document.getElementById('bundleItems').innerHTML=same.map(b=>`
-      <div class="bitem">
-        <input type="checkbox">
-        <div class="bi-info"><div class="bi-name">${b.name}</div><div class="bi-art">${b.art}</div></div>
-        <div class="bi-price">${fmt(b.price)} so'm</div>
-      </div>
-    `).join('');
+      <div class="bitem" onclick="openModal(${b.id})">
+        <img src="${getImg(b.cat)}" alt="">
+        <div class="bi-info"><div class="bi-name">${esc(b.name)}</div><div class="bi-price">${fmt(b.price)} so'm</div></div>
+      </div>`).join('');
     bs.style.display='block';
-  }else{bs.style.display='none';}
+  }else bs.style.display='none';
   document.getElementById('prodModal').classList.add('open');
+  document.querySelector('#prodModal .modal').scrollTop=0;
 }
-
 function closeModal(id){document.getElementById(id).classList.remove('open');}
-function chgQty(d){qty=Math.max(1,qty+d);document.getElementById('qtyDisp').textContent=qty;}
-function addFromModal(){if(curModal){addCart(curModal.id,qty);}closeModal('prodModal');}
+function chgQty(d){qty=Math.max(1,Math.min(999,qty+d));document.getElementById('qtyDisp').textContent=qty;}
+function addFromModal(){if(curModal)addCart(curModal.id,qty);closeModal('prodModal');}
+function buyNow(){if(curModal)addCart(curModal.id,qty,true);openOrder();}
 document.getElementById('prodModal').onclick=function(e){if(e.target===this)closeModal('prodModal');};
 document.getElementById('orderModal').onclick=function(e){if(e.target===this)closeModal('orderModal');};
 
-// ═══════════════════════ CART ═══════════════════════
-function addCart(id,count=1){
+/* CART */
+function addCart(id,count=1,silent=false){
   const p=products.find(x=>x.id===id);if(!p)return;
   const ex=cart.find(x=>x.id===id);
-  if(ex)ex.qty+=count; else cart.push({...p,qty:count});
+  if(ex)ex.qty=Math.min(999,ex.qty+count);else cart.push({...p,qty:count});
   syncCart();
-  toast(`✅ ${p.name.substring(0,30)}... savatchaga qo'shildi`);
-  const btn=document.getElementById('ab-'+id);
-  if(btn){btn.classList.add('added');setTimeout(()=>btn.classList.remove('added'),1500);}
+  if(!silent)toast(`${p.name.length>34?p.name.slice(0,34)+'…':p.name} — savatga qo'shildi`);
+  document.querySelectorAll(`[data-add="${id}"]`).forEach(btn=>{
+    btn.classList.add('added');btn.innerHTML=`${svg('i-shield')} Qo'shildi`;
+    setTimeout(()=>{btn.classList.remove('added');btn.innerHTML=`${svg('i-cart')} Savatga`;},1400);
+  });
 }
-
-
+function chgCart(id,d){
+  const it=cart.find(x=>x.id===id);if(!it)return;
+  it.qty+=d;if(it.qty<1){removeCart(id);return;}
+  syncCart();
+}
 function removeCart(id){cart=cart.filter(x=>x.id!==id);syncCart();}
 function syncCart(){
   const total=cart.reduce((s,x)=>s+x.qty,0);
-  document.getElementById('cartBadge').textContent=total;
-  document.getElementById('cartTotal').textContent=fmt(cart.reduce((s,x)=>s+x.price*x.qty,0))+' so\'m';
+  ['cartBadge','cartBadgeM'].forEach(i=>{const b=document.getElementById(i);if(b){b.textContent=total;b.dataset.zero=total===0;}});
+  document.getElementById('cartCount').textContent=total?`(${total})`:'';
+  document.getElementById('cartTotal').textContent=fmt(cart.reduce((s,x)=>s+x.price*x.qty,0))+" so'm";
   const el=document.getElementById('cartItems');
-  if(!cart.length){el.innerHTML=`<div class="empty"><div class="ei">🛒</div><p>Savatcha bo'sh</p></div>`;return;}
+  if(!cart.length){
+    el.innerHTML=`<div class="empty"><div class="empty-ico">${svg('i-cart')}</div><p>Savat hozircha bo'sh</p><span>Katalogdan kerakli detallarni tanlang</span><button class="btn btn-outline" style="margin-top:6px" onclick="closeCart();goShop()">Xaridni boshlash</button></div>`;
+    return;
+  }
   el.innerHTML=cart.map(x=>`
     <div class="citem">
-      <div class="ci-img">${getEmoji(x.cat)}</div>
+      <img class="ci-img" src="${getImg(x.cat)}" alt="">
       <div class="ci-info">
-        <div class="ci-name">${x.name}</div>
-        <div class="ci-art">${x.art} · ${x.qty} dona</div>
+        <div class="ci-name">${esc(x.name)}</div>
+        <div class="ci-art">${esc(x.art)}</div>
+        <div class="ci-row">
+          <div class="ci-qty">
+            <button aria-label="Kamaytirish" onclick="chgCart(${x.id},-1)">−</button>
+            <span>${x.qty}</span>
+            <button aria-label="Ko'paytirish" onclick="chgCart(${x.id},1)">+</button>
+          </div>
+          <div class="ci-price">${fmt(x.price*x.qty)} so'm</div>
+          <button class="ci-rm" aria-label="O'chirish" onclick="removeCart(${x.id})">${svg('i-trash')}</button>
+        </div>
       </div>
-      <div class="ci-right">
-        <div class="ci-price">${fmt(x.price*x.qty)} so'm</div>
-        <button class="ci-rm" onclick="removeCart(${x.id})">✕</button>
-      </div>
-    </div>
-  `).join('');
+    </div>`).join('');
 }
 function openCart(){document.getElementById('cartSide').classList.add('open');document.getElementById('cartOv').classList.add('open');}
 function closeCart(){document.getElementById('cartSide').classList.remove('open');document.getElementById('cartOv').classList.remove('open');}
 
-// ═══════════════════════ ORDER (CSRF helper) ═══════════════════════
+/* ORDER */
 function getCookie(name){
-  let v=null;
-  if(document.cookie && document.cookie!==''){
-    const cookies=document.cookie.split(';');
-    for(let c of cookies){
-      c=c.trim();
-      if(c.startsWith(name+'=')){v=decodeURIComponent(c.substring(name.length+1));break;}
-    }
-  }
-  return v;
+  if(!document.cookie)return null;
+  for(let c of document.cookie.split(';')){c=c.trim();if(c.startsWith(name+'='))return decodeURIComponent(c.substring(name.length+1));}
+  return null;
 }
-
+function orderItems(){return cart.length?cart:(curModal?[{...curModal,qty}]:[]);}
 function openOrder(){
   closeModal('prodModal');
+  const items=orderItems();
+  if(!items.length){toast("Savat bo'sh. Avval mahsulot tanlang");goShop();return;}
+  document.getElementById('orderBody').innerHTML=getOrderForm(items);
   document.getElementById('orderModal').classList.add('open');
-  document.getElementById('orderBody').innerHTML=getOrderForm();
 }
-function getOrderForm(){
-  return `<form class="oform" id="liveOrderForm">
-    <input type="hidden" name="csrfmiddlewaretoken" value="${getCookie('csrftoken')||''}">
-    <input type="hidden" name="cart_data" id="oCartData" value='${JSON.stringify(cart).replace(/'/g,"&#39;")}'>
+function getOrderForm(items){
+  const sum=items.reduce((s,i)=>s+i.price*i.qty,0);
+  const csrf=document.querySelector('#orderBody [name=csrfmiddlewaretoken]')?.value||getCookie('csrftoken')||'';
+  return `<form class="oform" id="liveOrderForm" onsubmit="event.preventDefault();submitOrder()">
+    <input type="hidden" name="csrfmiddlewaretoken" value="${esc(csrf)}">
     <div class="frow">
-      <div class="fgrp"><label>Ismingiz *</label><input type="text" id="oName" name="full_name" required placeholder="Abdullayev Jasur"></div>
-      <div class="fgrp"><label>Telefon *</label><input type="tel" id="oPhone" name="phone" required placeholder="+998 90 123-45-67"></div>
+      <div class="fgrp"><label for="oName">Ismingiz *</label><input type="text" id="oName" name="full_name" required autocomplete="name" placeholder="Abdullayev Jasur"></div>
+      <div class="fgrp"><label for="oPhone">Telefon *</label><input type="tel" id="oPhone" name="phone" required autocomplete="tel" placeholder="+998 90 123-45-67"></div>
     </div>
-    <div class="fgrp"><label>Yetkazib berish manzili</label><input type="text" id="oAddr" name="address" placeholder="Viloyat, tuman, mahalla, uy"></div>
-    <div class="fgrp"><label>Izoh (ixtiyoriy)</label><textarea id="oNote" name="note" placeholder="Artikul, model yoki boshqa ma'lumot..."></textarea></div>
+    <div class="fgrp"><label for="oAddr">Yetkazib berish manzili</label><input type="text" id="oAddr" name="address" autocomplete="street-address" placeholder="Viloyat, tuman, mahalla, uy"></div>
+    <div class="fgrp"><label for="oNote">Izoh (ixtiyoriy)</label><textarea id="oNote" name="note" placeholder="Artikul, traktor modeli yoki boshqa ma'lumot…"></textarea></div>
     <div class="fgrp"><label>To'lov usuli</label>
       <div class="pay-opts">
-        <label class="popt"><input type="radio" name="pay" value="click" checked> 💳 Click</label>
-        <label class="popt"><input type="radio" name="pay" value="payme"> 💚 Payme</label>
-        <label class="popt"><input type="radio" name="pay" value="naqd"> 💵 Naqd</label>
-        <label class="popt"><input type="radio" name="pay" value="bank"> 🏦 Bank o'tkazma</label>
+        <label class="popt"><input type="radio" name="pay" value="click" checked><span>Click<small>Karta orqali onlayn</small></span></label>
+        <label class="popt"><input type="radio" name="pay" value="payme"><span>Payme<small>Karta orqali onlayn</small></span></label>
+        <label class="popt"><input type="radio" name="pay" value="naqd"><span>Naqd pul<small>Qabul qilganda</small></span></label>
+        <label class="popt"><input type="radio" name="pay" value="bank"><span>Bank o'tkazmasi<small>Yuridik shaxslar uchun</small></span></label>
       </div>
     </div>
-    <button type="button" class="btn-main" style="width:100%;justify-content:center;height:46px" onclick="submitOrder()">✅ Buyurtmani tasdiqlash</button>
+    <div class="order-sum">${items.reduce((s,i)=>s+i.qty,0)} ta mahsulot<span>${fmt(sum)} so'm</span></div>
+    <button type="submit" class="btn btn-primary btn-block">Buyurtmani tasdiqlash</button>
   </form>`;
 }
 function submitOrder(){
   const name=document.getElementById('oName')?.value?.trim();
   const phone=document.getElementById('oPhone')?.value?.trim();
-  if(!name||!phone){toast('⚠️ Ism va telefon raqam kiriting!');return;}
-  const items = cart.length ? cart : (curModal ? [{...curModal, qty}] : []);
-  if(!items.length){toast('Savatcha bo\\'sh. Avval mahsulot tanlang!');return;}
+  if(!name||!phone){toast('Ism va telefon raqamni kiriting');return;}
+  const items=orderItems();
+  if(!items.length){toast("Savat bo'sh. Avval mahsulot tanlang");return;}
+  const providerValue=document.querySelector('input[name="pay"]:checked')?.value||'payme';
+  const providerMap={payme:'PAYME',click:'CLICK',naqd:'PAYME',bank:'PAYME'};
+  const amount=items.reduce((s,i)=>s+Number(i.price||0)*Number(i.qty||1),0);
+  const productName=items.map(i=>`${i.name} (${i.qty||1} dona)`).join(', ');
 
-  const providerValue = document.querySelector('input[name="pay"]:checked')?.value || 'payme';
-  const providerMap = {payme:'PAYME', click:'CLICK', naqd:'PAYME', bank:'PAYME'};
-  const amount = items.reduce((sum,item)=>sum + Number(item.price || 0) * Number(item.qty || 1), 0);
-  const productName = items.map(item=>`${item.name} (${item.qty || 1} dona)`).join(', ');
-
-  if(providerValue === 'naqd' || providerValue === 'bank'){
-    toast('Buyurtma qabul qilindi! Operator siz bilan bog\\'lanadi.');
-    cart=[];
-    syncCart();
-    closeModal('orderModal');
-    return;
+  if(providerValue==='naqd'||providerValue==='bank'){
+    toast("Buyurtma qabul qilindi! Operator siz bilan bog'lanadi.");
+    cart=[];syncCart();closeModal('orderModal');return;
   }
-
-  fetch('/api/anonymous-payment/', {
+  const csrf=document.querySelector('#liveOrderForm [name=csrfmiddlewaretoken]')?.value||getCookie('csrftoken')||'';
+  fetch('/api/anonymous-payment/',{
     method:'POST',
-    headers:{
-      'Content-Type':'application/json',
-      'X-CSRFToken':getCookie('csrftoken') || ''
-    },
-    body:JSON.stringify({
-      product_name:productName,
-      amount:amount,
-      provider:providerMap[providerValue] || 'PAYME'
-    })
+    headers:{'Content-Type':'application/json','X-CSRFToken':csrf},
+    body:JSON.stringify({product_name:productName,amount,provider:providerMap[providerValue]||'PAYME'})
   })
-  .then(async response=>{
-    const data = await response.json().catch(()=>({detail:'Serverdan noto\\'g\\'ri javob keldi.'}));
-    if(!response.ok){throw new Error(data.detail || 'Buyurtma yaratilmadi.');}
+  .then(async r=>{
+    const data=await r.json().catch(()=>({detail:"Serverdan noto'g'ri javob keldi."}));
+    if(!r.ok)throw new Error(data.detail||'Buyurtma yaratilmadi.');
     return data;
   })
   .then(data=>{
-    if(data.pay_url){
-      window.location.href=data.pay_url;
-      return;
-    }
-    toast('Buyurtma qabul qilindi!');
-    closeModal('orderModal');
+    if(data.pay_url){window.location.href=data.pay_url;return;}
+    toast('Buyurtma qabul qilindi!');closeModal('orderModal');
   })
-  .catch(err=>toast(err.message || 'Server bilan aloqa bo\\'lmadi.'));
+  .catch(err=>toast(err.message||"Server bilan aloqa bo'lmadi."));
 }
-// ═══════════════════════ ADMIN ═══════════════════════
+
+/* SELLER PANEL */
 function openAdmin(){document.getElementById('adminPanel').classList.add('open');renderAdminStats();renderAdminTable();}
 function closeAdmin(){document.getElementById('adminPanel').classList.remove('open');}
-function showAdTab(tab,el){
-  document.querySelectorAll('.admin-section').forEach(s=>s.classList.remove('active'));
-  document.querySelectorAll('.atab').forEach(t=>t.classList.remove('active'));
-  document.getElementById('adSec-'+tab).classList.add('active');
-  el.classList.add('active');
+document.getElementById('adminPanel').onclick=function(e){if(e.target===this)closeAdmin();};
+function showAdTab(tab){
+  document.querySelectorAll('.admin-section').forEach(s=>s.classList.toggle('active',s.id==='adSec-'+tab));
+  document.querySelectorAll('.atab').forEach(t=>t.classList.toggle('active',t.dataset.tab===tab));
 }
 function renderAdminStats(){
-  const total=products.length;
   const totalVal=products.reduce((s,p)=>s+p.price*p.qty,0);
   const inStock=products.filter(p=>p.qty>0).length;
-  const cats=[...new Set(products.map(p=>normCat(p.cat)))].length;
+  const cats=new Set(products.map(p=>normCat(p.cat))).size;
   document.getElementById('adminStatsGrid').innerHTML=`
-    <div class="astat blue"><strong>${total}</strong><span>Jami mahsulot</span></div>
+    <div class="astat blue"><strong>${products.length}</strong><span>Jami mahsulot</span></div>
     <div class="astat orange"><strong>${fmt(totalVal)}</strong><span>Ombor qiymati (so'm)</span></div>
     <div class="astat green"><strong>${inStock}</strong><span>Omborda bor</span></div>
-    <div class="astat dark"><strong>${cats}</strong><span>Kategoriyalar</span></div>
-  `;
-  const catData={};
-  products.forEach(p=>{const c=normCat(p.cat);catData[c]=(catData[c]||0)+1;});
-  document.getElementById('catStatsGrid').innerHTML=Object.entries(catData).map(([c,n])=>`
-    <div class="astat"><strong>${n}</strong><span>${CATN[c]||c}</span></div>
-  `).join('');
+    <div class="astat"><strong>${cats}</strong><span>Kategoriyalar</span></div>`;
+  const cd={};products.forEach(p=>{const c=normCat(p.cat);cd[c]=(cd[c]||0)+1;});
+  document.getElementById('catStatsGrid').innerHTML=Object.entries(cd).map(([c,n])=>`<div class="astat"><strong>${n}</strong><span>${CATN[c]||esc(c)}</span></div>`).join('');
 }
 function renderAdminTable(filter=''){
-  const list=filter?products.filter(p=>p.name.toLowerCase().includes(filter.toLowerCase())||p.art.toLowerCase().includes(filter.toLowerCase())):products;
+  const f=filter.toLowerCase();
+  const list=f?products.filter(p=>p.name.toLowerCase().includes(f)||p.art.toLowerCase().includes(f)):products;
   document.getElementById('adminTbody').innerHTML=list.map(p=>`
     <tr>
-      <td style="color:var(--muted);font-size:11px">${p.id}</td>
-      <td style="max-width:200px;font-size:12px">${p.name}</td>
-      <td class="art-col">${p.art}</td>
-      <td><span class="cat-badge cat-${p.cat}">${p.cat}</span></td>
+      <td style="color:var(--muted);font-size:12px">${p.id}</td>
+      <td style="max-width:220px;font-weight:600">${esc(p.name)}</td>
+      <td class="art-col">${esc(p.art)}</td>
+      <td><span class="cat-badge">${esc(p.cat)}</span></td>
       <td class="price-col">${fmt(p.price)}</td>
       <td>${p.qty}</td>
-      <td style="font-size:11px;color:var(--muted)">${p.mfr}</td>
-      <td>
-        <button class="edit-btn" onclick="startEdit(${p.id})">✏️</button>
-        <button class="del-btn" onclick="delProd(${p.id})">🗑️</button>
+      <td style="font-size:12px;color:var(--muted)">${esc(p.mfr)}</td>
+      <td style="white-space:nowrap">
+        <button class="row-btn" aria-label="Tahrirlash" onclick="startEdit(${p.id})">${svg('i-edit')}</button>
+        <button class="row-btn del" aria-label="O'chirish" onclick="delProd(${p.id})">${svg('i-trash')}</button>
       </td>
-    </tr>
-  `).join('');
+    </tr>`).join('');
 }
 function adminFilter(q){renderAdminTable(q);}
+function refreshAll(){updateCounts();buildMfrList();buildCatTiles();buildTopRail();rerender(false);renderAdminStats();renderAdminTable(document.getElementById('adminSearch').value);}
 function addProduct(){
-  const name=document.getElementById('af-name').value.trim();
-  const art=document.getElementById('af-art').value.trim();
-  const cat=document.getElementById('af-cat').value;
-  const price=parseInt(document.getElementById('af-price').value)||0;
-  const qty=parseInt(document.getElementById('af-qty').value)||0;
-  const mfr=document.getElementById('af-mfr').value.trim()||'Noma\'lum';
-  if(!name||!art||!price){toast('⚠️ Nomi, artikul va narxni kiriting!');return;}
-  const newP={id:nextId++,name,art,cat,price,qty,mfr};
-  products.push(newP);
-  updateCounts();buildMfrList();renderProducts(getFiltered());
-  renderAdminStats();renderAdminTable();
-  clearAddForm();
-  toast(`✅ "${name}" qo'shildi!`);
-}
-function clearAddForm(){
+  const v=id=>document.getElementById(id).value.trim();
+  const name=v('af-name'),art=v('af-art'),cat=v('af-cat');
+  const price=parseInt(v('af-price'))||0,q=parseInt(v('af-qty'))||0,mfr=v('af-mfr')||"Noma'lum";
+  if(!name||!art||price<=0){toast('Nomi, artikul va narxni kiriting');return;}
+  products.push({id:nextId++,name,art,cat,price,qty:Math.max(0,q),mfr});
+  refreshAll();
   ['af-name','af-art','af-price','af-qty','af-mfr'].forEach(id=>{document.getElementById(id).value='';});
+  toast(`"${name}" qo'shildi`);
 }
 function startEdit(id){
   const p=products.find(x=>x.id===id);if(!p)return;
   document.getElementById('ef-id').value=id;
-  document.getElementById('ef-name').value=p.name;
-  document.getElementById('ef-art').value=p.art;
-  document.getElementById('ef-cat').value=p.cat;
-  document.getElementById('ef-price').value=p.price;
-  document.getElementById('ef-qty').value=p.qty;
-  document.getElementById('ef-mfr').value=p.mfr;
+  ['name','art','cat','price','qty','mfr'].forEach(k=>{document.getElementById('ef-'+k).value=p[k];});
   document.getElementById('editForm').style.display='block';
-  showAdTab('add',document.querySelectorAll('.atab')[2]);
+  showAdTab('add');
   document.getElementById('editForm').scrollIntoView({behavior:'smooth'});
 }
 function saveEdit(){
   const id=parseInt(document.getElementById('ef-id').value);
   const p=products.find(x=>x.id===id);if(!p)return;
-  p.name=document.getElementById('ef-name').value.trim();
-  p.art=document.getElementById('ef-art').value.trim();
-  p.cat=document.getElementById('ef-cat').value;
-  p.price=parseInt(document.getElementById('ef-price').value)||p.price;
-  p.qty=parseInt(document.getElementById('ef-qty').value)||0;
-  p.mfr=document.getElementById('ef-mfr').value.trim()||p.mfr;
-  cancelEdit();
-  updateCounts();buildMfrList();renderProducts(getFiltered());renderAdminTable();renderAdminStats();
-  toast(`✅ Mahsulot yangilandi!`);
+  const v=k=>document.getElementById('ef-'+k).value.trim();
+  p.name=v('name')||p.name;p.art=v('art')||p.art;p.cat=v('cat');
+  p.price=parseInt(v('price'))||p.price;p.qty=Math.max(0,parseInt(v('qty'))||0);p.mfr=v('mfr')||p.mfr;
+  cancelEdit();refreshAll();toast('Mahsulot yangilandi');
 }
 function cancelEdit(){document.getElementById('editForm').style.display='none';}
 function delProd(id){
-  const p=products.find(x=>x.id===id);
-  if(!p)return;
+  const p=products.find(x=>x.id===id);if(!p)return;
   if(!confirm(`"${p.name}" mahsulotini o'chirasizmi?`))return;
   products=products.filter(x=>x.id!==id);
-  updateCounts();buildMfrList();renderProducts(getFiltered());renderAdminTable();renderAdminStats();
-  toast(`🗑️ Mahsulot o'chirildi`);
+  cart=cart.filter(x=>x.id!==id);favs.delete(id);syncCart();
+  refreshAll();toast("Mahsulot o'chirildi");
 }
 
-// ═══════════════════════ HELPERS ═══════════════════════
-function fmt(n){return Number(n).toLocaleString('uz');}
+/* HELPERS */
 function toast(msg){
   const t=document.getElementById('toast');
   document.getElementById('toastMsg').textContent=msg;
-  t.classList.add('show');
-  clearTimeout(t._t);
-  t._t=setTimeout(()=>t.classList.remove('show'),3500);
+  t.classList.add('show');clearTimeout(t._t);
+  t._t=setTimeout(()=>t.classList.remove('show'),3000);
 }
-function viewShop(){window.scrollTo({top:0,behavior:'smooth'});}
+function viewShop(){
+  showOnlyFavs=false;closeMega();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
 </script>
 </body>
 </html>
